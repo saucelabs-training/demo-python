@@ -1,4 +1,4 @@
-# Python-Pytest-Appium-Android
+# Python-Pytest-Appium-iOS
 
 ```
 $ export SAUCE_USERNAME=your_username

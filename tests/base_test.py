@@ -5,30 +5,20 @@ import new
 from appium import webdriver
 from sauceclient import SauceClient
 
-browsers = [{
-    'appiumVersion': '1.4.16',
-    'platformName': 'Android',
-    'platformVersion': '4.3',
-    'deviceName': 'Android Emulator',
-    'name': 'Python Appium Android 4.3 example'
-}, {
-    'appiumVersion': '1.4.16',
-    'platformName': 'Android',
-    'platformVersion': '5.0',
-    'deviceName': 'Android Emulator',
-    'name': 'Python Appium Android 5.0 example'
-}, {
-    'appiumVersion': '1.4.16',
-    'platformName': 'Android',
-    'platformVersion': '5.1',
-    'deviceName': 'Android Emulator',
-    'name': 'Python Appium Android 5.1 example'
-}, {
-    'appiumVersion': '1.4.16',
-    'platformName': 'Android',
-    'platformVersion': '4.4',
-    'deviceName': 'Android Emulator',
-    'name': 'Python Appium Android 4.4 example'
+devices = [{
+    'deviceName':       'iPhone 5',
+    'appiumVersion':    '1.4.16',
+    'browserName':      '',
+    'platformName':     'iOS',
+    'platformVersion':  '9.0',
+    'deviceOrientation':'portrait',
+    },{
+    'deviceName':       'iPhone 6',
+    'appiumVersion':    '1.4.16',
+    'browserName':      '',
+    'platformName':     'iOS',
+    'platformVersion':  '9.1',
+    'deviceOrientation':'portrait',
 }]
 
 
@@ -99,8 +89,8 @@ class BaseTest(unittest.TestCase):
                 cls.app = "sauce-storage:%s" % (os.path.basename(cls.app_path))
                 cls.upload = True
         else:
-            cls.app = "sauce-storage:NotesList.apk"
-            cls.app_path = os.path.realpath(__file__ + "/../../resources/NotesList.apk")
+            cls.app = "sauce-storage:TestApp8.4.app.zip"
+            cls.app_path = os.path.realpath(__file__ + "/../../resources/TestApp8.4.app.zip")
             cls.upload = True
 
         cls.selenium_port = os.environ.get("SELENIUM_PORT", None)
