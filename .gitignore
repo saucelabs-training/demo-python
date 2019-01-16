@@ -1,0 +1,21 @@
+# IDEA files
+/.idea
+
+# pytest cache files
+/.pytest_cache
+
+# Virtual Environment Info
+/venv
+
+# Requirements file
+requirements.txt
+
+# DS_Store
+**.DS_store
+
+# Package Files
+*.jar
+*.zip
+*.tar.gz
+*.rar
+*.war
