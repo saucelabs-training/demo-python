@@ -6,7 +6,8 @@ import os
 from selenium import webdriver
 from _pytest.runner import runtestprotocol
 import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)            
+
 
 @pytest.fixture
 def driver(request):
@@ -35,17 +36,6 @@ def driver(request):
     browser = webdriver.Remote(remote_url, desired_capabilities=chromeOpts)
     yield browser
     browser.quit()
-# Here we use a test runner method to handle all postrequisite test execution steps such as:
-# sending the test results to saucelabs.com and tearing down the current WebDriver (browser) session
-def pytest_runtest_protocol(item, nextitem, driver):
-    reports = runtestprotocol(item, nextitem=nextitem)
-    for report in reports:
-        if report.when == 'call':
-            # In this if statement the script uses the seleniumbase test framework JS executor command
-            # to send the results to saucelabs.com
-            # For more information consult the documentation: https://pypi.org/project/seleniumbase/
-            driver.execute_script('sauce:job-result={}'.format(report.outcome))
-    return True
 
 # Here is our actual test code. In this test we open the saucedemo app in chrome and assert that the title is correct.
 def test_should_open_chrome(driver):
