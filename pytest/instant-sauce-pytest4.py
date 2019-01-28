@@ -41,14 +41,6 @@ def driver(request):
     yield browser
     browser.quit()
 
-def pytest_runtest_protocol(item, nextitem, driver):
-    reports = runtestprotocol(item, nextitem=nextitem)
-    for report in reports:
-        if report.when == 'call':
-            driver.execute_script('sauce:job-result={}'.format(report.outcome))
-    return True
-
-
 def test_should_open_chrome(driver):
     driver.get("http://www.saucedemo.com")
     actual_title = driver.title
