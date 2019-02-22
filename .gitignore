@@ -7,9 +7,6 @@
 # Virtual Environment Info
 /venv
 
-# Requirements file
-requirements.txt
-
 # DS_Store
 **.DS_store
 
