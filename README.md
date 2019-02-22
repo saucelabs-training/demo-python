@@ -10,7 +10,7 @@ The code in these scripts is provided on an "AS-IS” basis without warranty of 
 
 ## Description
 
-These procedures will show you to set up a Selenium environment for NodeJS. The scripts in this repository allow you run a simple automated test to validate your Selenium environment and your [saucelabs.com](https://app.saucelabs.com/login) account credentials.
+These procedures will show you to set up a Selenium environment for Python. The scripts in this repository allow you run a simple automated test to validate your Selenium environment and your [saucelabs.com](https://app.saucelabs.com/login) account credentials.
 
 <br />
 
@@ -20,7 +20,7 @@ In order to complete these exercises you must complete the following prerequisit
 
 * Install Git
 * Install `python` and `pip`
-* Install an IDE (PyCharm, Komodo Edit etc.)
+* Install an IDE (PyCharm, Visual Studio Code, Komodo Edit etc.)
 * Setup Project
 
 ### Install Git
@@ -59,10 +59,22 @@ integration/continuous development toolchain.
     ```
     $ brew install python3
     ```
-    > to install python 2.7 run ```brew install python```
+    Python 2.7 is included by default on recent versions of Mac OSs. If it somehow not included, install it by running ```brew install python```
     
-2. Install `pip` to manage packages
+2. (Optional) Install `pip` to manage packages. Modern versions of Python come with `pip` included. To  verify if you have `pip` installed, run
+
+    ```
+    pip -V
+    ```
+
+    in your command prompt. You should see something like this:
+
+    ```
+    pip 18.1 from /path/of/python/installation
+    ```
     
+    If you get an error or "pip not found" message, you can install `pip` separately using the following commands:
+
     ```
     $ curl -O http://python-distribute.org/distribute_setup.py
     $ python distribute_setup.py
@@ -87,6 +99,7 @@ integration/continuous development toolchain.
 It's recommended to install and Integrated Developer Environment, or a text editor, to help manage package dependencies, interperters, and overall code execution. There are several options available, some of them are free and some require payment:
 
 * [PyCharm](https://www.jetbrains.com/pycharm/download/) community edition is free, Professional version requires subscription.
+* [Visual Studio Code](https://code.visualstudio.com/Download) free text editor from Microsoft with a wide variety of extensions.
 * [Komodo Edit](https://www.activestate.com/komodo-edit), free, text editor, stripped down version of [Komodo IDE](https://www.activestate.com/products/komodo-ide/features/) (paid version).
 
 ### Setup the Project
@@ -102,6 +115,7 @@ It's recommended to install and Integrated Developer Environment, or a text edit
 2. Setup `python` interpreter:
     * In your IDE, select an interpreter that references the version of Python installed on your system. Below are links to the relevant documentation for each IDE:
         * [Setup Interpreter in PyCharm](https://www.jetbrains.com/help/pycharm/configuring-python-interpreter.html)
+        * [Setup Interpreter in Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
         * [Setup Interpreter in Komodo IDE](http://docs.komodoide.com/Manual/tutorial/pythontut#python-tutorial-komodo-ide-only_analyzing-the-python-files_setting-up-the-preprocess-py-program_lines-59-to-65-importing-standard-python-modules)
     
     * (Recommended) Use a `virtualenv` to manage dependencies. See the following documentation for more details:
@@ -131,4 +145,5 @@ It's recommended to install and Integrated Developer Environment, or a text edit
         
     * You may also use 'Run Configurations' in your IDE. For directions on how to setup Run/Debug Configurations refer to Documentation:
         * [PyCharm Documentation](https://www.jetbrains.com/help/pycharm/creating-and-editing-run-debug-configurations.html)
+        * [Visual Studio Code Documentation](https://code.visualstudio.com/docs/editor/debugging)
         * [Komodo Edit Documentation](http://docs.komodoide.com/manual)
