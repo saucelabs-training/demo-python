@@ -103,16 +103,8 @@ It's recommended to install and Integrated Developer Environment, or a text edit
 * [Komodo Edit](https://www.activestate.com/komodo-edit), free, text editor, stripped down version of [Komodo IDE](https://www.activestate.com/products/komodo-ide/features/) (paid version).
 
 ### Setup the Project
-
-
-1. Create a Project Directory:
-    * Create a directory on your filesystem to store the project files. You can create the directory using the IDE toolbar or the command line. Below is an example of using the command line to create your project directory:
-
-    ```
-    $ mkdir python_tests
-    ```
     
-2. Setup `python` interpreter:
+1. Setup `python` interpreter:
     * In your IDE, select an interpreter that references the version of Python installed on your system. Below are links to the relevant documentation for each IDE:
         * [Setup Interpreter in PyCharm](https://www.jetbrains.com/help/pycharm/configuring-python-interpreter.html)
         * [Setup Interpreter in Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
@@ -122,25 +114,21 @@ It's recommended to install and Integrated Developer Environment, or a text edit
         * [Setup `virtualenv` in PyCharm](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html)
         * [Setup `virtualenv` in Komodo IDE](http://docs.komodoide.com/Manual/tutorial/pythontut#python-tutorial-komodo-ide-only_analyzing-the-python-files_setting-up-the-preprocess-py-program_lines-59-to-65-importing-standard-python-modules)
         * [Configure `virtualenv` in the command line](https://virtualenv.pypa.io/en/latest/userguide/#usage)
+
+2. Install the latest Selenium library for use in the script:
+
+```
+pip install selenium
+```
     
-3. Create a Test Script in the `python_tests` directory.
-    * Linux/Unix Example:
-        ```
-        $ touch python_tests/instant-sauce-pytest1.py
-        ```
-    * Copy and paste the following code into the script: [https://github.com/saucelabs-training/demo-python/blob/master/pytest/instant-sauce-pytest1.py](https://github.com/saucelabs-training/demo-python/blob/master/pytest/instant-sauce-pytest1.py)
-    
-5. Run the Test Script
-    * In order to run the test on [www.saucelabs.com](www.saucelabs.com), change the values of **`SAUCE_USERNAME`** and **`SAUCE_ACCESS_KEY`** in the following url:
-    
-        ```
-        https://SAUCE_USERNAME:SAUCE_ACCESS_KEY@ondemand.saucelabs.com:443/wd/hub'
-        ```
+3. Run the Test Script
+    * In order to run the test on [www.saucelabs.com](www.saucelabs.com), change the values of the **`SAUCE_USERNAME`** and **`SAUCE_ACCESS_KEY`** variables in the test script to your Sauce Username and Sauce Access Key values.
+
     > To retrieve this information, login to your saucelabs.com account and navigate to **User Settings**; there it displays your username and access key.
     
     * Run the following command to test your python script:
         ```
-        $ python instant-sauce-pytest1.py
+        $ python pytest/instant-sauce-pytest1.py
         ```
         
     * You may also use 'Run Configurations' in your IDE. For directions on how to setup Run/Debug Configurations refer to Documentation:
