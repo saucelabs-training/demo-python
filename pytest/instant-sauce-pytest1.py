@@ -9,6 +9,8 @@ desired_cap = {
     'platform': "Mac OS X 10.13",
     'browserName': "safari",
     'version': "11.1",
+    'build': "Onboarding Sample App - Python",
+    'name': "1-first-test",
 }
 username = "SAUCE_USERNAME"
 access_key = "SAUCE_ACCESS_KEY"

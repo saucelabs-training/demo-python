@@ -11,6 +11,8 @@ desired_cap = {
     'platform': "Mac OS X 10.13",
     'browserName': "safari",
     'version': "11.1",
+    'build': "Onboarding Sample App - Python",
+    'name': "2-user-site",
 }
 username = os.environ["SAUCE_USERNAME"]
 access_key = os.environ["SAUCE_ACCESS_KEY"]

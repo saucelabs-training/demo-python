@@ -15,7 +15,8 @@ def driver(request):
     sauceOptions = {
         "screenResolution": "1280x768",
         "seleniumVersion": "3.141.59",
-        'name': 'Example Pytest4',
+        'build': "Onboarding Sample App - Python",
+        'name': "4-best-practices",
         "username": sauce_username,
         "accessKey": sauce_access_key,
         # best practices involve setting a build number for version control

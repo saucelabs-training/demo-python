@@ -19,7 +19,8 @@ def driver(request):
     sauceOptions = {
         "screenResolution": "1280x768",
         "seleniumVersion": "3.141.59",
-        'name': 'Example Pytest3',
+        'build': "Onboarding Sample App - Python",
+        'name': "3-cross-browser",
         "username": sauce_username,
         "accessKey": sauce_access_key
     }
