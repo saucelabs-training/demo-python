@@ -10,7 +10,7 @@ The code in these scripts is provided on an "AS-IS” basis without warranty of 
 
 ## Description
 
-These procedures will show you to set up a Selenium environment for NodeJS. The scripts in this repository allow you run a simple automated test to validate your Selenium environment and your [saucelabs.com](https://app.saucelabs.com/login) account credentials.
+These procedures will show you to set up a Selenium environment for Python. The scripts in this repository allow you run a simple automated test to validate your Selenium environment and your [saucelabs.com](https://app.saucelabs.com/login) account credentials.
 
 <br />
 
@@ -20,7 +20,7 @@ In order to complete these exercises you must complete the following prerequisit
 
 * Install Git
 * Install `python` and `pip`
-* Install an IDE (PyCharm, Komodo Edit etc.)
+* Install an IDE (PyCharm, Visual Studio Code, Komodo Edit etc.)
 * Setup Project
 
 ### Install Git
@@ -59,10 +59,22 @@ integration/continuous development toolchain.
     ```
     $ brew install python3
     ```
-    > to install python 2.7 run ```brew install python```
+    Python 2.7 is included by default on recent versions of Mac OSs. If it somehow not included, install it by running ```brew install python```
     
-2. Install `pip` to manage packages
+2. (Optional) Install `pip` to manage packages. Modern versions of Python come with `pip` included. To  verify if you have `pip` installed, run
+
+    ```
+    pip -V
+    ```
+
+    in your command prompt. You should see something like this:
+
+    ```
+    pip 18.1 from /path/of/python/installation
+    ```
     
+    If you get an error or "pip not found" message, you can install `pip` separately using the following commands:
+
     ```
     $ curl -O http://python-distribute.org/distribute_setup.py
     $ python distribute_setup.py
@@ -87,48 +99,39 @@ integration/continuous development toolchain.
 It's recommended to install and Integrated Developer Environment, or a text editor, to help manage package dependencies, interperters, and overall code execution. There are several options available, some of them are free and some require payment:
 
 * [PyCharm](https://www.jetbrains.com/pycharm/download/) community edition is free, Professional version requires subscription.
+* [Visual Studio Code](https://code.visualstudio.com/Download) free text editor from Microsoft with a wide variety of extensions.
 * [Komodo Edit](https://www.activestate.com/komodo-edit), free, text editor, stripped down version of [Komodo IDE](https://www.activestate.com/products/komodo-ide/features/) (paid version).
 
 ### Setup the Project
-
-
-1. Create a Project Directory:
-    * Create a directory on your filesystem to store the project files. You can create the directory using the IDE toolbar or the command line. Below is an example of using the command line to create your project directory:
-
-    ```
-    $ mkdir python_tests
-    ```
     
-2. Setup `python` interpreter:
+1. Setup `python` interpreter:
     * In your IDE, select an interpreter that references the version of Python installed on your system. Below are links to the relevant documentation for each IDE:
         * [Setup Interpreter in PyCharm](https://www.jetbrains.com/help/pycharm/configuring-python-interpreter.html)
+        * [Setup Interpreter in Visual Studio Code](https://code.visualstudio.com/docs/languages/python)
         * [Setup Interpreter in Komodo IDE](http://docs.komodoide.com/Manual/tutorial/pythontut#python-tutorial-komodo-ide-only_analyzing-the-python-files_setting-up-the-preprocess-py-program_lines-59-to-65-importing-standard-python-modules)
     
     * (Recommended) Use a `virtualenv` to manage dependencies. See the following documentation for more details:
         * [Setup `virtualenv` in PyCharm](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html)
         * [Setup `virtualenv` in Komodo IDE](http://docs.komodoide.com/Manual/tutorial/pythontut#python-tutorial-komodo-ide-only_analyzing-the-python-files_setting-up-the-preprocess-py-program_lines-59-to-65-importing-standard-python-modules)
         * [Configure `virtualenv` in the command line](https://virtualenv.pypa.io/en/latest/userguide/#usage)
+
+2. Install the latest Selenium library for use in the script:
+
+```
+pip install selenium
+```
     
-3. Create a Test Script in the `python_tests` directory.
-    * Linux/Unix Example:
-        ```
-        $ touch python_tests/instant-sauce-pytest1.py
-        ```
-    * Copy and paste the following code into the script: [https://github.com/saucelabs-training/demo-python/blob/master/pytest/instant-sauce-pytest1.py](https://github.com/saucelabs-training/demo-python/blob/master/pytest/instant-sauce-pytest1.py)
-    
-5. Run the Test Script
-    * In order to run the test on [www.saucelabs.com](www.saucelabs.com), change the values of **`SAUCE_USERNAME`** and **`SAUCE_ACCESS_KEY`** in the following url:
-    
-        ```
-        https://SAUCE_USERNAME:SAUCE_ACCESS_KEY@ondemand.saucelabs.com:443/wd/hub'
-        ```
+3. Run the Test Script
+    * In order to run the test on [www.saucelabs.com](www.saucelabs.com), change the values of the **`SAUCE_USERNAME`** and **`SAUCE_ACCESS_KEY`** variables in the test script to your Sauce Username and Sauce Access Key values.
+
     > To retrieve this information, login to your saucelabs.com account and navigate to **User Settings**; there it displays your username and access key.
     
     * Run the following command to test your python script:
         ```
-        $ python instant-sauce-pytest1.py
+        $ python pytest/instant-sauce-pytest1.py
         ```
         
     * You may also use 'Run Configurations' in your IDE. For directions on how to setup Run/Debug Configurations refer to Documentation:
         * [PyCharm Documentation](https://www.jetbrains.com/help/pycharm/creating-and-editing-run-debug-configurations.html)
+        * [Visual Studio Code Documentation](https://code.visualstudio.com/docs/editor/debugging)
         * [Komodo Edit Documentation](http://docs.komodoide.com/manual)
