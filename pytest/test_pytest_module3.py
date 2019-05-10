@@ -6,10 +6,10 @@ import os
 from selenium import webdriver
 from _pytest.runner import runtestprotocol
 import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)            
-
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 @pytest.fixture
+@pytest.mark.onboarding
 def driver(request):
     sauce_username = os.environ["SAUCE_USERNAME"]
     sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
@@ -17,24 +17,24 @@ def driver(request):
     # use sauce:options to handle all saucelabs.com-specific capabilities such as:
     # username, accesskey, build number, test name, timeouts etc.
     sauceOptions = {
-        "screenResolution": "1280x768",
-        "seleniumVersion": "3.141.59",
-        'build': "Onboarding Sample App - Python",
-        'name': "3-cross-browser",
-        "username": sauce_username,
-        "accessKey": sauce_access_key
+        'screenResolution': '1280x768',
+        'seleniumVersion': '3.141.59',
+        'build': 'Onboarding Sample App - Python-pytest',
+        'name': '3-cross-browser',
+        'username': sauce_username,
+        'accessKey': sauce_access_key
     }
     # In ChromeOpts, we define browser and/or WebDriver capabilities such as
     # the browser name, browser version, platform name, platform version
     chromeOpts =  {
-        'platformName':"Windows 10",
-        'browserName': "chrome",
+        'platformName': 'Windows 10',
+        'browserName': 'chrome',
         'browserVersion': '71.0',
         'goog:chromeOptions': {'w3c': True},
         'sauce:options': sauceOptions
     }
 
-    browser = webdriver.Remote(remote_url, desired_capabilities=chromeOpts)
+    browser = webdriver.Remote(remote_url, chromeOpts)
     yield browser
     browser.quit()
 
