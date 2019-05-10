@@ -22,7 +22,7 @@ def driver(request):
         # best practices involve setting a build number for version control
         "build": "build-0.0.1",
         # tags to filter test reporting.
-        "tags": ['instant-sauce', 'ruby-rspec', 'module4'],
+        "tags": ['instant-sauce', 'pytest', 'module4'],
         # setting sauce-runner specific parameters such as timeouts helps
         # manage test execution speed.
         "maxDuration": 1800,
