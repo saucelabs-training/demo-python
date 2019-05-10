@@ -7,13 +7,15 @@ from selenium import webdriver
 from _pytest.runner import runtestprotocol
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 @pytest.fixture
 @pytest.mark.onboarding
 def driver(request):
     sauce_username = os.environ["SAUCE_USERNAME"]
     sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
-    remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
+    remote_url = "https://ondemand.saucelabs.com/wd/hub"
     # use sauce:options to handle all saucelabs.com-specific capabilities such as:
     # username, accesskey, build number, test name, timeouts etc.
     sauceOptions = {
@@ -21,6 +23,8 @@ def driver(request):
         'seleniumVersion': '3.141.59',
         'build': 'Onboarding Sample App - Python-pytest',
         'name': '3-cross-browser',
+        # remove line below if not using Sauce Connect
+        'tunnelIdentifier': 'demo-python-tunnel',
         'username': sauce_username,
         'accessKey': sauce_access_key
     }
@@ -40,7 +44,7 @@ def driver(request):
 
 # Here is our actual test code. In this test we open the saucedemo app in chrome and assert that the title is correct.
 def test_should_open_chrome(driver):
-    driver.get("http://www.saucedemo.com")
+    driver.get("https://www.saucedemo.com")
     actual_title = driver.title
     expected_title = "Swag Labs"
     assert expected_title == actual_title

@@ -3,7 +3,7 @@ jobs:
   build_and_test:
     working_directory: ~/repo
     docker:
-    - image: circleci/python:3.6.4
+    - image: circleci/python:3.7.1
     steps:
     - checkout
     - run:
@@ -32,19 +32,23 @@ jobs:
         background: true
         command: |
           cd sc-*
-          bin/sc --pidfile /tmp/sc.pid1 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-java-tunnel --no-remove-colliding-tunnels --se-port 4445
+          bin/sc --pidfile /tmp/sc.pid1 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-python-tunnel --no-remove-colliding-tunnels -B all --se-port 4445
     - run:
         name: Launch Tunnel 2
         background: true
         command: |
           cd sc-*
-          bin/sc --pidfile /tmp/sc.pid2 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-java-tunnel --no-remove-colliding-tunnels --se-port 4446
+          bin/sc --pidfile /tmp/sc.pid2 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-python-tunnel --no-remove-colliding-tunnels -B all --se-port 4446
     - run:
         name: Launch Tunnel 3
         background: true
         command: |
           cd sc-*
-          bin/sc --pidfile /tmp/sc.pid3 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-java-tunnel --no-remove-colliding-tunnels --se-port 4447
+          bin/sc --pidfile /tmp/sc.pid3 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-python-tunnel --no-remove-colliding-tunnels -B all --se-port 4447
+    - run:
+        name: Ignore SSL Errors
+        command: |
+          export PYTHONWARNINGS="ignore:Unverified HTTPS request"
     - run:
         name: Run PyTests
         command: |
