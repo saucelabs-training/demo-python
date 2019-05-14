@@ -17,7 +17,7 @@ desired_cap = {
 username = os.environ["SAUCE_USERNAME"]
 access_key = os.environ["SAUCE_ACCESS_KEY"]
 driver = webdriver.Remote(
-   command_executor='http://{}:{}@ondemand.saucelabs.com:443/wd/hub'.format(username, access_key),
+   command_executor='https://{}:{}@ondemand.saucelabs.com:443/wd/hub'.format(username, access_key),
    desired_capabilities=desired_cap)
 
 # Substitute 'http://www.saucedemo.com for your own application
