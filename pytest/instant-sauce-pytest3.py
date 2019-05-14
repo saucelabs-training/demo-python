@@ -1,6 +1,6 @@
 # In the following examples we implement the pytest and seleniumbase test frameworks
-# pytest docs: https://docs.pytest.org/en/latest/contents.html
-# seleniumbase docs: https://github.com/seleniumbase/SeleniumBase
+# pytest docs: http://docs.pytest.org/en/latest/contents.html
+# seleniumbase docs: http://github.com/seleniumbase/SeleniumBase
 import pytest
 import os
 from selenium import webdriver
@@ -13,7 +13,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 def driver(request):
     sauce_username = os.environ["SAUCE_USERNAME"]
     sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
-    remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
+    remote_url = "http://ondemand.saucelabs.com/wd/hub"
     # use sauce:options to handle all saucelabs.com-specific capabilities such as:
     # username, accesskey, build number, test name, timeouts etc.
     sauceOptions = {
