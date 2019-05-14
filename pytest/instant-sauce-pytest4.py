@@ -10,7 +10,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 def driver(request):
     sauce_username = os.environ["SAUCE_USERNAME"]
     sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
-    remote_url = "http://ondemand.saucelabs.com/wd/hub"
+    remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
 
     sauceOptions = {
         "screenResolution": "1280x768",
