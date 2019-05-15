@@ -40,6 +40,7 @@ jobs:
             while ! lsof -i:4445 -t; do sleep 3; done
             while ! lsof -i:4446 -t; do sleep 3; done
             while ! lsof -i:4447 -t; do sleep 3; done
+            python pytest/test_instant-sauce-pytest2.py
             pytest pytest/
       - run:
           name: "Shut Down Sauce Connect Tunnel"
