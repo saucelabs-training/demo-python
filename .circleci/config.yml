@@ -7,6 +7,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Install certifi"
+          command: |
+            sudo pip install certifi
+      - run:
           name: "Install pipenv"
           command: |
             sudo pip install pipenv
