@@ -3,13 +3,9 @@ jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/python:3.6.4  # primary container for the build job
+      - image: circleci/python:3.5.4  # primary container for the build job
     steps:
       - checkout
-      - run:
-          name: "Install certifi"
-          command: |
-            sudo pip install certifi
       - run:
           name: "Install pipenv"
           command: |
