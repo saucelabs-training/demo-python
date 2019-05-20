@@ -10,7 +10,6 @@ def driver(request):
     sauce_username = "SAUCE_USERNAME"
     sauce_access_key = "SAUCE_ACCESS_KEY"
     remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
-    tunnel_id = os.environ['CI_TUNNEL_ID']
 
     # the desired_capabilities parameter tells us which browsers and OS to spin up.
     desired_cap = {
@@ -20,11 +19,7 @@ def driver(request):
         'build': 'Onboarding Sample App - Python + Pytest',
         'name': '1-first-test',
         'username': sauce_username,
-        'accessKey': sauce_access_key,
-
-        # This setting is for using Sauce Connect Proxy tunnel
-        # Typically you use this setting if you need to run your tests from behind a secure network firewall
-        'tunnelIdentifier': tunnel_id
+        'accessKey': sauce_access_key
     }
 
     # This creates a webdriver object to send to Sauce Labs including the desired capabilities

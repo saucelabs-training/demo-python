@@ -6,7 +6,6 @@ from selenium import webdriver
 sauce_username = os.environ["SAUCE_USERNAME"]
 sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
 remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
-tunnel_id = os.environ['CI_TUNNEL_ID']
 
 
 class Module3Test(unittest.TestCase):
@@ -18,9 +17,7 @@ class Module3Test(unittest.TestCase):
             'build': 'Onboarding Sample App - Python + UnitTest',
             'name': '3-cross-browser',
             'username': sauce_username,
-            'accessKey': sauce_access_key,
-            # this setting is only if you need to run your tests from behind a secure network firewall
-            'tunnelIdentifier': tunnel_id
+            'accessKey': sauce_access_key
         }
         # In ChromeOpts, we define browser and/or WebDriver capabilities such as
         # the browser name, browser version, platform name, platform version

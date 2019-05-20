@@ -5,8 +5,6 @@ from selenium import webdriver
 sauce_username = os.environ["SAUCE_USERNAME"]
 sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
 remote_url = "https://ondemand.saucelabs.com/wd/hub"
-tunnel_id = os.environ['CI_TUNNEL_ID']
-
 desired_cap = {
     'platform': 'Mac OS X 10.13',
     'browserName': 'safari',
@@ -14,11 +12,7 @@ desired_cap = {
     'build': 'Onboarding Sample App - Python',
     'name': '2-user-site',
     'username': sauce_username,
-    'accessKey': sauce_access_key,
-    'accept_untrusted_certs': True,
-    # This setting is for using Sauce Connect Proxy tunnel
-    # Typically you use this setting if you need to run your tests from behind a secure network firewall
-    'tunnelIdentifier': tunnel_id
+    'accessKey': sauce_access_key
 }
 driver = webdriver.Remote(command_executor=remote_url, desired_capabilities=desired_cap)
 # Substitute 'http://www.saucedemo.com for your own application

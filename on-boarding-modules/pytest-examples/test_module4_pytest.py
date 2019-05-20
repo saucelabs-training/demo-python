@@ -8,7 +8,6 @@ def driver(request):
     sauce_username = os.environ["SAUCE_USERNAME"]
     sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
     remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
-    tunnel_id = os.environ['CI_TUNNEL_ID']
 
     sauceOptions = {
         'screenResolution': '1280x768',
@@ -25,8 +24,6 @@ def driver(request):
         'maxDuration': 1800,
         'commandTimeout': 300,
         'idleTimeout': 1000,
-        # this setting is only if you need to run your tests from behind a secure network firewall
-        'tunnelIdentifier': tunnel_id
     }
 
     chromeOpts = {
@@ -37,7 +34,7 @@ def driver(request):
         'sauce:options': sauceOptions
     }
 
-    browser = webdriver.Remote(remote_url, desired_capabilities=chromeOpts)
+    browser = webdriver.Remote(command_executor=remote_url, desired_capabilities=chromeOpts)
     yield browser
     browser.quit()
 

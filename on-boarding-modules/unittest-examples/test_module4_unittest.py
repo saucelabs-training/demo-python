@@ -6,8 +6,6 @@ from selenium import webdriver
 sauce_username = os.environ["SAUCE_USERNAME"]
 sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
 remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
-tunnel_id = os.environ['CI_TUNNEL_ID']
-
 
 class Module4Test(unittest.TestCase):
 
@@ -25,9 +23,7 @@ class Module4Test(unittest.TestCase):
             # manage test execution speed.
             'maxDuration': 1800,
             'commandTimeout': 300,
-            'idleTimeout': 1000,
-            # this setting is only if you need to run your tests from behind a secure network firewall
-            'tunnelIdentifier': tunnel_id
+            'idleTimeout': 1000
         }
         # In ChromeOpts, we define browser and/or WebDriver capabilities such as
         # the browser name, browser version, platform name, platform version
