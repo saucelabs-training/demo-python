@@ -43,6 +43,6 @@ Detailed Instructions located in the [prerequisites](prerequisites.md#python-pre
 
 3. Visit the [saucelabs.com automated build page](https://app.saucelabs.com/dashboard/builds) and select the build `Onboarding Sample App - Python` to see the following test case:
     
-    ![2-user-site](2-user-site.png)
+    ![1-first-test](1-first-test.png)
     
 <br />
