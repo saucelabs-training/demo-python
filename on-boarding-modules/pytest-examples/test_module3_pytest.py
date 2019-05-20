@@ -5,8 +5,6 @@ import pytest
 import os
 from selenium import webdriver
 from _pytest.runner import runtestprotocol
-import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)            
 
 
 @pytest.fixture
@@ -14,6 +12,7 @@ def driver(request):
     sauce_username = os.environ["SAUCE_USERNAME"]
     sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
     remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
+    tunnel_id = os.environ['CI_TUNNEL_ID']
     # use sauce:options to handle all saucelabs.com-specific capabilities such as:
     # username, accesskey, build number, test name, timeouts etc.
     sauceOptions = {
@@ -24,7 +23,7 @@ def driver(request):
         'username': sauce_username,
         'accessKey': sauce_access_key,
         # this setting is only if you need to run your tests from behind a secure network firewall
-        'tunnelIdentifier': 'demo-python-tunnel'
+        'tunnelIdentifier': tunnel_id
     }
     # In ChromeOpts, we define browser and/or WebDriver capabilities such as
     # the browser name, browser version, platform name, platform version
@@ -40,9 +39,10 @@ def driver(request):
     yield browser
     browser.quit()
 
+
 # Here is our actual test code. In this test we open the saucedemo app in chrome and assert that the title is correct.
 def test_should_open_chrome(driver):
-    driver.get("http://www.saucedemo.com")
+    driver.get("https://www.saucedemo.com")
     actual_title = driver.title
     expected_title = "Swag Labs"
     assert expected_title == actual_title

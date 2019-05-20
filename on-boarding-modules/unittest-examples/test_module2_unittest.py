@@ -2,12 +2,11 @@
 import unittest
 import os
 from selenium import webdriver
-import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 sauce_username = os.environ["SAUCE_USERNAME"]
 sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
 remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
+tunnel_id = os.environ['CI_TUNNEL_ID']
 
 
 class Module2Test(unittest.TestCase):
@@ -24,13 +23,13 @@ class Module2Test(unittest.TestCase):
 
             # This setting is for using Sauce Connect Proxy tunnel
             # Typically you use this setting if you need to run your tests from behind a secure network firewall
-            'tunnelIdentifier': 'demo-python-tunnel'
+            'tunnelIdentifier': tunnel_id
         }
         self.driver = webdriver.Remote(command_executor=remote_url, desired_capabilities=desired_cap)
 
     def test_should_open_chrome(self):
         # Substitute 'http://www.saucedemo.com' for your own application URL
-        self.driver.get("http://www.saucedemo.com")
+        self.driver.get("https://www.saucedemo.com")
         assert ("Swag Labs" in self.driver.title)
 
     def tearDown(self):

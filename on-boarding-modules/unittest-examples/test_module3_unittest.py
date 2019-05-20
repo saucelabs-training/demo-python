@@ -2,12 +2,11 @@
 import unittest
 import os
 from selenium import webdriver
-import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 sauce_username = os.environ["SAUCE_USERNAME"]
 sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
 remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
+tunnel_id = os.environ['CI_TUNNEL_ID']
 
 
 class Module3Test(unittest.TestCase):
@@ -21,7 +20,7 @@ class Module3Test(unittest.TestCase):
             'username': sauce_username,
             'accessKey': sauce_access_key,
             # this setting is only if you need to run your tests from behind a secure network firewall
-            'tunnelIdentifier': 'demo-python-tunnel'
+            'tunnelIdentifier': tunnel_id
         }
         # In ChromeOpts, we define browser and/or WebDriver capabilities such as
         # the browser name, browser version, platform name, platform version
@@ -36,7 +35,7 @@ class Module3Test(unittest.TestCase):
 
     def test_should_open_chrome(self):
         # Substitute 'http://www.saucedemo.com' for your own application URL
-        self.driver.get("http://www.saucedemo.com")
+        self.driver.get("https://www.saucedemo.com")
         assert ("Swag Labs" in self.driver.title)
 
     def tearDown(self):

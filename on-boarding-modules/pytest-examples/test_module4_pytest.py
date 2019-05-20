@@ -2,15 +2,13 @@ import pytest
 import os
 from selenium import webdriver
 from _pytest.runner import runtestprotocol
-import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
 
 @pytest.fixture
 def driver(request):
     sauce_username = os.environ["SAUCE_USERNAME"]
     sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
     remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
+    tunnel_id = os.environ['CI_TUNNEL_ID']
 
     sauceOptions = {
         'screenResolution': '1280x768',
@@ -28,7 +26,7 @@ def driver(request):
         'commandTimeout': 300,
         'idleTimeout': 1000,
         # this setting is only if you need to run your tests from behind a secure network firewall
-        'tunnelIdentifier': 'demo-python-tunnel'
+        'tunnelIdentifier': tunnel_id
     }
 
     chromeOpts = {
@@ -43,8 +41,9 @@ def driver(request):
     yield browser
     browser.quit()
 
+
 def test_should_open_chrome(driver):
-    driver.get("http://www.saucedemo.com")
+    driver.get("https://www.saucedemo.com")
     actual_title = driver.title
     expected_title = "Swag Labs"
     assert expected_title == actual_title

@@ -1,8 +1,8 @@
 # Selenium 3.14+ doesn't enable certificate checking
 import unittest
+import os
 from selenium import webdriver
-import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 
 # This is the only code you need to edit in this script.
 # Enter in your Sauce Labs Credentials in order to run this test
@@ -10,6 +10,7 @@ sauce_username = "SAUCE_USERNAME"
 sauce_access_key = "SAUCE_ACCESS_KEY"
 # This variable contains the service address for the Sauce Labs VM hub
 remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
+tunnel_id = os.environ['CI_TUNNEL_ID']
 
 
 class Module1Test(unittest.TestCase):
@@ -27,7 +28,7 @@ class Module1Test(unittest.TestCase):
 
             # This setting is for using Sauce Connect Proxy tunnel
             # Typically you use this setting if you need to run your tests from behind a secure network firewall
-            'tunnelIdentifier': 'demo-python-tunnel'
+            'tunnelIdentifier': tunnel_id
         }
 
         # This creates a webdriver object to send to Sauce Labs including the desired capabilities
@@ -37,7 +38,7 @@ class Module1Test(unittest.TestCase):
     # and assert that the title is correct.
     @unittest.skip("You need to input Sauce Credentials")
     def test_should_open_chrome(self):
-        self.driver.get("http://www.saucedemo.com")
+        self.driver.get("https://www.saucedemo.com")
         assert ("Swag Labs" in self.driver.title)
 
     # Here we send the results to Sauce Labs and tear down our driver session
