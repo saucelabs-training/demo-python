@@ -21,27 +21,34 @@ jobs:
           background: true
           command: |
             cd sc-*
-            bin/sc --pidfile /tmp/sc.pid1 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-java-tunnel --no-remove-colliding-tunnels --se-port 4445
+            bin/sc --pidfile /tmp/sc.pid1 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-python-tunnel --no-remove-colliding-tunnels --se-port 4445
       - run:
           name: "Launch Tunnel 2"
           background: true
           command: |
             cd sc-*
-            bin/sc --pidfile /tmp/sc.pid2 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-java-tunnel --no-remove-colliding-tunnels --se-port 4446
+            bin/sc --pidfile /tmp/sc.pid2 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-python-tunnel --no-remove-colliding-tunnels --se-port 4446
       - run:
           name: "Launch Tunnel 3"
           background: true
           command: |
             cd sc-*
-            bin/sc --pidfile /tmp/sc.pid3 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-java-tunnel --no-remove-colliding-tunnels --se-port 4447
+            bin/sc --pidfile /tmp/sc.pid3 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-python-tunnel --no-remove-colliding-tunnels --se-port 4447
       - run:
-          name: "Run PyTests"
+          name: "Run Python Test"
           command: |
             while ! lsof -i:4445 -t; do sleep 3; done
             while ! lsof -i:4446 -t; do sleep 3; done
             while ! lsof -i:4447 -t; do sleep 3; done
-            python pytest/instant-sauce-pytest2.py
-            pytest pytest/
+            python on-boarding-modules/python-examples/test_module2.py
+      - run:
+          name: "Run PyTests"
+          command: |
+            pytest on-boarding-modules/pytest-examples/
+      - run:
+          name: "Run UnitTests"
+          command: |
+            python -m unittest on-boarding-modules/unittest-examples/*.py
       - run:
           name: "Shut Down Sauce Connect Tunnel"
           command: |

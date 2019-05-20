@@ -1,5 +1,5 @@
-# In the following examples we implement the pytest and seleniumbase test frameworks
-# pytest docs: https://docs.pytest.org/en/latest/contents.html
+# In the following examples we implement the pytest-examples and seleniumbase test frameworks
+# pytest-examples docs: https://docs.pytest.org/en/latest/contents.html
 # seleniumbase docs: https://github.com/seleniumbase/SeleniumBase
 import pytest
 import os
@@ -17,19 +17,21 @@ def driver(request):
     # use sauce:options to handle all saucelabs.com-specific capabilities such as:
     # username, accesskey, build number, test name, timeouts etc.
     sauceOptions = {
-        "screenResolution": "1280x768",
-        "seleniumVersion": "3.141.59",
-        'build': "Onboarding Sample App - Python",
-        'name': "3-cross-browser",
-        "username": sauce_username,
-        "accessKey": sauce_access_key
+        'screenResolution': '1280x768',
+        'seleniumVersion': '3.141.59',
+        'build': 'Onboarding Sample App - Python + Pytest',
+        'name': '3-cross-browser',
+        'username': sauce_username,
+        'accessKey': sauce_access_key,
+        # this setting is only if you need to run your tests from behind a secure network firewall
+        'tunnelIdentifier': 'demo-python-tunnel'
     }
     # In ChromeOpts, we define browser and/or WebDriver capabilities such as
     # the browser name, browser version, platform name, platform version
-    chromeOpts =  {
-        'platformName':"Windows 10",
-        'browserName': "chrome",
-        'browserVersion': '71.0',
+    chromeOpts = {
+        'platformName': 'Windows 10',
+        'browserName': 'chrome',
+        'browserVersion': 'latest',
         'goog:chromeOptions': {'w3c': True},
         'sauce:options': sauceOptions
     }

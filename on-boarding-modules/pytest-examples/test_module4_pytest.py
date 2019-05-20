@@ -13,27 +13,28 @@ def driver(request):
     remote_url = "https://ondemand.saucelabs.com:443/wd/hub"
 
     sauceOptions = {
-        "screenResolution": "1280x768",
-        "seleniumVersion": "3.141.59",
-        'build': "Onboarding Sample App - Python",
-        'name': "4-best-practices",
-        "username": sauce_username,
-        "accessKey": sauce_access_key,
+        'screenResolution': '1280x768',
+        'seleniumVersion': '3.141.59',
         # best practices involve setting a build number for version control
-        "build": "build-0.0.1",
+        'build': 'Onboarding Sample App - Python + Pytest',
+        'name': '4-best-practices',
+        'username': sauce_username,
+        'accessKey': sauce_access_key,
         # tags to filter test reporting.
-        "tags": ['instant-sauce', 'ruby-rspec', 'module4'],
+        'tags': ['instant-sauce', 'ruby-rspec', 'module4'],
         # setting sauce-runner specific parameters such as timeouts helps
         # manage test execution speed.
-        "maxDuration": 1800,
-        "commandTimeout": 300,
-        "idleTimeout": 1000
+        'maxDuration': 1800,
+        'commandTimeout': 300,
+        'idleTimeout': 1000,
+        # this setting is only if you need to run your tests from behind a secure network firewall
+        'tunnelIdentifier': 'demo-python-tunnel'
     }
 
     chromeOpts = {
-        'platformName':"Windows 10",
-        'browserName': "chrome",
-        'browserVersion': '71.0',
+        'platformName': 'Windows 10',
+        'browserName': 'chrome',
+        'browserVersion': 'latest',
         'goog:chromeOptions': {'w3c': True},
         'sauce:options': sauceOptions
     }
