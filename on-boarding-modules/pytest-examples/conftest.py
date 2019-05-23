@@ -2,6 +2,8 @@ import pytest
 import os
 from selenium import webdriver
 
+# skipping the first file
+collect_ignore = ["test_module1_pytest.py"]
 
 # Here we use a test runner method to handle all postrequisite test execution steps such as:
 # sending the test results to saucelabs.com and tearing down the current WebDriver (browser) session
