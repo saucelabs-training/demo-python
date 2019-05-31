@@ -2,7 +2,8 @@
 /.idea
 
 # pytest cache files
-/.pytest_cache
+**/.pytest_cache
+**/__pycache__
 
 # Virtual Environment Info
 /venv
