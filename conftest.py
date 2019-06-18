@@ -2,14 +2,20 @@ import pytest
 import os
 import requests
 import json
+import re
 
 from appium import webdriver
-
+import testobject
 
 def update_job(session_id, result):
     result_json = json.dumps({"passed": result})
-    endpoint = 'https://app.testobject.com/api/rest/v2/appium/session/{}/test'.format(session_id)
-    requests.put(endpoint, json=result_json)
+    requests.put(
+        'https://app.testobject.com/api/rest/v2/appium/session/' + session_id + '/test/',
+        headers = { 'Content-Type': 'application/json',},  
+        data = '{"passed": true}' 
+    )
+    #endpoint = 'https://app.testobject.com/api/rest/appium/v2/session/{}/test/'.format(session_id)
+    #requests.put(endpoint, data=result_json)
 
 @pytest.yield_fixture(scope='function')
 def driver(request):
@@ -28,21 +34,20 @@ def driver(request):
         'privateDevicesOnly': False 
     }
 
-    caps['app'] = "sauce-storage:SwagLabsMobileApp.ipa"
-    caps['build'] = "Appium-Python-iOS-Sample"
-    caps['testobject_api_key'] = os.environ['TESTOBJECT_API_KEY']
+    rdc_key = os.environ['TESTOBJECT_API_KEY']
+    rdc_user = os.environ['TESTOBJECT_USERNAME']
+    caps['testobject_api_key'] = rdc_key
+
+    rdc_api = testobject.TestObject(rdc_user, rdc_key) 
 
     sauce_url = "http://us1.appium.testobject.com/wd/hub"
 
     browser = webdriver.Remote(sauce_url, desired_capabilities=caps)
     
     yield browser
-    # Teardown starts here
-    # report results
-    # use the test result to send the pass/fail status to Sauce Labs
-    status = "failed" if request.node.rep_call.failed else "passed"
-    # sauce_client = SauceClient(SAUCE_USERNAME, SAUCE_ACCESS_KEY)
-    update_job(browser.session_id, status)
+
+    rdc_api.watcher.report_test_result(browser.session_id, True)
+    
     browser.quit()
 
 
