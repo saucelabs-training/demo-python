@@ -44,6 +44,15 @@ def driver(request):
 
     browser = webdriver.Remote(sauce_url, desired_capabilities=caps)
     
+    # This is specifically for SauceLabs plugin.
+    # In case test fails after selenium session creation having this here will help track it down.
+    # creates one file per test non ideal but xdist is awful
+    if browser:
+        with open("{}.testlog".format(browser.session_id), 'w') as f:
+            f.write("SauceOnDemandSessionID={} job-name={}\n".format(browser.session_id, test_name))
+    else:
+        raise WebDriverException("Never created!")
+
     yield browser
 
     rdc_api.watcher.report_test_result(browser.session_id, True)
