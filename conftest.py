@@ -37,6 +37,8 @@ def driver(request):
     rdc_key = os.environ['TESTOBJECT_API_KEY']
     rdc_user = os.environ['TESTOBJECT_USERNAME']
     caps['testobject_api_key'] = rdc_key
+    test_name = request.node.name
+    caps['name'] = test_name
 
     rdc_api = testobject.TestObject(rdc_user, rdc_key) 
 
