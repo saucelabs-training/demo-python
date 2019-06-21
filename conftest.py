@@ -50,8 +50,7 @@ def driver(request):
     # In case test fails after selenium session creation having this here will help track it down.
     # creates one file per test non ideal but xdist is awful
     if browser:
-        with open("{}.testlog".format(browser.session_id), 'w') as f:
-            f.write("SauceOnDemandSessionID={} job-name={}\n".format(browser.session_id, test_name))
+        print("SauceOnDemandSessionID={} job-name={}\n".format(browser.session_id, test_name))
     else:
         raise WebDriverException("Never created!")
 
