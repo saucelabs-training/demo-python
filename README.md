@@ -51,7 +51,7 @@ Detailed Instructions located in the [prerequisites](prerequisites.md#python-pre
   
    * Run the following command to test your python script:
         ```
-        $ python on-boarding-modules/python-examples/test_module1.py
+        $ python on-boarding-modules/python-examples/test_module2.py
         ```
         
    * You may also use 'Run Configurations' in your IDE. For directions on how to setup Run/Debug Configurations refer to your IDE Documentation:
