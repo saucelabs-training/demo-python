@@ -37,6 +37,11 @@ jobs:
           name: "Run UnitTests"
           command: |
             python -m unittest on-boarding-modules/unittest-examples/*.py
+#      - run:
+#          name: "Run Appium-PyTests"
+#          command: |
+#            cd appium-examples/pytest-appium/
+#            pytest -s -n 10 tests/
       - run:
           name: "Shut Down Sauce Connect Tunnel"
           command: |

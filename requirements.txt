@@ -1,3 +1,8 @@
-selenium==3.14.0
+selenium==3.14.1
 urllib3==1.24.3
 pytest==4.4.0
+sauceClient>=0.2.1
+pytest-xdist>=1.27.0
+testobject
+requests
+Appium-Python-Client
