@@ -16,6 +16,7 @@ This [repository](https://github.com/saucelabs-training/demo-python) contains ex
 * [Tests that use the Headless feature of Sauce Labs](https://github.com/saucelabs-training/demo-python/tree/master/headless-examples) (not included with basic tier or free trial customers)
 * [Mobile Examples using Appium on Sauce Labs](https://github.com/saucelabs-training/demo-python/tree/master/appium-examples/pytest-realdevices)
 
+<br />
 
 ## Prerequisites
 
