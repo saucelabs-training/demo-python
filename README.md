@@ -2,11 +2,20 @@
 [![CircleCI](https://circleci.com/gh/saucelabs-training/demo-python.svg?style=svg)](https://circleci.com/gh/saucelabs-training/demo-python)
 
 This [repository](https://github.com/saucelabs-training/demo-python) contains example scripts and dependencies for running automated Selenium tests on Sauce Labs using **Python**. You can use these scripts to test your Sauce Labs authentication credentials, setup of your automated testing environment, and try out Sauce Labs features.
+
 > ###### Disclaimer
 >
 > The code in these scripts is provided on an "AS-IS" basis without warranty of any kind, either express or implied, including without limitation any implied warranties of condition, uninterrupted use, merchantability, fitness for a particular purpose, or non-infringement. These scripts are provided for educational and demonstration purposes only, and should not be used in production. Issues regarding these scripts should be submitted through GitHub. These scripts are maintained by the Technical Services team at Sauce Labs.
+>
+> Some examples in this repository, such as `appium-examples` and `headless-examples`, may require a different account tier beyond free trial. Please contact the [Sauce Labs Sales Team](https://saucelabs.com/contact) for support and information.
 
 <br />
+
+## Solution Outline
+* [Tests that can help you quickly and easily get started with Sauce Labs](https://github.com/saucelabs-training/demo-python/tree/master/on-boarding-modules)
+* [Tests that use the Headless feature of Sauce Labs](https://github.com/saucelabs-training/demo-python/tree/master/headless-examples) (not included with basic tier or free trial customers)
+* [Mobile Examples using Appium on Sauce Labs](https://github.com/saucelabs-training/demo-python/tree/master/appium-examples/pytest-realdevices)
+
 
 ## Prerequisites
 
