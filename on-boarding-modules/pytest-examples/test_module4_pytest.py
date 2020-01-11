@@ -18,7 +18,7 @@ def driver(request):
         'username': sauce_username,
         'accessKey': sauce_access_key,
         # tags to filter test reporting.
-        'tags': ['instant-sauce', 'ruby-rspec', 'module4'],
+        'tags': ['instant-sauce', 'pytest', 'module4'],
         # setting sauce-runner specific parameters such as timeouts helps
         # manage test execution speed.
         'maxDuration': 1800,
