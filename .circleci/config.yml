@@ -38,15 +38,25 @@ jobs:
           command: |
             python -m unittest on-boarding-modules/unittest-examples/*.py
 #      - run:
-#          name: "Run Appium-PyTests-Android"
+#          name: "Run Appium-PyTests-Android-Realdevices"
 #          command: |
 #            cd appium-examples/pytest-realdevices/android
 #            pytest -s -n 10 tests/
 #      - run:
-#          name: "Run Appium-PyTests-IOS"
+#          name: "Run Appium-PyTests-IOS-Realdevices"
 #          command: |
 #            cd appium-examples/pytest-realdevices/ios
 #            pytest -s -n 10 tests/
+      - run:
+          name: "Run Appium Android PyTests"
+          command: |
+            cd appium-examples/pytest-emusim/android
+            pytest -s -n 10 tests/
+      - run:
+          name: "Run Appium IOS PyTests"
+          command: |
+            cd appium-examples/pytest-emusim/ios
+            pytest -s -n 10 tests/
       - run:
           name: "Shut Down Sauce Connect Tunnel"
           command: |
