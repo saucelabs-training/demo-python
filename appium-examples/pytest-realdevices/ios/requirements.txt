@@ -1,0 +1,5 @@
+Appium-Python-Client
+testobject
+sauceclient>=0.2.1
+pytest
+requests
