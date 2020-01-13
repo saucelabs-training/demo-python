@@ -34,7 +34,7 @@ def driver(request):
         'privateDevicesOnly': False 
     }
 
-    rdc_key = os.environ['TESTOBJECT_API_KEY']
+    rdc_key = os.environ['TESTOBJECT_SAMPLE_IOS']
     rdc_user = os.environ['TESTOBJECT_USERNAME']
     caps['testobject_api_key'] = rdc_key
     test_name = request.node.name
