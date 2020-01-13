@@ -20,23 +20,23 @@ from selenium.common.exceptions import WebDriverException
 
 
 @pytest.yield_fixture(scope='function')
-def driver(request, test_name='pytest-appium-ios'):
+def driver(request):
     sauce_username = os.environ["SAUCE_USERNAME"]
     sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
     sauce_url = "https://ondemand.saucelabs.com:443/wd/hub"
+    test_name = request.node.name
 
     caps = {
-        'appiumVersion': '1.9.1',
+        'appiumVersion': '1.12.1',
         'browserName': '',
-        'platformName': 'Android',
-        'platformVersion': '8.1',
+        'platformName': 'iOS',
+        'platformVersion': '12.2',
+        'deviceName': 'iPhone X Simulator',
         'deviceOrientation': 'portrait',
         'username': sauce_username,
         'accessKey': sauce_access_key,
-        'phoneOnly': False,
-        'tabletOnly': False,
-        'privateDevicesOnly': False,
-        'app': 'https://github.com/saucelabs-training/demo-python/blob/master/appium-examples/pytest-realdevices/ios/resources/TestApp8.4.app.zip?raw=true',
+        'app': 'https://github.com/saucelabs/sample-app-mobile/releases/download/2.2.1/iOS.Simulator.SauceLabs.Mobile'
+               '.Sample.app.2.1.1.zip',
         'name': test_name,
         'build': 'Python PyTest Emusim Demo'
     }
@@ -46,10 +46,10 @@ def driver(request, test_name='pytest-appium-ios'):
     # This is specifically for SauceLabs plugin.
     # In case test fails after selenium session creation having this here will help track it down.
     # creates one file per test non ideal but xdist is awful
-    if browser:
-        print("SauceOnDemandSessionID={} job-name={}\n".format(browser.session_id, test_name))
-    else:
-        raise WebDriverException("Never created!")
+    # if browser:
+    #     print("SauceOnDemandSessionID={} job-name={}\n".format(browser.session_id, test_name))
+    # else:
+    #     raise WebDriverException("Never created!")
     yield browser
     browser.quit()
 

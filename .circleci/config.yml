@@ -48,15 +48,15 @@ jobs:
 #            cd appium-examples/pytest-realdevices/ios
 #            pytest -s -n 10 tests/
       - run:
-          name: "Run Appium Android PyTests"
-          command: |
-            cd appium-examples/pytest-emusim/android
-            pytest -s -n 10 tests/
-      - run:
           name: "Run Appium IOS PyTests"
           command: |
             cd appium-examples/pytest-emusim/ios
-            pytest -s -n 10 tests/
+            pytest -s -n 2 tests/
+      - run:
+          name: "Run Appium Android PyTests"
+          command: |
+            cd appium-examples/pytest-emusim/android
+            pytest -s -n 2 tests/
       - run:
           name: "Shut Down Sauce Connect Tunnel"
           command: |
