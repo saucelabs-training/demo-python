@@ -6,6 +6,8 @@ import re
 
 from appium import webdriver
 import testobject
+from selenium.common.exceptions import WebDriverException
+
 
 def update_job(session_id, result):
     result_json = json.dumps({"passed": result})

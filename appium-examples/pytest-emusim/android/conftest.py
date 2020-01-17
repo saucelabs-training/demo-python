@@ -31,8 +31,8 @@ def driver(request):
         'deviceOrientation': 'portrait',
         'username': sauce_username,
         'accessKey': sauce_access_key,
-        'app': 'https://github.com/saucelabs/sample-app-mobile/releases/download/2.2.1/Android.SauceLabs.Mobile'
-               '.Sample.app.2.2.1.apk',
+        'app': 'https://github.com/saucelabs-training/demo-python/blob/master/appium-examples/pytest-realdevices'
+               '/android/resources/Android.SauceLabs.Mobile.Sample.app.2.1.0.debug.apk?raw=true',
         'name': test_name,
         'build': 'Python PyTest Emusim Demo'
     }
