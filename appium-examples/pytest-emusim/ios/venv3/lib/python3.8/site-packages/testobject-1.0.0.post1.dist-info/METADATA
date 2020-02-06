@@ -1,0 +1,240 @@
+Metadata-Version: 2.1
+Name: testobject
+Version: 1.0.0.post1
+Summary: Python API wrapper for TestObject
+Home-page: https://github.com/enriquegh/testobject-python-api
+Author: Enrique Gonzalez
+Author-email: egonzalezh94@gmail.com
+License: MIT
+Keywords: wrapper-api,testobject
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.5
+Requires-Dist: requests
+Requires-Dist: pyyaml
+
+testobject-python-api
+=====================
+
+|Build Status| |Build status| |codecov| |PyPI version|
+
+A Python library client for TestObject API
+
+For more on the API you can visit TestObject’s docs
+`here <https://api.testobject.com/>`__.
+
+Getting Started
+---------------
+
+Installing
+~~~~~~~~~~
+
+To install on your machine run:
+
+.. code:: bash
+
+   pip install testobject
+
+Once installed you can run something like:
+
+.. code:: python
+
+   import testobject
+   client = testobject.TestObject('myusername','my_api_key', password='password')
+   # Password only needed if using Session Reports
+   response = client.devices.get_devices()
+   devices = response.json()
+   us_devices = devices['US']
+
+Running the tests
+-----------------
+
+Tests are done with pytest. To run these simply run:
+
+.. code:: bash
+
+   pytest
+
+Docs
+----
+
+Get All Devices
+~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = client.devices.get_devices()
+   devices = response.json()
+   us_devices = devices['US']
+
+Get Available Devices
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = client.devices.get_available_devices()
+   devices = response.json()
+   us_devices = devices['US']
+
+Get Device
+~~~~~~~~~~
+
+.. code:: python
+
+   response = client.devices.get_device('iPhone_5_free')
+   device = response.json()
+
+Get Session Reports
+~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = client.devices.get_session_reports(last_days=30, offset=1, limit=50)
+   reports = response.json()
+
+Update Appium Suite
+~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   data = {}
+   data['title'] = "New Suite Title"
+   response = client.suites.update_suite(suite_number,data)
+   content = response.json()
+
+Start Appium Suite Report
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   report = {'className': 'TOTestClass', 'dataCenterId': 'US', 'methodName': 'testMethod', 'deviceId': 'iPhone_5_free'}
+   data = [report] # If more than one test and/or class add more reports to the data list
+   response = to.suites.start_suite(suite_number, data)
+   content = response.json()
+
+Stop Appium Suite Report
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.suites.stop_suite(suite_number, suite_report_number)
+   content = response.json()
+
+Stop Appium Suite Test
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.suites.stop_suite_test(suite_number, suite_report_number, suite_test_number, True)
+   content = response.json()
+
+Skip Appium Suite Test
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.suites.stop_suite_test(suite_number, suite_report_number, suite_test_number)
+   content = response.json()
+
+Skip Appium Test Report
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.watcher.skip_test_report(appium_session_id)
+
+Send Appium Test Report
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.watcher.report_test_result(appium_session_id,True)
+
+Upload Application to Project
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.storage.upload_app(upload_app_path, display_name, False)
+
+Get Test Report
+~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.reports.get_test_report(test_report_id)
+
+Get Screenshot
+~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.reports.get_screenshot(test_report_id, screenshot_id)
+
+Get Session Video
+~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.reports.get_video(video_id)
+
+Get Appium Log
+~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.reports.get_appium_log(test_report_id)
+
+Get Device Log
+~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.reports.get_device_log(test_report_id)
+
+Get Device Vitals Log
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.reports.get_vitals_log(test_report_id)
+
+Get XCUITest Log
+~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   response = to.reports.get_xcuitest_log(test_report_id)
+
+Authors
+-------
+
+-  **Enrique Gonzalez** - *Maintainer* -
+   `enriquegh <https://github.com/enriquegh>`__
+
+License
+-------
+
+This project is licensed under the MIT License - see the
+`LICENSE <LICENSE>`__ file for details
+
+.. |Build Status| image:: https://travis-ci.org/enriquegh/testobject-python-api.svg?branch=master
+   :target: https://travis-ci.org/enriquegh/testobject-python-api
+.. |Build status| image:: https://ci.appveyor.com/api/projects/status/6pd46pbwrggq7rwa/branch/master?svg=true
+   :target: https://ci.appveyor.com/project/enriquegh/testobject-python-api/branch/master
+.. |codecov| image:: https://codecov.io/gh/enriquegh/testobject-python-api/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/enriquegh/testobject-python-api
+.. |PyPI version| image:: https://badge.fury.io/py/testobject.svg
+   :target: https://badge.fury.io/py/testobject
+
+

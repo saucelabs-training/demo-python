@@ -3,6 +3,8 @@ import os
 import requests
 import hashlib
 import sys
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 def upload_app(app_path, username, password):

@@ -20,13 +20,13 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
     ```
 3. Project
 	* The recommended way to run your tests would be in [virtualenv](https://virtualenv.readthedocs.org/en/latest/). It will isolate the build from other setups you may have running and ensure that the tests run with the specified versions of the modules specified in the requirements.txt file.
-	```$ pip install virtualenv```
+	```$ pip3 install virtualenv```
 	* Create a virtual environment in your project folder the environment name is arbitrary.
-	```$ virtualenv venv```
+	```$ python3 -m venv venv3```
 	* Activate the environment:
-	```$ source venv/bin/activate```
+	```$ source venv3/bin/activate```
 	* Install the required packages:
-	```$ pip install -r requirements.txt```
+	```$ pip3 install -r requirements.txt```
 
 ### Running Tests:  -n option designates number of parallel tests and -s to disable output capture.
 
