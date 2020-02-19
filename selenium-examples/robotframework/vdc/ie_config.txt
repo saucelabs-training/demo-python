@@ -1,0 +1,3 @@
+--variable browserName:internet explorer
+--variable platform:windows 10
+--variable version:latest

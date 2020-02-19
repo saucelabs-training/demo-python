@@ -1,0 +1,3 @@
+--variable browserName:chrome
+--variable platform:windows 10
+--variable version:latest
