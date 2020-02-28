@@ -10,7 +10,7 @@ jobs:
           name: "Install dependencies"
           command: |
              pip install --upgrade pip
-             pip install --user -r on-boarding-modules/requirements.txt
+             pip install -r on-boarding-modules/requirements.txt
       - run:
           name: "Install Sauce Connect Client"
           command: |
