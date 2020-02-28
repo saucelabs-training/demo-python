@@ -31,7 +31,6 @@ jobs:
       - run:
           name: "Run PyTests"
           command: |
-            pip install --user pytest
             pytest on-boarding-modules/pytest-examples/test_module2_pytest.py
             pytest on-boarding-modules/pytest-examples/test_module3_pytest.py
             pytest on-boarding-modules/pytest-examples/test_module4_pytest.py
