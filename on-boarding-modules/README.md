@@ -4,10 +4,12 @@ The following scripts provide quick examples to test your connection to Sauce La
 
 ### Module List
 
-* [Module 1: Running your first test](#module-1-running-your-first-test)
-* [Module 2: Testing against your own application](#module-2-testing-against-your-own-application)
-* [Module 3: Adding setup and teardown steps](#module-3-adding-setup-and-teardown-steps)
-* [Module 4: Adjusting timeouts, delays, and build tags](#module-4-adjusting-timeouts-delays-and-build-tags)
+- [Sauce Labs On-Boarding Python Examples](#sauce-labs-on-boarding-python-examples)
+    - [Module List](#module-list)
+    - [Module 1: Running your first test](#module-1-running-your-first-test)
+    - [Module 2: Testing against your own application](#module-2-testing-against-your-own-application)
+    - [Module 3: Adding `sauce:options` and `chrome options`](#module-3-adding-sauceoptions-and-chrome-options)
+    - [Module 4: Adjusting timeouts, delays, and build tags](#module-4-adjusting-timeouts-delays-and-build-tags)
 
 <br />
 
@@ -20,6 +22,34 @@ Open the script `test_module1_pytest.py`, and ensure you've exported (or hardcod
 ```
 sauce_username = os.environ["SAUCE_USERNAME"]
 sauce_access_key =os.environ["SAUCE_ACCESS_KEY"]
+```
+
+Since these onboarding modules are meant to be self-contained set of learning modules, make sure you are in a terminal and in this directory. If you are using MacOS or a Unix/Linux system, run the command
+
+```
+pwd
+```
+
+and the output should look like
+
+```
+/.../demo-python/on-boarding-modules
+```
+
+If you are using Windows, run the command
+```
+cd
+```
+
+and the output should look like
+```
+C:\...\demo-python\on-boarding-modules
+```
+
+Install all needed dependencies to execute these modules by running the following:
+
+```
+pip install -r requirements.txt
 ```
 
 Run the following command to run the test:
@@ -51,7 +81,6 @@ Please take notice that if your application is not publicly available the test w
 
 Open the script `test_module3_pytest.py`. Please notice how the script contains a `sauce:options` and `chrome options` declaration.
 
-###### Mocha Framework Examples
 `sauce:options`:
 ```
 sauceOptions = {
@@ -95,3 +124,7 @@ Open the script `test_module4_pytest.py`. Please notice that the following lines
 These test configuration options, allow you to control how long a session will wait for a new test command (`idleTimeout`), the maximum duration for the Sauce Labs VM lifecycle  (`maxDuration`), and the ability to filter test results by specific keywords (`tags`). 
 
 Please read the following wiki page to learn more about [setting build tags](https://wiki.saucelabs.com/display/DOCSDEV/Best+Practice%3A+Use+Build+IDs%2C+Tags%2C+and+Names+to+Identify+Your+Tests) and [controlling build timeouts](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-MaximumTestDuration).
+
+Visit the [saucelabs.com automated build page](https://app.saucelabs.com/dashboard/builds) and select the build `Onboarding Sample App - Python` to see the following test case:
+    
+    ![1-first-test](1-first-test.png)

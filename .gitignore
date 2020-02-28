@@ -17,3 +17,7 @@
 *.tar.gz
 *.rar
 *.war
+
+# Robotframework
+.pabotsuitenames
+pabot_results/*

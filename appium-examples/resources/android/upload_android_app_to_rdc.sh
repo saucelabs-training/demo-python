@@ -1,0 +1,1 @@
+curl -u $TESTOBJECT_USERNAME:$TEST_OBJECT_API_KEY -X POST https://app.testobject.com:443/api/storage/upload -H "Content-Type: application/octet-stream" --data-binary @$(pwd)/Android.SauceLabs.Mobile.Sample.app.2.2.1.apk

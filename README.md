@@ -14,7 +14,8 @@ This [repository](https://github.com/saucelabs-training/demo-python) contains ex
 ## Solution Outline
 * [Tests that can help you quickly and easily get started with Sauce Labs](https://github.com/saucelabs-training/demo-python/tree/master/on-boarding-modules)
 * [Tests that use the Headless feature of Sauce Labs](https://github.com/saucelabs-training/demo-python/tree/master/headless-examples) (not included with basic tier or free trial customers)
-* [Mobile Examples using Appium on Sauce Labs](https://github.com/saucelabs-training/demo-python/tree/master/appium-examples/pytest-realdevices)
+* [Web Examples using Selenium on Sauce Labs](https://github.com/saucelabs-training/demo-python/tree/master/selenium-examples/)
+* [Mobile Examples using Appium on Sauce Labs](https://github.com/saucelabs-training/demo-python/tree/master/appium-examples/)
 
 <br />
 
@@ -24,10 +25,14 @@ In order to complete these exercises you must complete the following prerequisit
 
 * Install Git
 * Install `python` and `pip`
+* Install `pipenv` (https://github.com/pypa/pipenv#installation)
 * Install a Test Framework
 * (Optional) Install an IDE (PyCharm, Visual Studio Code, Komodo Edit etc.)
 
 Detailed Instructions located in the [prerequisites](prerequisites.md#python-prerequisites) file.
+
+**NOTE*: All code here is written in Python 3, and is not guaranteed to work with Python 2. It is strongly, strongly recommended you either migrate to Python 3.5+ if you are using Python 2, or get started using Python 3.5+. 
+
 >   #### Try Demo in Gitpod
 >   Select the button below to try this demo in [Gitpod](https://www.gitpod.io/)
 >
@@ -47,30 +52,31 @@ Detailed Instructions located in the [prerequisites](prerequisites.md#python-pre
 >   For more information consult the [gitpod documentation](https://www.gitpod.io/docs/47_environment_variables/)
 
 <br />
-
-### Run a Sample Test
-
-1. Navigate to the root project directory and use `pip` to install the latest Selenium library for use in the script:
-    ```
-    $ pip install -r requirements.txt
-    ```
     
-2. Run the Test Script
-   > In order to run the test on [www.saucelabs.com](www.saucelabs.com), change the values of the **`SAUCE_USERNAME`** and **`SAUCE_ACCESS_KEY`** variables in the test script to your Sauce Username and Sauce Access Key values.
-   > To retrieve this information, login to your saucelabs.com account and navigate to **User Settings**;
-  
-   * Run the following command to test your python script:
-        ```
-        $ python on-boarding-modules/python-examples/test_module2.py
-        ```
-        
-   * You may also use 'Run Configurations' in your IDE. For directions on how to setup Run/Debug Configurations refer to your IDE Documentation:
-        * [PyCharm Documentation](https://www.jetbrains.com/help/pycharm/creating-and-editing-run-debug-configurations.html)
-        * [Visual Studio Code Documentation](https://code.visualstudio.com/docs/editor/debugging)
-        * [Komodo Edit Documentation](http://docs.komodoide.com/manual)
+### Run the Onboarding Scripts
 
-3. Visit the [saucelabs.com automated build page](https://app.saucelabs.com/dashboard/builds) and select the build `Onboarding Sample App - Python` to see the following test case:
-    
-    ![1-first-test](1-first-test.png)
-    
+If you would like to get started with using Python and Sauce Labs with some guidance, please look at the Onboarding scripts provided in the [`on-boarding-modules`](https://github.com/saucelabs-training/demo-python/on-boarding-modules/README.md) directory.
+
 <br />
+
+### Run the Sauce Examples
+
+In addition to onboarding, we have also included some samples of using Sauce Labs with some common Python test tools. In particular, we have examples using
+
+- Pytest
+- Robotframework
+
+and these cover using
+
+- Sauce Labs Virtual Device Cloud (VDC), which includes desktop browsers and  emulator/simulator devices (EMUSIM)
+- Sauce Labs Real Device Cloud (RDC).
+
+These samples are executed using Pipenv for simplicity. You can find a list of available executions in the Pipfile for executing tests written in the test tools. These executions demonstrate how to run tests in parallel on the various Sauce Labs platforms.
+
+The organization of these samples are as follows:
+
+-- driver (appium or selenium) 
+   |- test tooling
+      |- test environment (virtual or real devices)
+         |- additional resources needed (if any)
+            |- sample test framework

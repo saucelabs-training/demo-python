@@ -9,7 +9,8 @@ jobs:
       - run:
           name: "Install dependencies"
           command: |
-            sudo pip install -r requirements.txt
+             sudo pip install --upgrade pip
+             sudo pip install -r on-boarding-modules/requirements.txt
       - run:
           name: "Install Sauce Connect Client"
           command: |
@@ -30,6 +31,7 @@ jobs:
       - run:
           name: "Run PyTests"
           command: |
+            sudo pip install pytest
             pytest on-boarding-modules/pytest-examples/test_module2_pytest.py
             pytest on-boarding-modules/pytest-examples/test_module3_pytest.py
             pytest on-boarding-modules/pytest-examples/test_module4_pytest.py
@@ -37,16 +39,12 @@ jobs:
           name: "Run UnitTests"
           command: |
             python -m unittest on-boarding-modules/unittest-examples/*.py
-#      - run:
-#          name: "Run Appium-PyTests-Android"
-#          command: |
-#            cd appium-examples/pytest-realdevices/android
-#            pytest -s -n 10 tests/
-#      - run:
-#          name: "Run Appium-PyTests-IOS"
-#          command: |
-#            cd appium-examples/pytest-realdevices/ios
-#            pytest -s -n 10 tests/
+      - run: 
+          name: "Install Pipenv"
+          command: "sudo pip install --user pipenv"
+      - run:
+          name: "Run Pytest Examples"
+          command: "pipenv run pytest-vdc"
       - run:
           name: "Shut Down Sauce Connect Tunnel"
           command: |
