@@ -8,7 +8,9 @@ jobs:
       - checkout
       - run:
           name: "Install dependencies"
-          command: "pip3 install --user -r on-boarding-modules/requirements.txt"
+          command: |
+             pip3 install --upgrade pip3
+             pip3 install --user -r on-boarding-modules/requirements.txt
       - run:
           name: "Install Sauce Connect Client"
           command: |
