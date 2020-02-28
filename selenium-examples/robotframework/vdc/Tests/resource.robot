@@ -10,7 +10,7 @@ Library  SeleniumLibrary
     ...  username: %{SAUCE_USERNAME},
     ...  accessKey: %{SAUCE_ACCESS_KEY},
     ...  name: ${SUITE_NAME},
-    ...  build: MY_PYTHON_BUILD
+    ...  build: Python-Robot-Selenium-VDC
 
 ${browser}          ${browserName}
 ${capabilities}     ${EMPTY.join(${_tmp})} 

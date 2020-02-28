@@ -37,6 +37,7 @@ def driver(request):
     caps['testobject_api_key'] = rdc_key
     test_name = request.node.name
     caps['name'] = test_name
+    caps['build'] = 'Python-Pytest-Appium-RDC-iOS'
 
     rdc_api = testobject.TestObject(rdc_user, rdc_key) 
 

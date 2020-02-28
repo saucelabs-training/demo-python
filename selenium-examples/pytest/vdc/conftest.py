@@ -43,7 +43,7 @@ browsers = [
 def driver(request):
 
     test_name = request.node.name
-    build_tag = environ.get('BUILD_TAG', "MyPythonBuild")
+    build_tag = environ.get('BUILD_TAG', "Python-Pytest-Selenium-VDC")
     username = environ.get('SAUCE_USERNAME', None)
     access_key = environ.get('SAUCE_ACCESS_KEY', None)
 
