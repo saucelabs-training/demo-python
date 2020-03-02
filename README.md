@@ -75,8 +75,10 @@ These samples are executed using Pipenv for simplicity. You can find a list of a
 
 The organization of these samples are as follows:
 
+```
 -- driver (appium or selenium) 
    |- test tooling
       |- test environment (virtual or real devices)
          |- additional resources needed (if any)
             |- sample test framework
+```            
