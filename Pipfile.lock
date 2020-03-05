@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9560dd6659e7ad6672194364c16d788e108e27570d9177a94eb88b9bfc572698"
+            "sha256": "6772913c1b4a81824c13ed145b0c58a43b7e3988ecfc17793195d2d281cf1a33"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -58,10 +58,10 @@
         },
         "idna": {
             "hashes": [
-                "sha256:c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407",
-                "sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"
+                "sha256:7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb",
+                "sha256:a068a21ceac8a4d63dbfd964670474107f541babbd2250d61922f029858365fa"
             ],
-            "version": "==2.8"
+            "version": "==2.9"
         },
         "importlib-metadata": {
             "hashes": [
@@ -80,10 +80,10 @@
         },
         "packaging": {
             "hashes": [
-                "sha256:170748228214b70b672c581a3dd610ee51f733018650740e98c7df862a583f73",
-                "sha256:e665345f9eef0c621aa0bf2f8d78cf6d21904eef16a93f020240b704a57f1334"
+                "sha256:3c292b474fda1671ec57d46d739d072bfd495a4f51ad01a055121d81e952b7a3",
+                "sha256:82f77b9bee21c1bafbf35a84905d604d5d1223801d639cf3ed140bd651c08752"
             ],
-            "version": "==20.1"
+            "version": "==20.3"
         },
         "pluggy": {
             "hashes": [
@@ -147,11 +147,11 @@
         },
         "requests": {
             "hashes": [
-                "sha256:11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4",
-                "sha256:9cf5292fcd0f598c671cfc1e0d7d1a7f13bb8085e9a590f48c010551dc6c4b31"
+                "sha256:43999036bfa82904b6af1d99e4882b560e5e2c68e5c4b0aa03b655f3d7d73fee",
+                "sha256:b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
             ],
             "index": "pypi",
-            "version": "==2.22.0"
+            "version": "==2.23.0"
         },
         "robotframework": {
             "hashes": [
@@ -163,10 +163,10 @@
         },
         "robotframework-pabot": {
             "hashes": [
-                "sha256:7f2cfa16682dc2bf523c063850d46e4e7e1a6aeda85319cd3dac32cae90dc1e0"
+                "sha256:10e2fd464d4ef26c67c13a614b4e22f12596cc09609b435af13a691dc62ba0a7"
             ],
             "index": "pypi",
-            "version": "==1.0.0"
+            "version": "==1.0.1"
         },
         "robotframework-seleniumlibrary": {
             "hashes": [
@@ -182,6 +182,13 @@
                 "sha256:b95e75d5de49f4ba5eefb985469ee6dd3604042faed7198d2a77be35e56aea9e"
             ],
             "version": "==1.1"
+        },
+        "saucebindings": {
+            "hashes": [
+                "sha256:253eb320de35daf0e379b7e13040c3ac35799b6388a143f292f0b040ead2da4e"
+            ],
+            "index": "pypi",
+            "version": "==0.1.2"
         },
         "sauceclient": {
             "hashes": [
@@ -229,10 +236,10 @@
         },
         "zipp": {
             "hashes": [
-                "sha256:12248a63bbdf7548f89cb4c7cda4681e537031eda29c02ea29674bc6854460c2",
-                "sha256:7c0f8e91abc0dc07a5068f315c52cb30c66bfbc581e5b50704c8a2f6ebae794a"
+                "sha256:aa36550ff0c0b7ef7fa639055d797116ee891440eac1a56f378e2d3179e0320b",
+                "sha256:c599e4d75c98f6798c509911d08a22e6c021d074469042177c8c86fb92eefd96"
             ],
-            "version": "==3.0.0"
+            "version": "==3.1.0"
         }
     },
     "develop": {}
