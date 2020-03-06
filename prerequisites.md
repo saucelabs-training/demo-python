@@ -5,7 +5,7 @@
 * Install [a Framework](#install-a-test-framework)
     * [Pytest](#install-pytest)
     * [UnitTest](#install-unittest)
-* (Optional) Install an [IDE](~/prerequisites.md#install-an-ide)
+* (Optional) Install an [IDE](#install-an-ide)
     
 <br />
 
@@ -144,5 +144,5 @@ It's recommended to install and Integrated Developer Environment, or a text edit
 * (Recommended) Use a `virtualenv` to manage dependencies. See the following documentation for more details:
     * [Setup `virtualenv` in PyCharm](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html)
     * [Setup `virtualenv` in Komodo IDE](http://docs.komodoide.com/Manual/tutorial/pythontut#python-tutorial-komodo-ide-only_analyzing-the-python-files_setting-up-the-preprocess-py-program_lines-59-to-65-importing-standard-python-modules)
-    * [Configure `virtualenv` in the command line](https://virtualenv.pypa.io/en/latest/userguide/#usage)
+    * [Configure `virtualenv` in the command line](https://virtualenv.pypa.io/en/latest/user_guide.html)
 <br />
