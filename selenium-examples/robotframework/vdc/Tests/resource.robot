@@ -14,17 +14,17 @@ Library  SeleniumLibrary
 
 ${browser}          ${browserName}
 ${capabilities}     ${EMPTY.join(${_tmp})} 
-${remote_url}       http://ondemand.saucelabs.com/wd/hub
+${remote_url}       ${DATA_CENTER}
 
 *** Keywords ***
 
 Open login page
-    Open browser  http://www.saucedemo.com  browser=${browser}
+    Open browser  https://www.saucedemo.com  browser=${browser}
     ...  remote_url=${remote_url}
     ...  desired_capabilities=${capabilities}
 
 Open inventory page
-    Open browser  http://www.saucedemo.com/inventory.html  browser=${browserName}
+    Open browser  https://www.saucedemo.com/inventory.html  browser=${browserName}
     ...  remote_url=${remote_url}
     ...  desired_capabilities=${capabilities}
 

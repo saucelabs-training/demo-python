@@ -8,7 +8,23 @@ from selenium.webdriver.remote.remote_connection import RemoteConnection
 import urllib3
 urllib3.disable_warnings()
 
-browsers = [
+emusim_browsers = [
+    {
+        "deviceName": "iPhone X Simulator",
+        "browserName": "Safari",
+        "deviceOrientation": "portrait",
+        "platformVersion": "12.2",
+        "platformName": "iOS"
+    }, {
+        "deviceName": "Google Pixel 3 GoogleAPI Emulator",
+        "browserName": "Chrome",
+        "deviceOrientation": "portrait",
+        "platformVersion": "10.0",
+        "platformName": "Android"
+    }]
+
+
+desktop_browsers = [
     {
         "platform": "Windows 10",
         "browserName": "MicrosoftEdge",
@@ -39,15 +55,67 @@ browsers = [
     }]
 
 
-@pytest.fixture(params=browsers)
-def driver(request):
+def pytest_addoption(parser):
+    parser.addoption("--dc", action="store", default='us', help="Set Sauce Labs Data Center (US or EU)")
+
+
+@pytest.fixture
+def data_center(request):
+    return request.config.getoption('--dc')
+
+
+@pytest.fixture(params=emusim_browsers)
+def emusim_driver(request, data_center):
+
+    test_name = request.node.name
+    build_tag = environ.get('BUILD_TAG', "Python-Pytest-Selenium-EMUSIM")
+    username = environ.get('SAUCE_USERNAME', None)
+    access_key = environ.get('SAUCE_ACCESS_KEY', None)
+
+    if data_center and data_center.lower() == 'eu':
+        selenium_endpoint = "https://{}:{}@ondemand.eu-central-1.saucelabs.com:443/wd/hub".format(username, access_key)
+    else:
+        selenium_endpoint = "https://{}:{}@ondemand.saucelabs.com:443/wd/hub".format(username, access_key)
+
+    caps = dict()
+    caps.update(request.param)
+    caps.update({'build': build_tag})
+    caps.update({'name': test_name})
+
+    browser = webdriver.Remote(
+        command_executor=selenium_endpoint,
+        desired_capabilities=caps, 
+        keep_alive=True
+    )
+
+    # This is specifically for SauceLabs plugin.
+    # In case test fails after selenium session creation having this here will help track it down.
+    if browser is not None:
+        print("SauceOnDemandSessionID={} job-name={}".format(browser.session_id, test_name))
+    else:
+        raise WebDriverException("Never created!")
+
+    yield browser
+
+    # Teardown starts here
+    # report results
+    # use the test result to send the pass/fail status to Sauce Labs
+    sauce_result = "failed" if request.node.rep_call.failed else "passed"
+    browser.execute_script("sauce:job-result={}".format(sauce_result))
+    browser.quit()
+
+@pytest.fixture(params=desktop_browsers)
+def vdc_driver(request, data_center):
 
     test_name = request.node.name
     build_tag = environ.get('BUILD_TAG', "Python-Pytest-Selenium-VDC")
     username = environ.get('SAUCE_USERNAME', None)
     access_key = environ.get('SAUCE_ACCESS_KEY', None)
 
-    selenium_endpoint = "https://{}:{}@ondemand.saucelabs.com:443/wd/hub".format(username, access_key)
+    if data_center and data_center.lower() == 'eu':
+        selenium_endpoint = "https://{}:{}@ondemand.eu-central-1.saucelabs.com:443/wd/hub".format(username, access_key)
+    else:
+        selenium_endpoint = "https://{}:{}@ondemand.saucelabs.com:443/wd/hub".format(username, access_key)
 
     caps = dict()
     caps.update(request.param)
