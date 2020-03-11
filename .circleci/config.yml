@@ -42,9 +42,15 @@ jobs:
       - run: 
           name: "Install Pipenv"
           command: "sudo pip install --user pipenv"
+      - run: 
+          name: "Install Needed Dependencies"
+          command: "pipenv install"
       - run:
           name: "Run Pytest Examples"
-          command: "pipenv run pytest-vdc"
+          command: "pipenv run pytest-vdc-us"
+      - run:
+          name: "Run Robot Examples"
+          command: "pipenv run robot-vdc-us"
       - run:
           name: "Shut Down Sauce Connect Tunnel"
           command: |

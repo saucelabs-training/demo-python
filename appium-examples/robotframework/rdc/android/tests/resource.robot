@@ -7,7 +7,7 @@ ${PLATFORM_NAME}        %{platformName}
 ${PLATFORM_VERSION}     %{platformVersion}
 ${DEVICE_ORIENTATION}   %{deviceOrientation}
 ${PRIVATE_DEVICES_ONLY}  %{privateDevicesOnly}
-${REMOTE_URL}       http://us1.appium.testobject.com/wd/hub/
+${REMOTE_URL}       ${DATA_CENTER}
 
 *** Keywords ***
 Start Session

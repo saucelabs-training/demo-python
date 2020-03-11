@@ -22,7 +22,7 @@ def driver(request):
     test_name = request.node.name
     caps['name'] = test_name
 
-    sauce_url = "http://us1.appium.testobject.com/wd/hub"
+    sauce_url = "https://us1.appium.testobject.com/wd/hub"
 
     browser = webdriver.Remote(sauce_url, desired_capabilities=caps)
     
