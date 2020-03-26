@@ -16,15 +16,25 @@ def data_center(request):
     return request.config.getoption('--dc')
 
 
-@pytest.fixture
-def ios_driver(request, data_center):
-    
-    caps = {
+ios_caps = [{
         'platformName':     'iOS',
-        'platformVersion':  '12.1.4',
+        'deviceOrientation':'portrait',
+        'privateDevicesOnly': False, 
+        'phoneOnly': True
+}]
+
+android_caps = [{
+        'deviceName': 'Google.*',
+        'platformName': 'Android',
+        'platformVersion': '9',
         'deviceOrientation':'portrait',
         'privateDevicesOnly': False 
-    }
+}]
+
+@pytest.fixture(params=ios_caps)
+def ios_driver(request, data_center):
+    
+    caps = request.param
 
     rdc_key = os.environ['TESTOBJECT_SAMPLE_IOS']
     caps['testobject_api_key'] = rdc_key
@@ -51,16 +61,10 @@ def ios_driver(request, data_center):
     driver.quit()
 
 
-@pytest.fixture
+@pytest.fixture(params=android_caps)
 def android_driver(request, data_center):
     
-    caps = {
-        'deviceName': 'Google.*',
-        'platformName': 'Android',
-        'platformVersion': '9',
-        'deviceOrientation':'portrait',
-        'privateDevicesOnly': False 
-    }
+    caps = request.param
 
     rdc_key = os.environ['TESTOBJECT_SAMPLE_ANDROID']
     caps['testobject_api_key'] = rdc_key
