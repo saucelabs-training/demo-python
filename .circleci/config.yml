@@ -11,22 +11,22 @@ jobs:
           command: |
              sudo pip install --upgrade pip
              sudo pip install -r on-boarding-modules/requirements.txt
-      - run:
-          name: "Install Sauce Connect Client"
-          command: |
-            sudo apt-get install lsof
-            curl https://saucelabs.com/downloads/sc-4.4.12-linux.tar.gz -o saucelabs.tar.gz
-            tar -xzf saucelabs.tar.gz
-      - run:
-          name: "Launch Tunnel"
-          background: true
-          command: |
-            cd sc-*
-            bin/sc --pidfile /tmp/sc.pid1 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-python-tunnel --no-remove-colliding-tunnels --se-port 4445
+#      - run:
+#          name: "Install Sauce Connect Client"
+#          command: |
+#            sudo apt-get install lsof
+#            curl https://saucelabs.com/downloads/sc-4.4.12-linux.tar.gz -o saucelabs.tar.gz
+#            tar -xzf saucelabs.tar.gz
+#      - run:
+#          name: "Launch Tunnel"
+#          background: true
+#          command: |
+#            cd sc-*
+#            bin/sc --pidfile /tmp/sc.pid1 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-python-tunnel --no-remove-colliding-tunnels --se-port 4445
       - run:
           name: "Run Python Test"
           command: |
-            while ! lsof -i:4445 -t; do sleep 3; done
+#            while ! lsof -i:4445 -t; do sleep 3; done
             python on-boarding-modules/python-examples/test_module2.py
       - run:
           name: "Run PyTests"
