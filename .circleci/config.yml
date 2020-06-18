@@ -39,7 +39,12 @@ jobs:
           name: "Run UnitTests"
           command: |
             python -m unittest on-boarding-modules/unittest-examples/*.py
-      - run: 
+      - run:
+          name: "Run W3C Examples"
+          command: |
+            pytest w3c-examples/pytest/*.py
+            python -m unittest w3c-examples/unittest/*.py
+      - run:
           name: "Install Pipenv"
           command: "sudo pip install --user pipenv"
       - run: 
