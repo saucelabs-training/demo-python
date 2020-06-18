@@ -26,7 +26,6 @@ jobs:
       - run:
           name: "Run Python Test"
           command: |
-#            while ! lsof -i:4445 -t; do sleep 3; done
             python on-boarding-modules/python-examples/test_module2.py
       - run:
           name: "Run PyTests"
@@ -56,7 +55,7 @@ jobs:
       - run:
           name: "Run Robot Examples"
           command: "pipenv run robot-vdc-us"
-      - run:
-          name: "Shut Down Sauce Connect Tunnel"
-          command: |
-            kill -9 `cat /tmp/sc.pid1`
+#      - run:
+#          name: "Shut Down Sauce Connect Tunnel"
+#          command: |
+#            kill -9 `cat /tmp/sc.pid1`
