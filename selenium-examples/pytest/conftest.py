@@ -26,29 +26,29 @@ emusim_browsers = [
 
 desktop_browsers = [
     {
-        "platform": "Windows 10",
+        "platformName": "Windows 10",
         "browserName": "MicrosoftEdge",
-        "version": "latest",
+        "platformVersion": "latest",
         "sauce:options": {}
     }, {
-        "platform": "Windows 10",
+        "platformName": "Windows 10",
         "browserName": "firefox",
-        "version": "latest-1",
+        "platformVersion": "latest-1",
         "sauce:options": {}
     }, {
-        "platform": "Windows 10",
+        "platformName": "Windows 10",
         "browserName": "internet explorer",
-        "version": "latest",
+        "platformVersion": "latest",
         "sauce:options": {}
     }, {
-        "platform": "OS X 10.13",
+        "platformName": "OS X 10.14",
         "browserName": "safari",
-        "version": "latest-1",
+        "platformVersion": "latest-1",
         "sauce:options": {}
     }, {
-        "platform": "OS X 10.14",
+        "platformName": "OS X 10.14",
         "browserName": "chrome",
-        "version": "latest",
+        "platformVersion": "latest",
         "sauce:options": {
             "extendedDebugging": True
         }
