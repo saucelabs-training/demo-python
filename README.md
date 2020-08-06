@@ -82,3 +82,10 @@ The organization of these samples are as follows:
          |- additional resources needed (if any)
             |- sample test framework
 ```            
+For example, to run tests with `pytest`:
+
+```
+sudo pip install pipenv
+pipenv install
+pipenv run pytest-vdc-us
+```
