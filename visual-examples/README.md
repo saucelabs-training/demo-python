@@ -11,14 +11,14 @@ Please install [pipenv](https://pypi.org/project/pipenv/) first.
 
 ## Getting started
 
-First install the packages to your local environment:
+First install the packages to your local environment by running this command in the root of this project (`demo-python/`):
 
 ```bash
 pipenv install
 ```
 
-Then to run the example tests, execute this:
+Then to run the example tests, execute this in the root directory of this project (`demo-python/`):
 
 ```bash
-pipenv run test
+pipenv run visual-test
 ```
