@@ -1,5 +1,5 @@
 [packages]
-pytest = "~=4.4.0"
+pytest = "==6.0.0"
 pytest-xdist = "*"
 Appium-Python-Client = "==0.50"
 selenium = "==3.141.0"
@@ -36,3 +36,5 @@ robot-rdc-eu-ios = "robot --variable DATA_CENTER:'https://eu1.appium.testobject.
 
 pytest-saucebindings = "pytest -n2 sauce-bindings/pytest/"
 robot-saucebindings = "pabot --variable BROWSER_NAME:firefox sauce-bindings/robotframework/"
+
+visual-test = "pytest ./visual-examples/webdriver-tests.py"
