@@ -55,7 +55,7 @@ Detailed Instructions located in the [prerequisites](prerequisites.md#python-pre
     
 ### Run the Onboarding Scripts
 
-If you would like to get started with using Python and Sauce Labs with some guidance, please look at the Onboarding scripts provided in the [`on-boarding-modules`](https://github.com/saucelabs-training/demo-python/on-boarding-modules/README.md) directory.
+If you would like to get started with using Python and Sauce Labs with some guidance, please look at the Onboarding scripts provided in the [`on-boarding-modules`](https://github.com/saucelabs-training/demo-python/blob/master/on-boarding-modules/README.md) directory.
 
 <br />
 
