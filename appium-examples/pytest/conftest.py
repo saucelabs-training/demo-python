@@ -31,6 +31,24 @@ android_caps = [{
         'privateDevicesOnly': False 
 }]
 
+@pytest.fixture
+def ios_up_driver(request):
+    caps = {
+        'username': os.environ['SAUCE_USERNAME'],
+        'accessKey': os.environ['SAUCE_ACCESS_KEY'],
+        'deviceName': 'iPhone X.*',
+        'platformName': 'iOS',
+        'name': request.node.name,
+        'app': 'storage:filename=iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.3.0.ipa'
+    }
+
+    sauce_url = 'https://ondemand.us-west-1.saucelabs.com/wd/hub'
+
+    driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
+    yield driver
+    driver.quit()
+
+
 @pytest.fixture(params=ios_caps)
 def ios_driver(request, data_center):
     
