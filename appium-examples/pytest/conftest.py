@@ -36,9 +36,10 @@ def ios_up_driver(request):
     caps = {
         'username': os.environ['SAUCE_USERNAME'],
         'accessKey': os.environ['SAUCE_ACCESS_KEY'],
-        'deviceName': 'iPhone X.*',
+        'deviceName': 'iP.*',
         'platformName': 'iOS',
         'name': request.node.name,
+        'tunnelIdentifier': 'rdcTunnel',
         'app': 'storage:filename=iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.3.0.ipa'
     }
 
