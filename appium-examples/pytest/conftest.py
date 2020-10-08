@@ -16,21 +16,6 @@ def data_center(request):
     return request.config.getoption('--dc')
 
 
-ios_caps = [{
-        'platformName':     'iOS',
-        'deviceOrientation':'portrait',
-        'privateDevicesOnly': False, 
-        'phoneOnly': True
-}]
-
-android_caps = [{
-        'deviceName': 'Google.*',
-        'platformName': 'Android',
-        'platformVersion': '9',
-        'deviceOrientation':'portrait',
-        'privateDevicesOnly': False 
-}]
-
 @pytest.fixture
 def ios_up_driver(request):
     caps = {
@@ -42,17 +27,25 @@ def ios_up_driver(request):
         'app': 'storage:filename=iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.3.0.ipa'
     }
 
-    sauce_url = 'https://ondemand.us-west-1.saucelabs.com/wd/hub'
+    if data_center and data_center.lower() == 'eu':
+        sauce_url = "https://ondemand.eu-central-1.saucelabs.com/wd/hub"
+    else:   
+        sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub"
 
     driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
     yield driver
     driver.quit()
 
 
-@pytest.fixture(params=ios_caps)
+@pytest.fixture
 def ios_driver(request, data_center):
     
-    caps = request.param
+    caps = {
+        'platformName':     'iOS',
+        'deviceOrientation':'portrait',
+        'privateDevicesOnly': False, 
+        'phoneOnly': True
+    }
 
     rdc_key = os.environ['TESTOBJECT_SAMPLE_IOS']
     caps['testobject_api_key'] = rdc_key
@@ -82,7 +75,13 @@ def ios_driver(request, data_center):
 @pytest.fixture(params=android_caps)
 def android_driver(request, data_center):
     
-    caps = request.param
+    caps = {
+        'deviceName': 'Google.*',
+        'platformName': 'Android',
+        'platformVersion': '9',
+        'deviceOrientation':'portrait',
+        'privateDevicesOnly': False 
+    }
 
     rdc_key = os.environ['TESTOBJECT_SAMPLE_ANDROID']
     caps['testobject_api_key'] = rdc_key
@@ -119,7 +118,10 @@ def android_up_driver(request):
         'app': 'storage:filename=Android.SauceLabs.Mobile.Sample.app.2.3.0.apk'
     }
 
-    sauce_url = 'https://ondemand.us-west-1.saucelabs.com/wd/hub'
+    if data_center and data_center.lower() == 'eu':
+        sauce_url = 'https://ondemand.eu-central-1.saucelabs.com/wd/hub'
+    else:
+        sauce_url = 'https://ondemand.us-west-1.saucelabs.com/wd/hub'
 
     driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
     yield driver
