@@ -1,6 +1,6 @@
-def test_blank_credentials(ios_driver):
-    ios_driver.find_element_by_accessibility_id("test-Username").send_keys("")
-    ios_driver.find_element_by_accessibility_id("test-Password").send_keys("")
-    ios_driver.find_element_by_accessibility_id("test-LOGIN").click()
+def test_blank_credentials(ios_to_driver):
+    ios_to_driver.find_element_by_accessibility_id("test-Username").send_keys("")
+    ios_to_driver.find_element_by_accessibility_id("test-Password").send_keys("")
+    ios_to_driver.find_element_by_accessibility_id("test-LOGIN").click()
 
-    assert ios_driver.find_element_by_accessibility_id("test-Error message").is_displayed()
+    assert ios_to_driver.find_element_by_accessibility_id("test-Error message").is_displayed()

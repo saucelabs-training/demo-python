@@ -1,6 +1,5 @@
 import pytest
 import os
-import requests
 import json
 import re
 
@@ -17,7 +16,7 @@ def data_center(request):
 
 
 @pytest.fixture
-def ios_up_driver(request):
+def ios_up_driver(request, data_center):
     caps = {
         'username': os.environ['SAUCE_USERNAME'],
         'accessKey': os.environ['SAUCE_ACCESS_KEY'],
@@ -38,7 +37,7 @@ def ios_up_driver(request):
 
 
 @pytest.fixture
-def ios_driver(request, data_center):
+def ios_to_driver(request, data_center):
     
     caps = {
         'platformName':     'iOS',
@@ -72,13 +71,12 @@ def ios_driver(request, data_center):
     driver.quit()
 
 
-@pytest.fixture(params=android_caps)
-def android_driver(request, data_center):
+@pytest.fixture
+def android_to_driver(request, data_center):
     
     caps = {
         'deviceName': 'Google.*',
         'platformName': 'Android',
-        'platformVersion': '9',
         'deviceOrientation':'portrait',
         'privateDevicesOnly': False 
     }
@@ -88,7 +86,7 @@ def android_driver(request, data_center):
     test_name = request.node.name
     caps['name'] = test_name
 
-    if data_center and data_center.lower() == 'eu':
+    if data_center and data_center().lower() == 'eu':
         sauce_url = "https://appium.testobject.com/wd/hub"
     else:   
         sauce_url = "https://us1.appium.testobject.com/wd/hub"
@@ -108,7 +106,7 @@ def android_driver(request, data_center):
     driver.quit()
 
 @pytest.fixture
-def android_up_driver(request):
+def android_up_driver(request, data_center):
     caps = {
         'username': os.environ['SAUCE_USERNAME'],
         'accessKey': os.environ['SAUCE_ACCESS_KEY'],
