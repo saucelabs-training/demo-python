@@ -36,10 +36,9 @@ def ios_up_driver(request):
     caps = {
         'username': os.environ['SAUCE_USERNAME'],
         'accessKey': os.environ['SAUCE_ACCESS_KEY'],
-        'deviceName': 'iP.*',
+        'deviceName': 'iPhone.*',
         'platformName': 'iOS',
         'name': request.node.name,
-        'tunnelIdentifier': 'rdcTunnel',
         'app': 'storage:filename=iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.3.0.ipa'
     }
 
@@ -107,4 +106,21 @@ def android_driver(request, data_center):
 
     yield driver
     
+    driver.quit()
+
+@pytest.fixture
+def android_up_driver(request):
+    caps = {
+        'username': os.environ['SAUCE_USERNAME'],
+        'accessKey': os.environ['SAUCE_ACCESS_KEY'],
+        'deviceName': 'Google.*',
+        'platformName': 'Android',
+        'name': request.node.name,
+        'app': 'storage:filename=Android.SauceLabs.Mobile.Sample.app.2.3.0.apk'
+    }
+
+    sauce_url = 'https://ondemand.us-west-1.saucelabs.com/wd/hub'
+
+    driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
+    yield driver
     driver.quit()
