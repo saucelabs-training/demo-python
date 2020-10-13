@@ -1,0 +1,4 @@
+--variable deviceOrientation:portrait
+--variable platformName:Android
+--variable platformVersion:9
+--variable privateDevicesOnly:False
