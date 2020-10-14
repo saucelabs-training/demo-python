@@ -2,16 +2,21 @@
 Library  AppiumLibrary
 
 *** Variables ***
-${KEY}                  %{TESTOBJECT_SAMPLE_IOS}
-${PLATFORM_NAME}        %{platformName} 
-${PLATFORM_VERSION}     %{platformVersion}
-${DEVICE_ORIENTATION}   %{deviceOrientation}
+${PLATFORM_NAME}        %{platformName}
+${DEVICE_NAME}          %{deviceName}
 ${PRIVATE_DEVICES_ONLY}  %{privateDevicesOnly}
 ${REMOTE_URL}       ${DATA_CENTER}
 
 *** Keywords ***
 Start Session
-    Open application  ${REMOTE_URL}  platformName=${PLATFORM_NAME}  platformVersion=${PLATFORM_VERSION}  deviceOrientation=${DEVICE_ORIENTATION}  browserName=''  testobject_api_key=${KEY}  privateDevicesOnly=${PRIVATE_DEVICES_ONLY}  name=${TEST_NAME}  
+    Open application  ${REMOTE_URL}
+    ...  platformName=${PLATFORM_NAME}
+    ...  deviceName=${DEVICE_NAME}
+    ...  username=%{SAUCE_USERNAME}
+    ...  accessKey=%{SAUCE_ACCESS_KEY}
+    ...  privateDevicesOnly=${PRIVATE_DEVICES_ONLY}
+    ...  app=storage:filename=iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.3.0.ipa
+    ...  name=${TEST_NAME} 
 
 End Session
     Close all applications

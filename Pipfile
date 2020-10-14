@@ -34,10 +34,16 @@ robot-vdc-us-ie = "pabot --variable DATA_CENTER:'https://ondemand.saucelabs.com/
 robot-vdc-eu-ie = "pabot --variable DATA_CENTER:'https://ondemand.eu-central-1.saucelabs.com/wd/hub' -A selenium-examples/robotframework/vdc/ie_config.txt selenium-examples/robotframework/vdc/Tests/"
 robot-vdc-us = "pabot --argumentfile1 selenium-examples/robotframework/vdc/chrome_config.txt --argumentfile2 selenium-examples/robotframework/vdc/firefox_config.txt --argumentfile3 selenium-examples/robotframework/vdc/ie_config.txt --variable DATA_CENTER:'https://ondemand.saucelabs.com/wd/hub' selenium-examples/robotframework/vdc/Tests/"
 robot-vdc-eu = "pabot --argumentfile1 selenium-examples/robotframework/vdc/chrome_config.txt --argumentfile2 selenium-examples/robotframework/vdc/firefox_config.txt --argumentfile3 selenium-examples/robotframework/vdc/ie_config.txt --variable DATA_CENTER:'https://ondemand.eu-central-1.saucelabs.com/wd/hub' selenium-examples/robotframework/vdc/Tests/"
-robot-rdc-us-android = "robot --variable DATA_CENTER:'https://us1.appium.testobject.com/wd/hub/' -A appium-examples/robotframework/rdc/android/android_config.txt appium-examples/robotframework/rdc/android/tests/"
-robot-rdc-eu-android = "robot --variable DATA_CENTER:'https://eu1.appium.testobject.com/wd/hub/' -A appium-examples/robotframework/rdc/android/android_config.txt appium-examples/robotframework/rdc/android/tests/"
-robot-rdc-us-ios = "robot --variable DATA_CENTER:'https://us1.appium.testobject.com/wd/hub/' -A appium-examples/robotframework/rdc/ios/iphone_config.txt appium-examples/robotframework/rdc/ios/tests/"
-robot-rdc-eu-ios = "robot --variable DATA_CENTER:'https://eu1.appium.testobject.com/wd/hub/' -A appium-examples/robotframework/rdc/ios/iphone_config.txt appium-examples/robotframework/rdc/ios/tests/"
+
+robot-rdc-us-android-legacyTO = "robot --variable DATA_CENTER:'https://us1.appium.testobject.com/wd/hub/' -A appium-examples/robotframework/rdc/legacyTO/android/android_config.txt appium-examples/robotframework/rdc/android/tests/"
+robot-rdc-eu-android-legacyTO = "robot --variable DATA_CENTER:'https://eu1.appium.testobject.com/wd/hub/' -A appium-examples/robotframework/rdc/legacyTO/android/android_config.txt appium-examples/robotframework/rdc/android/tests/"
+robot-rdc-us-ios-legacyTO = "robot --variable DATA_CENTER:'https://us1.appium.testobject.com/wd/hub/' -A appium-examples/robotframework/rdc/legacyTO/ios/iphone_config.txt appium-examples/robotframework/rdc/ios/tests/"
+robot-rdc-eu-ios-legacyTO = "robot --variable DATA_CENTER:'https://eu1.appium.testobject.com/wd/hub/' -A appium-examples/robotframework/rdc/legacyTO/ios/iphone_config.txt appium-examples/robotframework/rdc/ios/tests/"
+
+robot-rdc-us-android-UP = "robot --variable DATA_CENTER:'https://ondemand.us-west-1.saucelabs.com/wd/hub' -A appium-examples/robotframework/rdc/android/android_config.txt appium-examples/robotframework/rdc/android/tests/"
+robot-rdc-eu-android-UP = "robot --variable DATA_CENTER:'https://ondemand.eu-central-1.saucelabs.com/wd/hub' -A appium-examples/robotframework/rdc/android/android_config.txt appium-examples/robotframework/rdc/android/tests/"
+robot-rdc-us-ios-UP = "robot --variable DATA_CENTER:'https://ondemand.us-west-1.saucelabs.com/wd/hub' -A appium-examples/robotframework/rdc/ios/iphone_config.txt appium-examples/robotframework/rdc/ios/tests/"
+robot-rdc-eu-ios-UP = "robot --variable DATA_CENTER:'https://ondemand.eu-central-1.saucelabs.com/wd/hub' -A appium-examples/robotframework/rdc/ios/iphone_config.txt appium-examples/robotframework/rdc/ios/tests/"
 
 pytest-saucebindings = "pytest -n2 sauce-bindings/pytest/"
 robot-saucebindings = "pabot --variable BROWSER_NAME:firefox sauce-bindings/robotframework/"
