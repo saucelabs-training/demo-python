@@ -27,9 +27,33 @@ def ios_up_driver(request, data_center):
     }
 
     if data_center and data_center.lower() == 'eu':
-        sauce_url = "https://ondemand.eu-central-1.saucelabs.com/wd/hub"
+        sauce_url = "http://ondemand.eu-central-1.saucelabs.com/wd/hub"
     else:   
-        sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub"
+        sauce_url = "http://ondemand.us-west-1.saucelabs.com/wd/hub"
+
+    driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
+    yield driver
+    driver.quit()
+
+
+@pytest.fixture
+def ios_simulator(request, data_center):
+    caps = {
+        'username': os.environ['SAUCE_USERNAME'],
+        'accessKey': os.environ['SAUCE_ACCESS_KEY'],
+        'deviceName': 'iPhone XS Simulator',
+        'appiumVersion': '1.17.1',
+        'platformName': 'iOS',
+        'platformVersion': "13.4",
+        'deviceOrientation': "portrait",
+        'name': request.node.name,
+        'app': 'storage:ed06b77a-3ca0-406e-93be-bff712d6bf0e'
+    }
+
+    if data_center and data_center.lower() == 'eu':
+        sauce_url = "http://ondemand.eu-central-1.saucelabs.com/wd/hub"
+    else:   
+        sauce_url = "http://ondemand.us-west-1.saucelabs.com/wd/hub"
 
     driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
     yield driver
@@ -52,9 +76,9 @@ def ios_to_driver(request, data_center):
     caps['name'] = test_name
 
     if data_center and data_center.lower() == 'eu':
-        sauce_url = "https://appium.testobject.com/wd/hub"
+        sauce_url = "http://appium.testobject.com/wd/hub"
     else:   
-        sauce_url = "https://us1.appium.testobject.com/wd/hub"
+        sauce_url = "http://us1.appium.testobject.com/wd/hub"
 
     driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
     
@@ -87,9 +111,9 @@ def android_to_driver(request, data_center):
     caps['name'] = test_name
 
     if data_center and data_center().lower() == 'eu':
-        sauce_url = "https://appium.testobject.com/wd/hub"
+        sauce_url = "http://appium.testobject.com/wd/hub"
     else:   
-        sauce_url = "https://us1.appium.testobject.com/wd/hub"
+        sauce_url = "http://us1.appium.testobject.com/wd/hub"
 
     driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
     
@@ -105,6 +129,7 @@ def android_to_driver(request, data_center):
     
     driver.quit()
 
+
 @pytest.fixture
 def android_up_driver(request, data_center):
     caps = {
@@ -117,9 +142,70 @@ def android_up_driver(request, data_center):
     }
 
     if data_center and data_center.lower() == 'eu':
-        sauce_url = 'https://ondemand.eu-central-1.saucelabs.com/wd/hub'
+        sauce_url = 'http://ondemand.eu-central-1.saucelabs.com/wd/hub'
     else:
-        sauce_url = 'https://ondemand.us-west-1.saucelabs.com/wd/hub'
+        sauce_url = 'http://ondemand.us-west-1.saucelabs.com/wd/hub'
+
+    driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
+    yield driver
+    driver.quit()
+
+
+@pytest.fixture
+def android_to_driver(request, data_center):
+    
+    caps = {
+        'deviceName': 'Google.*',
+        'platformName': 'Android',
+        'deviceOrientation':'portrait',
+        'privateDevicesOnly': False 
+    }
+
+    rdc_key = os.environ['TESTOBJECT_SAMPLE_ANDROID']
+    caps['testobject_api_key'] = rdc_key
+    test_name = request.node.name
+    caps['name'] = test_name
+
+    if data_center and data_center().lower() == 'eu':
+        sauce_url = "http://appium.testobject.com/wd/hub"
+    else:   
+        sauce_url = "http://us1.appium.testobject.com/wd/hub"
+
+    driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
+    
+    # This is specifically for SauceLabs plugin.
+    # In case test fails after selenium session creation having this here will help track it down.
+    # creates one file per test non ideal but xdist is awful
+    if driver:
+        print("SauceOnDemandSessionID={} job-name={}\n".format(driver.session_id, test_name))
+    else:
+        raise WebDriverException("Never created!")
+
+    yield driver
+    
+    driver.quit()
+
+
+@pytest.fixture
+def android_emusim(request, data_center):
+    caps = {
+        'username': os.environ['SAUCE_USERNAME'],
+        'accessKey': os.environ['SAUCE_ACCESS_KEY'],
+        'deviceName': 'Android GoogleAPI Emulator',
+        'platformName': 'Android',
+        'platformVersion': '10.0',
+        'deviceOrientation': 'portrait',
+        'name': request.node.name,
+        'appiumVersion': '1.17.1',
+        'appWaitActivity': 'com.swaglabsmobileapp.MainActivity',
+        'app': 'storage:b0d10b0d-fa29-48d1-9417-ccd3ec138248'
+
+    }
+
+    if data_center and data_center.lower() == 'eu':
+        sauce_url = 'http://ondemand.eu-central-1.saucelabs.com/wd/hub'
+    else:
+        sauce_url = 'http://ondemand.us-west-1.saucelabs.com/wd/hub'
 
     driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
     yield driver
