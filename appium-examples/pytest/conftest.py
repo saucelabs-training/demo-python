@@ -47,7 +47,7 @@ def ios_simulator(request, data_center):
         'platformVersion': "13.4",
         'deviceOrientation': "portrait",
         'name': request.node.name,
-        'app': 'storage:ed06b77a-3ca0-406e-93be-bff712d6bf0e'
+        'app': 'storage:filename=iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.0.zip'
     }
 
     if data_center and data_center.lower() == 'eu':
@@ -152,41 +152,6 @@ def android_up_driver(request, data_center):
 
 
 @pytest.fixture
-def android_to_driver(request, data_center):
-    
-    caps = {
-        'deviceName': 'Google.*',
-        'platformName': 'Android',
-        'deviceOrientation':'portrait',
-        'privateDevicesOnly': False 
-    }
-
-    rdc_key = os.environ['TESTOBJECT_SAMPLE_ANDROID']
-    caps['testobject_api_key'] = rdc_key
-    test_name = request.node.name
-    caps['name'] = test_name
-
-    if data_center and data_center().lower() == 'eu':
-        sauce_url = "http://appium.testobject.com/wd/hub"
-    else:   
-        sauce_url = "http://us1.appium.testobject.com/wd/hub"
-
-    driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
-    
-    # This is specifically for SauceLabs plugin.
-    # In case test fails after selenium session creation having this here will help track it down.
-    # creates one file per test non ideal but xdist is awful
-    if driver:
-        print("SauceOnDemandSessionID={} job-name={}\n".format(driver.session_id, test_name))
-    else:
-        raise WebDriverException("Never created!")
-
-    yield driver
-    
-    driver.quit()
-
-
-@pytest.fixture
 def android_emusim(request, data_center):
     caps = {
         'username': os.environ['SAUCE_USERNAME'],
@@ -198,7 +163,7 @@ def android_emusim(request, data_center):
         'name': request.node.name,
         'appiumVersion': '1.17.1',
         'appWaitActivity': 'com.swaglabsmobileapp.MainActivity',
-        'app': 'storage:b0d10b0d-fa29-48d1-9417-ccd3ec138248'
+        'app': 'storage:filename=Android.SauceLabs.Mobile.Sample.app.2.3.0.apk'
 
     }
 
