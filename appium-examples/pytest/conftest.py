@@ -23,7 +23,7 @@ def ios_up_driver(request, data_center):
         'deviceName': 'iPhone.*',
         'platformName': 'iOS',
         'name': request.node.name,
-        'app': 'storage:filename=iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.3.0.ipa'
+        'app': 'storage:filename=iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.2.1.ipa'
     }
 
     if data_center and data_center.lower() == 'eu':
