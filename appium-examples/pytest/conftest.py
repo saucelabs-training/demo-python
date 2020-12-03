@@ -152,7 +152,7 @@ def android_up_driver(request, data_center):
 
 
 @pytest.fixture
-def android_emusim(request, data_center):
+def android_emulator(request, data_center):
     caps = {
         'username': os.environ['SAUCE_USERNAME'],
         'accessKey': os.environ['SAUCE_ACCESS_KEY'],
