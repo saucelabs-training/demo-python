@@ -24,10 +24,10 @@ pytest-rdc-us-android-legacyTO = "pytest --dc=us appium-examples/pytest/rdc/lega
 pytest-rdc-eu-android-legacyTO = "pytest --dc=eu appium-examples/pytest/rdc/legacyTO/android/tests/"
 pytest-rdc-us-ios-legacyTO = "pytest --dc=us appium-examples/pytest/rdc/legacyTO/ios/tests/"
 pytest-rdc-eu-ios-legacyTO = "pytest --dc=eu appium-examples/pytest/rdc/ios/legacyTO/tests/"
-pytest-rdc-us-android-UP = "pytest --dc=us appium-examples/pytest/rdc/android/tests/"
-pytest-rdc-eu-android-UP = "pytest --dc=eu appium-examples/pytest/rdc/android/tests/"
-pytest-rdc-us-ios-UP = "pytest --dc=us appium-examples/pytest/rdc/ios/tests/"
-pytest-rdc-eu-ios-UP = "pytest --dc=eu appium-examples/pytest/rdc/ios/tests/"
+pytest-rdc-us-android-UP = "pytest -n2 --dc=us appium-examples/pytest/rdc/android/tests/"
+pytest-rdc-eu-android-UP = "pytest =n2 --dc=eu appium-examples/pytest/rdc/android/tests/"
+pytest-rdc-us-ios-UP = "pytest -n2 --dc=us appium-examples/pytest/rdc/ios/tests/"
+pytest-rdc-eu-ios-UP = "pytest -n2 --dc=eu appium-examples/pytest/rdc/ios/tests/"
 
 
 robot-vdc-us-chrome = "pabot --variable DATA_CENTER:'https://ondemand.saucelabs.com/wd/hub' -A selenium-examples/robotframework/vdc/chrome_config.txt selenium-examples/robotframework/vdc/Tests/"

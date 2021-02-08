@@ -33,6 +33,8 @@ def ios_up_driver(request, data_center):
 
     driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
     yield driver
+    sauce_result = "failed" if request.node.rep_call.failed else "passed"
+    driver.execute_script("sauce:job-result={}".format(sauce_result))
     driver.quit()
 
 
@@ -57,6 +59,8 @@ def ios_simulator(request, data_center):
 
     driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
     yield driver
+    sauce_result = "failed" if request.node.rep_call.failed else "passed"
+    driver.execute_script("sauce:job-result={}".format(sauce_result))
     driver.quit()
 
 
@@ -91,7 +95,6 @@ def ios_to_driver(request, data_center):
         raise WebDriverException("Never created!")
 
     yield driver
-    
     driver.quit()
 
 
@@ -126,7 +129,6 @@ def android_to_driver(request, data_center):
         raise WebDriverException("Never created!")
 
     yield driver
-    
     driver.quit()
 
 
@@ -148,6 +150,8 @@ def android_up_driver(request, data_center):
 
     driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
     yield driver
+    sauce_result = "failed" if request.node.rep_call.failed else "passed"
+    driver.execute_script("sauce:job-result={}".format(sauce_result))
     driver.quit()
 
 
@@ -174,4 +178,17 @@ def android_emulator(request, data_center):
 
     driver = webdriver.Remote(sauce_url, desired_capabilities=caps)
     yield driver
+    sauce_result = "failed" if request.node.rep_call.failed else "passed"
+    driver.execute_script("sauce:job-result={}".format(sauce_result))
     driver.quit()
+
+@pytest.hookimpl(hookwrapper=True, tryfirst=True)
+def pytest_runtest_makereport(item, call):
+    # this sets the result as a test attribute for Sauce Labs reporting.
+    # execute all other hooks to obtain the report object
+    outcome = yield
+    rep = outcome.get_result()
+
+    # set an report attribute for each phase of a call, which can
+    # be "setup", "call", "teardown"
+    setattr(item, "rep_" + rep.when, rep)
