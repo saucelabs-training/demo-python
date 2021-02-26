@@ -2,7 +2,7 @@ from saucebindings.session import SauceSession
 from saucebindings.session import SauceOptions
 
 
-BASE_TEST_URL = 'https://www.saucedemo.com'
+BASE_TEST_URL = 'https://www.saucedemo.com/v1/'
 
 
 class BindingsLibrary(object):

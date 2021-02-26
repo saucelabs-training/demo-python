@@ -2,7 +2,7 @@ import pytest
 
 
 def test_valid_crentials_login(vdc_driver):
-    vdc_driver.get('https://www.saucedemo.com')
+    vdc_driver.get('https://www.saucedemo.com/v1')
 
     vdc_driver.find_element_by_id('user-name').send_keys('locked_out_user')
     vdc_driver.find_element_by_id('password').send_keys('secret_sauce')

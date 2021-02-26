@@ -19,12 +19,12 @@ ${remote_url}       ${DATA_CENTER}
 *** Keywords ***
 
 Open login page
-    Open browser  https://www.saucedemo.com  browser=${browser}
+    Open browser  https://www.saucedemo.com/v1/  browser=${browser}
     ...  remote_url=${remote_url}
     ...  desired_capabilities=${capabilities}
 
 Open inventory page
-    Open browser  https://www.saucedemo.com/inventory.html  browser=${browserName}
+    Open browser  https://www.saucedemo.com/v1/inventory.html  browser=${browserName}
     ...  remote_url=${remote_url}
     ...  desired_capabilities=${capabilities}
 

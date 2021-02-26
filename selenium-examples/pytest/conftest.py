@@ -115,7 +115,7 @@ def vdc_driver(request, data_center):
     if data_center and data_center.lower() == 'eu':
         selenium_endpoint = "https://{}:{}@ondemand.eu-central-1.saucelabs.com/wd/hub".format(username, access_key)
     else:
-        selenium_endpoint = "https://{}:{}@ondemand.us-west-1.com.saucelabs/wd/hub".format(username, access_key)
+        selenium_endpoint = "https://{}:{}@ondemand.us-west-1.saucelabs.com/wd/hub".format(username, access_key)
 
     caps = dict()
     caps.update(request.param)
