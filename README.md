@@ -61,15 +61,28 @@ The `best_practices` directory contains samples of Python tests against desktop 
 
 We also recommend Pytest overall as a Python test framework and runner.
 
+To run the best practices examples, use Pipenv to run the script of choice. The options are
+
+```
+pipenv run best-practice-desktop-us
+pipenv run best-practice-desktop-eu
+pipenv run best-practice-mobile-web-us
+pipenv run best-practice-mobile-web-eu
+pipenv run best-practice-mobile-native-us-android
+pipenv run best-practice-mobile-native-eu-android
+pipenv run best-practice-mobile-native-us-ios
+pipenv run best-practice-mobile-native-eu-ios
+```
+
 ### Examples
 
 The `examples` directory contains examples of various Sauce features and products, such as 
 
-- Sauce Headless, 
-- Sauce Visual,
+- Sauce Headless `pipenv run headless`, 
+- Sauce Visual `pipenv run sauce_visual`,
 - Legacy TestObject mobile tests,
 - Using W3C Capabilities, and
-- Sauce Bindings (Python)
+- Sauce Bindings (Python) `saucebindings-pytest` or `saucebindings-robot`
 
 as well as examples of tests using Sauce with Robotframework.
 
