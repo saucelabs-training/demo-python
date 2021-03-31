@@ -41,7 +41,7 @@ robot-rdc-eu-android-UP = "robot --variable DATA_CENTER:'https://ondemand.eu-cen
 robot-rdc-us-ios-UP = "robot --variable DATA_CENTER:'https://ondemand.us-west-1.saucelabs.com/wd/hub' -A appium-examples/robotframework/rdc/ios/iphone_config.txt appium-examples/robotframework/rdc/ios/tests/"
 robot-rdc-eu-ios-UP = "robot --variable DATA_CENTER:'https://ondemand.eu-central-1.saucelabs.com/wd/hub' -A appium-examples/robotframework/rdc/ios/iphone_config.txt appium-examples/robotframework/rdc/ios/tests/"
 
-pytest-saucebindings = "pytest -n2 sauce-bindings/pytest/"
-robot-saucebindings = "pabot --variable BROWSER_NAME:firefox sauce-bindings/robotframework/"
+pytest-saucebindings = "pytest -n2 examples/sauce-bindings/pytest/"
+robot-saucebindings = "pabot --variable BROWSER_NAME:firefox examples/sauce-bindings/robotframework/"
 
-visual-test = "pytest ./visual-examples/webdriver-tests.py"
+visual-test = "pytest examples/sauce_visual/webdriver-tests.py"

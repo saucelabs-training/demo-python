@@ -1,4 +1,0 @@
---variable deviceOrientation:portrait
---variable platformName:iOS
---variable platformVersion:12.2
---variable privateDevicesOnly:False 

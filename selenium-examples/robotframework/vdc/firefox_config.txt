@@ -1,3 +1,0 @@
---variable browserName:firefox
---variable platform:OS X 10.14
---variable version:latest

@@ -1,0 +1,3 @@
+--variable platformName:iOS
+--variable deviceName:iPhone.*
+--variable privateDevicesOnly:False 
