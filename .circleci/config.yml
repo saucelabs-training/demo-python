@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/python:3.6.8  # primary container for the build job
+      - image: circleci/python:3.8  # primary container for the build job
     steps:
       - checkout
       - run:
@@ -14,8 +14,8 @@ jobs:
           command: "pipenv install"
       - run:
           name: "Run Pytest Examples"
-          command: "pipenv run pytest-vdc-us"
+          command: "pipenv run best-practice-desktop-us"
       - run:
           name: "Run Robot Examples"
-          command: "pipenv run robot-vdc-us"
+          command: "pipenv run robot-desktop-web-us"
 
