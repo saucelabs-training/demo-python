@@ -11,8 +11,14 @@ To run tests, do the following steps:
 ```
 pipenv install
 ```
-3. Run ```pipenv best-practice-desktop-us``` 
-to run against a desktop web app using Sauce Labs' US data center or ```pipenv best-practice-desktop-eu```
+3. Run 
+```
+pipenv best-practice-desktop-us
+``` 
+to run against a desktop web app using Sauce Labs' US data center or 
+```
+pipenv best-practice-desktop-eu
+```
 to run against the EU data center
 
 ## Installation
@@ -22,7 +28,11 @@ These tests use Pytest and are configured to run using [Pipenv](https://pipenv.p
 - Python 3.7+ (_NOTE_ these tests are only compatible with Python 3, and have only been tested against Python 3.7+)
 - Pipenv
 
-To install dependencies needed in this project, run ```pipenv install``` anywhere in this project. You can also install Pytest and Selenium directly if you do not want to use Pipenv.
+To install dependencies needed in this project, run 
+```
+pipenv install
+``` 
+anywhere in this project. You can also install Pytest and Selenium directly if you do not want to use Pipenv.
 
 Last and certainly not least, set your Sauce username and access key as environment variables on the machine you are running tests from as `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` respectively.
 
@@ -48,20 +58,84 @@ Sauce currently supports multiple data centers, so you can choose where your tes
 
 ### US Case
 
-To run desktop web tests you can run ```pipenv best-practice-desktop-us``` or you can run ```pytest best-practice-us``` directly if you have Pytest and Selenium installed. 
+To run desktop web tests you can run 
+```
+pipenv best-practice-desktop-us
+``` 
+or you can run 
+```
+pytest best-practice-us
+``` 
+directly if you have Pytest and Selenium installed. 
 
-Similarly you can run run ```pipenv best-practice-mobile-web-us``` or you can run ```pytest best-practice-mobile-us``` directly if you have Pytest and Selenium installed.
+Similarly you can run run 
+```
+pipenv best-practice-mobile-web-us
+``` 
+or you can run 
+```
+pytest best-practice-mobile-us
+```
+directly if you have Pytest and Selenium installed.
 
 To run native mobile app tests against real devices on the Sauce Real Device Cloud (RDC), confirm you have access to real devices on your account, upload the appropriate version of the [sample mobile app](https://github.com/saucelabs/sample-app-mobile/releases) to your account following [this guide](https://wiki.saucelabs.com/display/DOCS/Application+Storage#ApplicationStorage-WhatYou'llNeed).
 
-After this, you can run ```pipenv best-practice-native-us-android``` for the Android case (or ```pytest mobile_native/android``` using Pytest directly) and/or ```pipenv best-practice-native-us-ios``` for the iOS case (or ```pytest mobile_native/ios`` using Pytest directly)
+After this, you can run 
+```
+pipenv best-practice-native-us-android
+```
+for the Android case (or 
+```
+pytest mobile_native/android
+``` 
+using Pytest directly) and/or 
+```
+pipenv best-practice-native-us-ios
+``` 
+for the iOS case (or 
+```
+pytest mobile_native/ios
+``` 
+using Pytest directly)
 
 ### EU Case
 
-To run desktop web tests you can run ```pipenv best-practice-desktop-eu``` or you can run ```pytest best-practice-eu``` directly if you have Pytest and Selenium installed. 
+To run desktop web tests you can run 
+```
+pipenv best-practice-desktop-eu
+``` 
+or you can run 
+```
+pytest best-practice-eu
+``` 
+directly if you have Pytest and Selenium installed. 
 
-Similarly you can run run ```pipenv best-practice-mobile-web-eu``` or you can run ```pytest best-practice-mobile-eu``` directly if you have Pytest and Selenium installed.
+Similarly you can run run 
+```
+pipenv best-practice-mobile-web-eu
+``` 
+or you can run 
+```
+pytest best-practice-mobile-eu
+``` 
+directly if you have Pytest and Selenium installed.
 
 To run native mobile app tests against real devices on the Sauce Real Device Cloud (RDC), confirm you have access to real devices on your account, upload the appropriate version of the [sample mobile app](https://github.com/saucelabs/sample-app-mobile/releases) to your account following [this guide](https://wiki.saucelabs.com/display/DOCS/Application+Storage#ApplicationStorage-WhatYou'llNeed).
 
-After this, you can run ```pipenv best-practice-native-eu-android``` for the Android case (or ```pytest mobile_native/android``` using Pytest directly) and/or ```pipenv best-practice-native-eu-ios``` for the iOS case (or ```pytest mobile_native/ios`` using Pytest directly)
+After this, you can run 
+```
+pipenv best-practice-native-eu-android
+``` 
+for the Android case (or 
+```
+pytest mobile_native/android
+```
+using Pytest directly) and/or 
+```
+pipenv best-practice-native-eu-ios
+```
+for the iOS case (or 
+```
+pytest mobile_native/ios
+```
+using Pytest directly)
