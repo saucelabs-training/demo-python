@@ -27,8 +27,8 @@ saucebindings-pytest = "pytest -n2 examples/sauce_bindings/pytest/"
 saucebindings-robot = "pabot --variable BROWSER_NAME:firefox examples/sauce_bindings/robotframework/"
 sauce_visual = "pytest examples/sauce_visual/webdriver-tests.py"
 
-legacyTO-ios = "pytest -n2 --dc=us examples/legacyTestObject/ios/"
-legacyTO-android = "pytest -n2 --dc=us examples/legacyTestObject/ios/"
+legacyTO-ios = "pytest -n2 --dc=us examples/legacyTestObject/pytest/ios/"
+legacyTO-android = "pytest -n2 --dc=us examples/legacyTestObject/pytest/android/"
 
 robot-desktop-web-us = "pabot --argumentfile1 examples/robotframework/desktop_web/chrome_config.txt --argumentfile2 examples/robotframework/desktop_web/firefox_config.txt --argumentfile3 examples/robotframework/desktop_web/ie_config.txt --variable DATA_CENTER:'https://ondemand.us-west-1.saucelabs.com/wd/hub' examples/robotframework/desktop_web/Tests/"
 robot-desktop-web-eu = "pabot --argumentfile1 examples/robotframework/desktop_web/chrome_config.txt --argumentfile2 examples/robotframework/desktop_web/firefox_config.txt --argumentfile3 examples/robotframework/desktop_web/ie_config.txt --variable DATA_CENTER:'https://ondemand.eu-central-1.saucelabs.com/wd/hub' examples/robotframework/desktop_web/Tests/"
