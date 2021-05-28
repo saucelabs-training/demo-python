@@ -164,8 +164,9 @@ def android_rdc_driver(request, data_center):
         'accessKey': environ['SAUCE_ACCESS_KEY'],
         'deviceName': 'Google.*',
         'platformName': 'Android',
+        'build': 'RDC-Android-Python-Best-Practice',
         'name': request.node.name,
-        'app': 'storage:filename=Android.SauceLabs.Mobile.Sample.app.2.7.0.apk'
+        'app': "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk"
     }
 
     if data_center and data_center.lower() == 'eu':
@@ -186,8 +187,9 @@ def ios_rdc_driver(request, data_center):
         'accessKey': environ['SAUCE_ACCESS_KEY'],
         'deviceName': 'iPhone.*',
         'platformName': 'iOS',
+        'build': 'RDC-iOS-Python-Best-Practice',
         'name': request.node.name,
-        'app': 'storage:filename=iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.0.ipa'
+        'app': 'https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa'
     }
 
     if data_center and data_center.lower() == 'eu':
