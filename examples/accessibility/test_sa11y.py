@@ -8,7 +8,7 @@ import urllib3
 urllib3.disable_warnings()
 
 
-class TestAccessibilityDeque(object):
+class TestAccessibilitySa11y(object):
 
     def test_analysis(self):
         capabilities = {
