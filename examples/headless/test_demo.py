@@ -49,8 +49,16 @@ def driver(request, browser_config):
     desired_caps.update(browser_config)
     test_name = request.node.name
     build_tag = environ.get('BUILD_TAG', "local run")
-    username = environ.get('SAUCE_USERNAME', None)
-    access_key = environ.get('SAUCE_ACCESS_KEY', None)
+
+    try:
+        username = environ['SAUCE_USERNAME']
+    except KeyError:
+        raise KeyError('No SAUCE_USERNAME environment variable found. Please set one.')
+
+    try:
+        access_key = environ['SAUCE_ACCESS_KEY']
+    except KeyError:
+        raise KeyError('No SAUCE_ACCESS_KEY environment variable found. Please set one.')
 
     # for headless testing you must use the east coast data center endpoint
     selenium_endpoint = "https://ondemand.us-east-1.saucelabs.com/wd/hub"
