@@ -11,16 +11,8 @@ urllib3.disable_warnings()
 class TestAccessibilitySa11y(object):
 
     def test_analysis(self):
-        try:
-            username = os.environ['SAUCE_USERNAME']
-        except KeyError:
-            raise KeyError('No SAUCE_USERNAME environment variable found. Please set one.')
-
-        try:
-            access_key = os.environ['SAUCE_ACCESS_KEY']
-        except KeyError:
-            raise KeyError('No SAUCE_ACCESS_KEY environment variable found. Please set one.')
-
+        username = os.environ['SAUCE_USERNAME']
+        access_key = os.environ['SAUCE_ACCESS_KEY']
 
         capabilities = {
             'browserName': 'chrome',

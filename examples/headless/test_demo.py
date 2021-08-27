@@ -50,15 +50,8 @@ def driver(request, browser_config):
     test_name = request.node.name
     build_tag = environ.get('BUILD_TAG', "local run")
 
-    try:
-        username = environ['SAUCE_USERNAME']
-    except KeyError:
-        raise KeyError('No SAUCE_USERNAME environment variable found. Please set one.')
-
-    try:
-        access_key = environ['SAUCE_ACCESS_KEY']
-    except KeyError:
-        raise KeyError('No SAUCE_ACCESS_KEY environment variable found. Please set one.')
+    username = environ['SAUCE_USERNAME']
+    access_key = environ['SAUCE_ACCESS_KEY']
 
     # for headless testing you must use the east coast data center endpoint
     selenium_endpoint = "https://ondemand.us-east-1.saucelabs.com/wd/hub"

@@ -82,15 +82,9 @@ def mobile_web_driver(request, data_center):
 
     test_name = request.node.name
     build_tag = environ.get('BUILD_TAG', "Sauce-Best-Practices-Python-Mobile-Web")
-    try:
-        username = environ['SAUCE_USERNAME']
-    except KeyError:
-        raise KeyError('No SAUCE_USERNAME environment variable found. Please set one.')
-
-    try:
-        access_key = environ.get('SAUCE_ACCESS_KEY', None)
-    except KeyError:
-        raise KeyError('No SAUCE_ACCESS_KEY environment variable found. Please set one.')
+   
+    username = environ['SAUCE_USERNAME']
+    access_key = environ['SAUCE_ACCESS_KEY']
         
     if data_center and data_center.lower() == 'eu':
         selenium_endpoint = "https://{}:{}@ondemand.eu-central-1.saucelabs.com/wd/hub".format(username, access_key)
@@ -130,16 +124,9 @@ def desktop_web_driver(request, data_center):
     test_name = request.node.name
     build_tag = environ.get('BUILD_TAG', "Sauce-Best-Practices-Python-Desktop-Web")
     
-    try:
-        username = environ.get('SAUCE_USERNAME', None)
-    except KeyError:
-        raise KeyError('No SAUCE_USERNAME environment variable found. Please set one.')
-
-    try:
-        access_key = environ.get('SAUCE_ACCESS_KEY', None)
-    except KeyError:
-        raise KeyError('No SAUCE_ACCESS_KEY environment variable found. Please set one.')
-
+    username = environ['SAUCE_USERNAME']
+    access_key = environ['SAUCE_ACCESS_KEY']
+    
     if data_center and data_center.lower() == 'eu':
         selenium_endpoint = "https://{}:{}@ondemand.eu-central-1.saucelabs.com/wd/hub".format(username, access_key)
     else:
@@ -175,16 +162,9 @@ def desktop_web_driver(request, data_center):
 @pytest.fixture
 def android_rdc_driver(request, data_center):
 
-    try:
-        username_cap = environ['SAUCE_USERNAME']
-    except KeyError:
-        raise KeyError('No SAUCE_USERNAME environment variable found. Please set one.')
-
-    try:
-        access_key_cap = environ['SAUCE_ACCESS_KEY']
-    except KeyError:
-        raise KeyError('No SAUCE_ACCESS_KEY environment variable found. Please set one.')
-
+    username_cap = environ['SAUCE_USERNAME']
+    access_key_cap = environ['SAUCE_ACCESS_KEY']
+    
     caps = {
         'username': username_cap,
         'accessKey': access_key_cap,
@@ -209,16 +189,9 @@ def android_rdc_driver(request, data_center):
 @pytest.fixture
 def ios_rdc_driver(request, data_center):
 
-    try:
-        username_cap = environ['SAUCE_USERNAME']
-    except KeyError:
-        raise KeyError('No SAUCE_USERNAME environment variable found. Please set one.')
-
-    try:
-        access_key_cap = environ['SAUCE_ACCESS_KEY']
-    except KeyError:
-        raise KeyError('No SAUCE_ACCESS_KEY environment variable found. Please set one.')
-
+    username_cap = environ['SAUCE_USERNAME']
+    access_key_cap = environ['SAUCE_ACCESS_KEY']
+   
     caps = {
         'username': username_cap,
         'accessKey': access_key_cap,
