@@ -11,14 +11,11 @@ urllib3.disable_warnings()
 class TestAccessibilitySa11y(object):
 
     def test_analysis(self):
-        username = os.environ['SAUCE_USERNAME']
-        access_key = os.environ['SAUCE_ACCESS_KEY']
-
         capabilities = {
             'browserName': 'chrome',
             'sauce:options': {
-                'username': username,
-                'accesskey': access_key
+                'username': os.environ["SAUCE_USERNAME"],
+                'accesskey': os.environ["SAUCE_ACCESS_KEY"],
             }
         }
         sauce_url = 'https://ondemand.us-west-1.saucelabs.com/wd/hub'

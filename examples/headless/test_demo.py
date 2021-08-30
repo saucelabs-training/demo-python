@@ -49,7 +49,6 @@ def driver(request, browser_config):
     desired_caps.update(browser_config)
     test_name = request.node.name
     build_tag = environ.get('BUILD_TAG', "local run")
-
     username = environ['SAUCE_USERNAME']
     access_key = environ['SAUCE_ACCESS_KEY']
 
