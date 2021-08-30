@@ -82,9 +82,10 @@ def mobile_web_driver(request, data_center):
 
     test_name = request.node.name
     build_tag = environ.get('BUILD_TAG', "Sauce-Best-Practices-Python-Mobile-Web")
-    username = environ.get('SAUCE_USERNAME', None)
-    access_key = environ.get('SAUCE_ACCESS_KEY', None)
-
+   
+    username = environ['SAUCE_USERNAME']
+    access_key = environ['SAUCE_ACCESS_KEY']
+        
     if data_center and data_center.lower() == 'eu':
         selenium_endpoint = "https://{}:{}@ondemand.eu-central-1.saucelabs.com/wd/hub".format(username, access_key)
     else:
@@ -122,9 +123,10 @@ def desktop_web_driver(request, data_center):
 
     test_name = request.node.name
     build_tag = environ.get('BUILD_TAG', "Sauce-Best-Practices-Python-Desktop-Web")
-    username = environ.get('SAUCE_USERNAME', None)
-    access_key = environ.get('SAUCE_ACCESS_KEY', None)
-
+    
+    username = environ['SAUCE_USERNAME']
+    access_key = environ['SAUCE_ACCESS_KEY']
+    
     if data_center and data_center.lower() == 'eu':
         selenium_endpoint = "https://{}:{}@ondemand.eu-central-1.saucelabs.com/wd/hub".format(username, access_key)
     else:
@@ -159,9 +161,13 @@ def desktop_web_driver(request, data_center):
 
 @pytest.fixture
 def android_rdc_driver(request, data_center):
+
+    username_cap = environ['SAUCE_USERNAME']
+    access_key_cap = environ['SAUCE_ACCESS_KEY']
+    
     caps = {
-        'username': environ['SAUCE_USERNAME'],
-        'accessKey': environ['SAUCE_ACCESS_KEY'],
+        'username': username_cap,
+        'accessKey': access_key_cap,
         'deviceName': 'Google.*',
         'platformName': 'Android',
         'build': 'RDC-Android-Python-Best-Practice',
@@ -182,9 +188,13 @@ def android_rdc_driver(request, data_center):
 
 @pytest.fixture
 def ios_rdc_driver(request, data_center):
+
+    username_cap = environ['SAUCE_USERNAME']
+    access_key_cap = environ['SAUCE_ACCESS_KEY']
+   
     caps = {
-        'username': environ['SAUCE_USERNAME'],
-        'accessKey': environ['SAUCE_ACCESS_KEY'],
+        'username': username_cap,
+        'accessKey': access_key_cap,
         'deviceName': 'iPhone.*',
         'platformName': 'iOS',
         'build': 'RDC-iOS-Python-Best-Practice',
