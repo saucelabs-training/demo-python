@@ -8,7 +8,7 @@ from _pytest.runner import runtestprotocol
 def driver(request):
     sauce_username = os.environ["SAUCE_USERNAME"]
     sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
-    remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
+    remote_url = "http://{}:{}@ondemand.us-west-1.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
 
     sauceOptions = {
         "screenResolution": "1280x768",
