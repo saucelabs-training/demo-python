@@ -81,7 +81,7 @@ def data_center(request):
 def mobile_web_driver(request, data_center):
 
     test_name = request.node.name
-    build_tag = environ.get('BUILD_TAG', "Sauce-Best-Practices-Python-Mobile-Web")
+    build_tag = "My Mobile Build"
    
     username = environ['SAUCE_USERNAME']
     access_key = environ['SAUCE_ACCESS_KEY']
@@ -122,7 +122,7 @@ def mobile_web_driver(request, data_center):
 def desktop_web_driver(request, data_center):
 
     test_name = request.node.name
-    build_tag = environ.get('BUILD_TAG', "Sauce-Best-Practices-Python-Desktop-Web")
+    build_tag = "My Web Tests"
     
     username = environ['SAUCE_USERNAME']
     access_key = environ['SAUCE_ACCESS_KEY']
