@@ -160,6 +160,33 @@ def desktop_web_driver(request, data_center):
     browser.quit()
 
 @pytest.fixture
+def rdc_browser(request, data_center):
+
+    username_cap = environ['SAUCE_USERNAME']
+    access_key_cap = environ['SAUCE_ACCESS_KEY']
+    
+    caps = {
+        'username': username_cap,
+        'accessKey': access_key_cap,
+        'deviceName': 'iPhone.*',
+        'platformName': 'iOS',
+        'build': 'RDC-Android-Web-Python-Best-Practice',
+        'name': request.node.name,
+        'browserName': 'Safari'
+    }
+
+    if data_center and data_center.lower() == 'eu':
+        sauce_url = 'http://ondemand.eu-central-1.saucelabs.com/wd/hub'
+    else:
+        sauce_url = 'http://ondemand.us-west-1.saucelabs.com/wd/hub'
+
+    driver = appiumdriver.Remote(sauce_url, desired_capabilities=caps)
+    yield driver
+    sauce_result = "failed" if request.node.rep_call.failed else "passed"
+    driver.execute_script("sauce:job-result={}".format(sauce_result))
+    driver.quit()
+
+@pytest.fixture
 def android_rdc_driver(request, data_center):
 
     username_cap = environ['SAUCE_USERNAME']
