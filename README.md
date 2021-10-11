@@ -80,7 +80,6 @@ The `examples` directory contains examples of various Sauce features and product
 
 - Sauce Headless `pipenv run headless`, 
 - Sauce Visual `pipenv run sauce_visual`,
-- Legacy TestObject mobile tests,
 - Using W3C Capabilities, and
 - Sauce Bindings (Python) `saucebindings-pytest` or `saucebindings-robot`
 
