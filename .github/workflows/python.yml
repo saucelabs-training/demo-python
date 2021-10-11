@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test: [ best-practice-desktop-us, robot-desktop-web-us, accessibility, saucebindings-pytest]
+        test: [ best-practice-desktop-us, robot-desktop-web-us, accessibility, saucebindings-pytest, demo]
     steps:
       - uses: actions/checkout@v2
       - name: Setup Python
