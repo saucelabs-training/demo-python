@@ -7,10 +7,6 @@ selenium = "==4.0.0.rc2"
 sa11y = "*"
 sauceclient = "*"
 saucebindings = "*"
-robotframework = "*"
-robotframework-pabot = "*"
-robotframework-seleniumlibrary = "*"
-robotframework-appiumlibrary = "*"
 
 [scripts]
 best-practice-desktop-us = "pytest -n8 --dc=us best_practice/desktop_web/"
