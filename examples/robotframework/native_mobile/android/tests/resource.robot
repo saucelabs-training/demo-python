@@ -17,7 +17,7 @@ Start Session
     ...  username=%{SAUCE_USERNAME}
     ...  accessKey=%{SAUCE_ACCESS_KEY}
     ...  privateDevicesOnly=${PRIVATE_DEVICES_ONLY}
-    ...  app=storage:filename=Android.SauceLabs.Mobile.Sample.app.2.7.0.apk
+    ...  app=https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk
     ...  name=${TEST_NAME}  
 
 End Session
