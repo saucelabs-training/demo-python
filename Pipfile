@@ -10,7 +10,7 @@ saucebindings = "*"
 
 [scripts]
 best-practice-desktop-us = "pytest -n8 --dc=us best_practice/desktop_web/"
-best-practice-desktop-eu = "pytest -n8 --dc=us best_practice/desktop_web/"
+best-practice-desktop-eu = "pytest -n8 --dc=eu best_practice/desktop_web/"
 best-practice-mobile-web-vdc-us = "pytest -n8 --dc=us best_practice/mobile_web/vdc"
 best-practice-mobile-web-vdc-eu = "pytest -n8 --dc=eu best_practice/mobile_web/vdc"
 best-practice-mobile-web-rdc-us = "pytest -n4 --dc=us best_practice/mobile_web/rdc"
