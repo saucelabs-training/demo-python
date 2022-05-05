@@ -1,29 +1,22 @@
 *** Settings ***
 Library  SeleniumLibrary
+Library  w3c_options.py
 
 *** Variables ***
 
-@{_tmp} 
-    ...  browserName: ${browserName},
-    ...  platform: ${platform},
-    ...  version: ${version},
-    ...  username: %{SAUCE_USERNAME},
-    ...  accessKey: %{SAUCE_ACCESS_KEY},
-    ...  name: ${SUITE_NAME},
-    ...  build: Python-Robot-Selenium-VDC
-
-${browser}          ${browserName}
-${capabilities}     ${EMPTY.join(${_tmp})} 
-${remote_url}       ${DATA_CENTER}
+${browser}          ${browserName}  # could set this to Chrome
+${remote_url}       ${DATA_CENTER}  # could set this to https://ondemand.eu-central-1.saucelabs.com/wd/hub
 
 *** Keywords ***
 
 Open login page
+    ${capabilities}=  w3c_options.Browsers  Chrome  latest  Windows 10
     Open browser  https://www.saucedemo.com/v1/  browser=${browser}
     ...  remote_url=${remote_url}
     ...  desired_capabilities=${capabilities}
 
 Open inventory page
+    ${capabilities}=  w3c_options.Browsers   ${latest}  ${Chrome}  ${Windows 10} 
     Open browser  https://www.saucedemo.com/v1/inventory.html  browser=${browserName}
     ...  remote_url=${remote_url}
     ...  desired_capabilities=${capabilities}
