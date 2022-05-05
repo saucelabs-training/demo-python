@@ -4,7 +4,7 @@ Library  w3c_options.py
 
 *** Variables ***
 
-${browser}          ${browserName}  # could set this to Chrome
+${browser}          ${browserName}  # could set this to Chrome/Firefox/etc
 ${remote_url}       ${DATA_CENTER}  # could set this to https://ondemand.eu-central-1.saucelabs.com/wd/hub
 
 *** Keywords ***
@@ -16,7 +16,7 @@ Open login page
     ...  desired_capabilities=${capabilities}
 
 Open inventory page
-    ${capabilities}=  w3c_options.Browsers   ${latest}  ${Chrome}  ${Windows 10} 
+    ${capabilities}=  w3c_options.Browsers  Chrome  latest  Windows 10
     Open browser  https://www.saucedemo.com/v1/inventory.html  browser=${browserName}
     ...  remote_url=${remote_url}
     ...  desired_capabilities=${capabilities}
