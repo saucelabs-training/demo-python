@@ -8,6 +8,7 @@ sa11y = "*"
 sauceclient = "*"
 saucebindings = "*"
 
+
 [scripts]
 best-practice-desktop-us = "pytest -n8 --dc=us best_practice/desktop_web/"
 best-practice-desktop-eu = "pytest -n8 --dc=eu best_practice/desktop_web/"

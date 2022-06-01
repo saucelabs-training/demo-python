@@ -19,7 +19,9 @@ Start Session
     ...  name=${TEST_NAME} 
 
 End Session
-    Close all applications
+    Run Keyword If  '${TEST_STATUS}'== 'PASS'  Execute Javascript  sauce:job-result=passed
+    ...  ELSE  Execute Javascript  sauce:job-result=failed
+    Close Browser    Close all applications
 
 Login As Standard User
 
