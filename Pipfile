@@ -7,6 +7,8 @@ selenium = "4.0.0"
 sa11y = "*"
 sauceclient = "*"
 saucebindings = "*"
+robotframework = "*"
+robotframework-pabot = "*"
 
 
 [scripts]
