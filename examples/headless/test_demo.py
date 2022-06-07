@@ -2,6 +2,7 @@ import pytest
 from os import environ
 
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.remote_connection import RemoteConnection
 
 import urllib3
@@ -72,19 +73,19 @@ def driver(request, browser_config):
 def test_valid_crentials_login(driver):
     driver.get('http://www.saucedemo.com')
 
-    driver.find_element_by_id('user-name').send_keys('locked_out_user')
-    driver.find_element_by_id('password').send_keys('secret_sauce')
-    driver.find_element_by_css_selector('.btn_action').click()
+    driver.find_element(By.ID, 'user-name').send_keys('locked_out_user')
+    driver.find_element(By.ID, 'password').send_keys('secret_sauce')
+    driver.find_element(By.ID, '.btn_action').click()
 
-    assert driver.find_element_by_css_selector('.error-button').is_displayed()
+    assert driver.find_element(By.CSS_SELECTOR'.error-button').is_displayed()
 
 
 @pytest.mark.usefixtures("driver")
 def test_valid_crentials_login(driver):
     driver.get('http://www.saucedemo.com')
 
-    driver.find_element_by_id('user-name').send_keys('standard_user')
-    driver.find_element_by_id('password').send_keys('secret_sauce')
-    driver.find_element_by_css_selector('.btn_action').click()
+    driver.find_element(By.ID, 'user-name').send_keys('standard_user')
+    driver.find_element(By.ID, 'password').send_keys('secret_sauce')
+    driver.find_element(By.ID, '.btn_action').click()
 
     assert "/inventory.html" in driver.current_url
