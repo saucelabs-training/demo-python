@@ -25,4 +25,4 @@ jobs:
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        run: pipenv run best-practice-desktop-us
+        run: pipenv run robot-desktop-web-us

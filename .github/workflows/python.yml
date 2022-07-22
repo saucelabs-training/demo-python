@@ -3,6 +3,8 @@ name: Demo Python Tests
 on:
   - push
   - pull_request
+  schedule:
+    - cron: "0 1 * * * *"
 
 jobs:
   python-tests:
