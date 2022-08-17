@@ -9,6 +9,8 @@ sauceclient = "*"
 saucebindings = "*"
 robotframework = "*"
 robotframework-pabot = "*"
+robotframework-seleniumlibrary = "*"
+robotframework-appiumlibrary = "*"
 
 
 [scripts]
