@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "demo-python"
+version = "0.1.0"
+description = "A repository of examples of running tests with Python test automation tools on Sauce Labs devices"
+authors = ["Josh Grant <joshua.m.grant@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "demo_python"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+selenium = "^4.5.0"
+pytest = "^7.2.0"
+pytest-xdist = "*"
+Appium-Python-Client = "*"
+PyYAML = ">=5.4"
+sa11y = "*"
+sauceclient = "*"
+saucebindings = "*"
+robotframework = "*"
+robotframework-pabot = "*"
+robotframework-seleniumlibrary = "*"
+robotframework-appiumlibrary = "*"
+
+
+[tool.poetry.dev-dependencies]
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
