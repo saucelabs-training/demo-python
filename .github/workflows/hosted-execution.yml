@@ -3,8 +3,8 @@ name: Python Desktop Web Best Practices
 on:
   - push
   - pull_request
-  schedule:
-    - cron: "0 1 * * * *"
+schedule:
+  - cron: "0 1 * * * *"
 
 jobs:
   # Publish this Docker container
