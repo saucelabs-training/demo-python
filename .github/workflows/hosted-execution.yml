@@ -3,8 +3,6 @@ name: Python Hosted Execution
 on:
   - push
   - pull_request
-  schedule:
-    - cron: "0 1 * * * *"
 
 jobs:
   push_to_registry:
