@@ -44,7 +44,7 @@ def _generate_param_ids(name, values):
     return [("<%s:%s>" % (name, value)).replace('.', '_') for value in values]
 
 
-@pytest.yield_fixture(scope='function')
+@pytest.fixture(scope='function')
 def driver(request, browser_config):
     desired_caps = dict()
     desired_caps.update(browser_config)
@@ -60,7 +60,7 @@ def driver(request, browser_config):
     desired_caps['username'] = username
     desired_caps['accessKey'] = access_key
 
-    executor = RemoteConnection(selenium_endpoint, resolve_ip=False)
+    executor = RemoteConnection(selenium_endpoint)
     browser = webdriver.Remote(executor, desired_capabilities=desired_caps)
 
     yield browser
@@ -70,14 +70,14 @@ def driver(request, browser_config):
     browser.quit()
 
 @pytest.mark.usefixtures("driver")
-def test_valid_crentials_login(driver):
+def test_valid_credentials_login(driver):
     driver.get('http://www.saucedemo.com')
 
     driver.find_element(By.ID, 'user-name').send_keys('locked_out_user')
     driver.find_element(By.ID, 'password').send_keys('secret_sauce')
     driver.find_element(By.ID, '.btn_action').click()
 
-    assert driver.find_element(By.CSS_SELECTOR'.error-button').is_displayed()
+    assert driver.find_element(By.CSS_SELECTOR, '.error-button').is_displayed()
 
 
 @pytest.mark.usefixtures("driver")
