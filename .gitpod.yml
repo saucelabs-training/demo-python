@@ -1,0 +1,9 @@
+# List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
+tasks:
+  - name: Script Task
+    init: pip install -r ./requirements.txt
+    command: |
+      rm -rf /workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/py/_vendored_packages/apipkg/
+      pytest -n8 $TEST_PATH
+
+# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
