@@ -24,7 +24,7 @@ class TestSelenium(object):
             'platformName': os.environ.get('PLATFORM_NAME', 'Android'),
             'appium:app': app,
             'appium:deviceName': os.environ.get('DEVICE_NAME', 'Google.*'),
-            'appium:platformVersion': os.environ.get('PLATFORM_VERSION', None),
+            'appium:platformVersion': os.environ.get('PLATFORM_VERSION', ''),
             'appium:automationName': os.environ.get('AUTOMATION_NAME', 'uiautomator2'),
             'sauce:options': {
                 'username': os.environ["SAUCE_USERNAME"],
