@@ -1,7 +1,7 @@
 [packages]
 pytest = "==6.2.5"
 pytest-xdist = "==2.5.0"
-Appium-Python-Client = "==2.11.1"
+Appium-Python-Client = "==4.3.0"
 PyYAML = "==5.4.1"
 selenium = "==4.26.1"
 sa11y = "*"
