@@ -33,7 +33,7 @@ robotframework-pythonlibcore = "==4.4.1"
 six = "==1.16.0"
 toml = "==0.10.2"
 typing-extensions = "==4.12.2"
-urllib3 = "==1.26.20"
+urllib3 = "==2.2.3"
 zipp = "==3.21.0"
 
 [scripts]
