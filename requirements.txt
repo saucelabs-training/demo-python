@@ -18,7 +18,7 @@ py==1.11.0
 pyparsing==3.2.0
 pytest-forked==1.6.0
 pytest-xdist==2.5.0
-pytest==6.2.5
+pytest==8.3.3
 pyyaml==6.0.2
 requests==2.32.3
 robotframework-appiumlibrary==1.6.4
