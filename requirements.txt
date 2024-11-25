@@ -19,7 +19,7 @@ pyparsing==2.4.7
 pytest-forked==1.6.0
 pytest-xdist==2.5.0
 pytest==6.2.5
-pyyaml==6.0.1
+pyyaml==6.0.2
 requests==2.32.3
 robotframework-appiumlibrary==1.6.4
 robotframework-pabot==1.13
