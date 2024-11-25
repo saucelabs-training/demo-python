@@ -1,6 +1,6 @@
 [packages]
 pytest = "==6.2.5"
-pytest-xdist = "==2.2.1"
+pytest-xdist = "==2.5.0"
 Appium-Python-Client = "==2.11.1"
 PyYAML = "==5.4.1"
 selenium = "==4.4.3"

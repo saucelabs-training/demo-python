@@ -17,7 +17,7 @@ pluggy==0.13.1
 py==1.11.0
 pyparsing==2.4.7
 pytest-forked==1.6.0
-pytest-xdist==2.2.1
+pytest-xdist==2.5.0
 pytest==6.2.5
 pyyaml==6.0.1
 requests==2.32.3
