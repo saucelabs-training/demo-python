@@ -13,7 +13,7 @@ jobs:
       matrix:
         test: [ best-practice-desktop-us, accessibility, saucebindings-pytest, demo]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
