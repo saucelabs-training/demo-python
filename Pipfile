@@ -32,7 +32,7 @@ requests = "==2.32.3"
 robotframework-pythonlibcore = "==4.4.1"
 six = "==1.16.0"
 toml = "==0.10.2"
-typing-extensions = "==3.10.0.2"
+typing-extensions = "==4.12.2"
 urllib3 = "==1.26.20"
 zipp = "==3.21.0"
 
