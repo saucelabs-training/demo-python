@@ -8,7 +8,7 @@ decorator==5.1.1
 docutils==0.21.2
 execnet==2.1.1
 idna==3.10
-importlib-metadata==3.10.1 ; python_version < '3.8'
+importlib-metadata==8.5.0 ; python_version < '3.8'
 iniconfig==1.1.1
 kitchen==1.2.6
 more-itertools==8.14.0
