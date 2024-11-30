@@ -1,24 +1,25 @@
 # Python Demonstration Scripts
 [![CircleCI](https://circleci.com/gh/saucelabs-training/demo-python.svg?style=svg)](https://circleci.com/gh/saucelabs-training/demo-python)
 
-This [repository](https://github.com/saucelabs-training/demo-python) contains example scripts and dependencies for running automated Selenium tests on Sauce Labs using **Python**. You can use these scripts to test your Sauce Labs authentication credentials, setup of your automated testing environment, and try out Sauce Labs features.
+**TL;DR** This [repository](https://github.com/saucelabs-training/demo-python) contains example scripts and dependencies for running automated tests on Sauce Labs using **Python**. You can run these scripts to test your Sauce Labs authentication credentials, setup of your automated testing environment, and try out Sauce Labs features, or just read them for some good example of Selenium and Appium tests in Python!
 
-> ###### Disclaimer
->
-> The code in these scripts is provided on an "AS-IS" basis without warranty of any kind, either express or implied, including without limitation any implied warranties of condition, uninterrupted use, merchantability, fitness for a particular purpose, or non-infringement. These scripts are provided for educational and demonstration purposes only, and should not be used in production. Issues regarding these scripts should be submitted through GitHub. These scripts are maintained by the Technical Services team at Sauce Labs.
->
+
 > Some examples in this repository, may require a different account tier beyond free trial. Please contact the [Sauce Labs Sales Team](https://saucelabs.com/contact) for support and information.
 
 ## Prerequisites
 
-In order to complete these exercises you must complete the following prerequisite installation and configuration steps:
+In order to run these examples you must install and have the following:
 
 * Install Git
 * Install `python` and `pip`
-* Install `pipenv` (https://github.com/pypa/pipenv#installation)
-* (Optional) Install an IDE (PyCharm, Visual Studio Code, Komodo Edit etc.)
+* A Sauce Labs account with your Sauce Labs username and access key [set as environment variables](https://docs.saucelabs.com/basics/environment-variables/).
 
-**NOTE*: All code here is written in Python 3, and is not guaranteed to work with Python 2. Since Python 2.x is now EOL, it is strongly, **strongly* recommended you either migrate to Python 3.5+ if you are using Python 2, or get started using Python 3.5+. 
+Optional  (Choose your own adventure!)
+* For Pipenv - Install pipenv [fromm here](https://github.com/pypa/pipenv#installation)
+* For Poetry - Install poetry [from here](https://python-poetry.org/docs/#installation)
+* For IDE usage - Install an IDE (PyCharm and Visual Studio Code are generally good)
+
+**NOTE*: All code here is written in Python 3, and is not guaranteed to work with Python 2. Since Python 2.x is now EOL, it is strongly, **strongly* recommended you either migrate to Python 3.7+ if you are using Python 2, or get started using Python 3.7+. 
 
 >   #### Try Demo in Gitpod
 >   Select the button below to try this demo in [Gitpod](https://www.gitpod.io/)
@@ -38,6 +39,32 @@ In order to complete these exercises you must complete the following prerequisit
 >  
 >   For more information consult the [gitpod documentation](https://www.gitpod.io/docs/47_environment_variables/)
 
+## Installation
+
+To install the needed dependencies for these test examples, you can use Poetry (recommended), Pipenv or Pip. The test scripts should execute exactly the same regardless of which packaging tool you use.  _Please_ only use one of these approaches unless you absolutely know what you're doing.
+
+### Poetry
+
+Run
+
+```bash
+poetry install
+```
+
+### Pipenv
+
+Run
+```bash
+pipenv install
+```
+
+### Pip
+
+```bash
+pip install -r requirements.txt
+```
+Using a virtual environment is recommended but not required.
+
 ## Running Tests on Sauce Labs
 
 The main purpose of this repository is to show how Sauce Labs works with sample Python tests. We have included some samples of using Sauce Labs with some common Python test tools. In particular, we have examples using
@@ -51,8 +78,6 @@ and these cover using
 - Mobile Web browsers on Sauce emulators/simulators, and
 - Real devices to test native mobile apps.
 
-These samples are executed using Pipenv for simplicity. You can find a list of available executions in the Pipfile for executing tests written in the test tools. These executions demonstrate how to run tests in parallel on the various Sauce Labs platforms.
-
 This repository is divided into two main sections: `best_practices` and `examples`. 
 
 ### Best Practices
@@ -61,29 +86,73 @@ The `best_practices` directory contains samples of Python tests against desktop 
 
 We also recommend Pytest overall as a Python test framework and runner.
 
-To run the best practices examples, use Pipenv to run the script of choice. The options are
+### Running using Poetry
 
+To run best practices examples for desktop web applications using Selenium, run
+```bash
+poetry run pytest best_practices/desktop_web # set --dc to eu or apac for other data centers
 ```
-pipenv run best-practice-desktop-us
-pipenv run best-practice-desktop-eu
-pipenv run best-practice-mobile-web-us
-pipenv run best-practice-mobile-web-eu
-pipenv run best-practice-mobile-native-us-android
-pipenv run best-practice-mobile-native-eu-android
-pipenv run best-practice-mobile-native-us-ios
-pipenv run best-practice-mobile-native-eu-ios
+
+To run best practices examples for mobile web applications using Selenium, run
+```bash
+poetry run pytest best_practices/mobile_web/vdc # set --dc to eu or apac for other data centers
 ```
+
+To run best practices examples for native mobile applications using Appium, run
+```bash
+poetry run pytest best_practices/native_mobile # set --dc to eu or apac for other data centers
+```
+
+### Running using Pipenv
+
+To run best practices examples for desktop web applications using Selenium, run
+```bash
+pipenv run best-practice-desktop-us # us data center case
+pipenv run best-practice-desktop-eu # us data center case
+```
+
+To run best practices examples for mobile web applications using Selenium, run
+```bash
+pipenv run best-practice-mobile-web-vdc-us # us data center case
+pipenv run best-practice-mobile-web-vdc-eu  # eu data center case
+```
+
+To run best practices examples for native mobile applications using Appium, run
+```bash
+pipenv run best-practice-mobile-native-us-android # us data center case for Android
+pipenv run best-practice-mobile-native-us-ios # us data center case for iOS
+pipenv run best-practice-mobile-native-eu-android # eu data center case for Android
+pipenv run best-practice-mobile-native-eu-ios # eu data center case for iOS
+```
+
+### Running using Pip and Pytest directly
+
+To run best practices examples for desktop web applications using Selenium, run
+```bash
+pytest best_practices/desktop_web # set --dc to eu or apac for other data centers
+```
+
+To run best practices examples for mobile web applications using Selenium, run
+```bash
+pytest best_practices/mobile_web/vdc # set --dc to eu or apac for other data centers
+```
+
+To run best practices examples for native mobile applications using Appium, run
+```bash
+pytest best_practices/native_mobile # set --dc to eu or apac for other data centers
+```
+
 
 ### Examples
 
 The `examples` directory contains examples of various Sauce features and products, such as 
 
-- Sauce Headless `pipenv run headless`, 
-- Sauce Visual `pipenv run sauce_visual`,
+- Sauce Headless 
+- Sauce Visual 
 - Using W3C Capabilities, and
 - Sauce Bindings (Python) `saucebindings-pytest` or `saucebindings-robot`
 
-as well as examples of tests using Sauce with Robotframework.
+as well as examples of tests using [Sauce with Robotframework](./examples/robotframework/README.md).
 
 ## Contributing
 
