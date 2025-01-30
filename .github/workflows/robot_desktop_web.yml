@@ -1,4 +1,4 @@
-name: Python Desktop Web Best Practices
+name: Robot Desktop Tests
 
 on:
   - push
@@ -6,7 +6,7 @@ on:
 
 jobs:
   python-tests:
-    name: Robot Desktop Tests
+    name: Tests
     runs-on: ubuntu-latest
     
     steps:

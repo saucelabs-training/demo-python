@@ -1,4 +1,4 @@
-name: Python Desktop Web Best Practices
+name: Mobile Native Tests
 
 on:
   - push
@@ -6,7 +6,7 @@ on:
 
 jobs:
   python-tests:
-    name: Mobile Native Tests
+    name: Tests
     runs-on: ubuntu-latest
     
     steps:
