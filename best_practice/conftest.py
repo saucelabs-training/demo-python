@@ -174,25 +174,27 @@ def desktop_web_driver(request, data_center):
 @pytest.fixture
 def rdc_browser(request, data_center):
 
-    username_cap = environ['SAUCE_USERNAME']
-    access_key_cap = environ['SAUCE_ACCESS_KEY']
-    
-    caps = {
-        'username': username_cap,
-        'accessKey': access_key_cap,
-        'deviceName': 'iPhone.*',
-        'platformName': 'iOS',
+    username = environ['SAUCE_USERNAME']
+    access_key = environ['SAUCE_ACCESS_KEY']
+
+    sauce_options = {
+        'username': username,
+        'accessKey': access_key,
         'build': 'RDC-Android-Web-Python-Best-Practice',
         'name': request.node.name,
-        'browserName': 'Safari'
     }
+    options = XCUITestOptions()
+    options.set_capability('sauce:options', sauce_options)
+    options.platform_name = 'iOS'
+    options.browser_name = 'Safari'
+    options.device_name = 'iPhone.*'
 
     if data_center and data_center.lower() == 'eu':
-        sauce_url = 'http://ondemand.eu-central-1.saucelabs.com/wd/hub'
+        sauce_url = 'https://ondemand.eu-central-1.saucelabs.com/wd/hub'
     else:
-        sauce_url = 'http://ondemand.us-west-1.saucelabs.com/wd/hub'
+        sauce_url = 'https://ondemand.us-west-1.saucelabs.com/wd/hub'
 
-    driver = appiumdriver.Remote(sauce_url, desired_capabilities=caps)
+    driver = appiumdriver.Remote(sauce_url, options=options)
     yield driver
     sauce_result = "failed" if request.node.rep_call.failed else "passed"
     driver.execute_script("sauce:job-result={}".format(sauce_result))
