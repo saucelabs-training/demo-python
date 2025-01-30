@@ -2,11 +2,11 @@ import pytest
 from os import environ
 
 from appium.options.android import UiAutomator2Options
+from appium.options.common import AppiumOptions
 from appium.options.ios import XCUITestOptions
 from selenium import webdriver
 from appium import webdriver as appiumdriver
 from selenium.common.exceptions import WebDriverException
-from selenium.webdriver.remote.client_config import ClientConfig
 
 import urllib3
 
@@ -90,18 +90,27 @@ def mobile_web_driver(request, data_center):
     access_key = environ['SAUCE_ACCESS_KEY']
         
     if data_center and data_center.lower() == 'eu':
-        selenium_endpoint = "https://{}:{}@ondemand.eu-central-1.saucelabs.com/wd/hub".format(username, access_key)
+        selenium_endpoint = "https://@ondemand.eu-central-1.saucelabs.com/wd/hub"
     else:
-        selenium_endpoint = "https://{}:{}@ondemand.us-west-1.saucelabs.com/wd/hub".format(username, access_key)
+        selenium_endpoint = "https://@ondemand.us-west-1.saucelabs.com/wd/hub"
 
-    caps = dict()
-    caps.update(request.param)
-    caps.update({'build': build_tag})
-    caps.update({'name': test_name})
+    sauce_options = {
+        'username': username,
+        'accessKey': access_key,
+        'build': build_tag,
+        'name': test_name,
+    }
+    options = AppiumOptions()
+    options.set_capability('sauce:options', sauce_options)
+    options.platform_name = request.param['platformName']
+    options.browser_name = request.param['browserName']
+    options.platform_version = request.param['platformVersion']
+    options.device_name = request.param['deviceName']
+    options.device_orientation = request.param['deviceOrientation']
 
     browser = webdriver.Remote(
         command_executor=selenium_endpoint,
-        desired_capabilities=caps, 
+        options=options,
         keep_alive=True
     )
 
