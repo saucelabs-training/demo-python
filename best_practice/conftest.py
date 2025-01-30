@@ -1,11 +1,15 @@
 import pytest
 from os import environ
 
+from appium.options.android import UiAutomator2Options
+from appium.options.ios import XCUITestOptions
 from selenium import webdriver
 from appium import webdriver as appiumdriver
 from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.remote.client_config import ClientConfig
 
 import urllib3
+
 urllib3.disable_warnings()
 
 emusim_browsers = [
@@ -190,23 +194,25 @@ def android_rdc_driver(request, data_center):
 
     username_cap = environ['SAUCE_USERNAME']
     access_key_cap = environ['SAUCE_ACCESS_KEY']
-    
-    caps = {
+
+    options = UiAutomator2Options()
+    options.platform_name = 'Android'
+    options.device_name = 'Google.*'
+    options.app = 'https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk'
+    sauce_options = {
         'username': username_cap,
         'accessKey': access_key_cap,
-        'deviceName': 'Google.*',
-        'platformName': 'Android',
         'build': 'RDC-Android-Python-Best-Practice',
         'name': request.node.name,
-        'app': "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk"
     }
+    options.set_capability('sauce:options', sauce_options)
 
     if data_center and data_center.lower() == 'eu':
-        sauce_url = 'http://ondemand.eu-central-1.saucelabs.com/wd/hub'
+        sauce_url = 'https://ondemand.eu-central-1.saucelabs.com/wd/hub'
     else:
-        sauce_url = 'http://ondemand.us-west-1.saucelabs.com/wd/hub'
+        sauce_url = 'https://ondemand.us-west-1.saucelabs.com/wd/hub'
 
-    driver = appiumdriver.Remote(sauce_url, desired_capabilities=caps)
+    driver = appiumdriver.Remote(sauce_url, options=options)
     yield driver
     sauce_result = "failed" if request.node.rep_call.failed else "passed"
     driver.execute_script("sauce:job-result={}".format(sauce_result))
@@ -217,23 +223,25 @@ def ios_rdc_driver(request, data_center):
 
     username_cap = environ['SAUCE_USERNAME']
     access_key_cap = environ['SAUCE_ACCESS_KEY']
-   
-    caps = {
+
+    options = XCUITestOptions()
+    options.platform_name = 'iOS'
+    options.device_name = 'iPhone.*'
+    options.app = 'https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa'
+    sauce_options = {
         'username': username_cap,
         'accessKey': access_key_cap,
-        'deviceName': 'iPhone.*',
-        'platformName': 'iOS',
         'build': 'RDC-iOS-Python-Best-Practice',
         'name': request.node.name,
-        'app': 'https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa'
     }
+    options.set_capability('sauce:options', sauce_options)
 
     if data_center and data_center.lower() == 'eu':
-        sauce_url = "http://ondemand.eu-central-1.saucelabs.com/wd/hub"
+        sauce_url = "https://ondemand.eu-central-1.saucelabs.com/wd/hub"
     else:   
-        sauce_url = "http://ondemand.us-west-1.saucelabs.com/wd/hub"
+        sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub"
 
-    driver = appiumdriver.Remote(sauce_url, desired_capabilities=caps)
+    driver = appiumdriver.Remote(sauce_url, options=options)
     yield driver
     sauce_result = "failed" if request.node.rep_call.failed else "passed"
     driver.execute_script("sauce:job-result={}".format(sauce_result))

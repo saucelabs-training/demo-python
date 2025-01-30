@@ -1,6 +1,9 @@
-def test_standard_user(android_rdc_driver):
-    android_rdc_driver.find_element_by_accessibility_id("test-Username").send_keys("standard_user")
-    android_rdc_driver.find_element_by_accessibility_id("test-Password").send_keys("secret_sauce")
-    android_rdc_driver.find_element_by_accessibility_id("test-LOGIN").click()
+from appium.webdriver.common.appiumby import AppiumBy
 
-    assert android_rdc_driver.find_element_by_accessibility_id("test-PRODUCTS").is_displayed()
+
+def test_standard_user(android_rdc_driver):
+    android_rdc_driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value='test-Username').send_keys("standard_user")
+    android_rdc_driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value='test-Password').send_keys("secret_sauce")
+    android_rdc_driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value='test-LOGIN').click()
+
+    assert android_rdc_driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value='test-PRODUCTS').is_displayed()

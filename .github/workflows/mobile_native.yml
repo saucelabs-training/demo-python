@@ -8,7 +8,10 @@ jobs:
   python-tests:
     name: Tests
     runs-on: ubuntu-latest
-    
+    strategy:
+      fail-fast: false
+      matrix:
+        test: [ best-practice-mobile-native-us-android, best-practice-mobile-native-us-ios]
     steps:
       - uses: actions/checkout@v4
       - name: Setup Python
@@ -19,8 +22,8 @@ jobs:
         uses: dschep/install-pipenv-action@v1
       - name: Install dependencies
         run: pipenv install
-      - name: Run Desktop Best Practice Tests
+      - name: Run RDC Mobile Tests
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        run: pipenv run best-practice-mobile-native-us-android
+        run: pipenv run ${{ matrix.test }}
