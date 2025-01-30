@@ -6,7 +6,7 @@ on:
 
 jobs:
   python-tests:
-    name: Tests
+    name: Mobile Native Tests
     runs-on: ubuntu-latest
     
     steps:

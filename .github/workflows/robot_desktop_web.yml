@@ -6,7 +6,7 @@ on:
 
 jobs:
   python-tests:
-    name: Tests
+    name: Robot Desktop Tests
     runs-on: ubuntu-latest
     
     steps:
