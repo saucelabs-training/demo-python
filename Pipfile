@@ -47,7 +47,6 @@ best-practice-mobile-native-eu-android = "pytest -n2 --dc=eu best_practice/mobil
 best-practice-mobile-native-us-ios = "pytest -n2 --dc=us best_practice/mobile_native/ios"
 best-practice-mobile-native-eu-ios = "pytest -n2 --dc=eu best_practice/mobile_native/ios"
 headless = "pytest -n4 examples/headless/test_demo.py"
-saucebindings-pytest = "pytest -n2 examples/sauce_bindings/pytest/"
 saucebindings-robot = "pabot --variable BROWSER_NAME:firefox examples/sauce_bindings/robotframework/"
 sauce_visual = "pytest examples/sauce_visual/webdriver-tests.py"
 demo = "pytest examples/selenium/"
