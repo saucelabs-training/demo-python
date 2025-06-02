@@ -3,7 +3,7 @@ from selenium.webdriver.support.relative_locator import locate_with
 
 
 def test_london(driver):
-    driver.get('https://www.diemol.com/selenium-4-demo/relative-locators-demo.html')
+    driver.get('https://www.diemol.com/selenium-demo/relative-locators-demo.html')
 
     element = driver.find_elements(locate_with(By.TAG_NAME, "li")
                                    .to_left_of({By.ID: "berlin"})
