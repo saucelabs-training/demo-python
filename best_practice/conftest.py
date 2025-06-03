@@ -209,12 +209,14 @@ def android_rdc_driver(request, data_center):
     options = UiAutomator2Options()
     options.platform_name = 'Android'
     options.device_name = 'Google.*'
-    options.app = 'https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk'
+    options.automation_name = 'UiAutomator2'
+    options.app = 'https://github.com/saucelabs/my-demo-app-android/releases/download/2.2.0/mda-2.2.0-25.apk'
     sauce_options = {
         'username': username_cap,
         'accessKey': access_key_cap,
         'build': 'RDC-Android-Python-Best-Practice',
         'name': request.node.name,
+        'appiumVersion': 'latest',
     }
     options.set_capability('sauce:options', sauce_options)
 
