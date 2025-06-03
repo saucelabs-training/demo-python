@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ed72fcc8c5358e99bef1afaeae68c1198724e5b1ba63aad1ff5b5faa89bdbbe6"
+            "sha256": "e280d34aa1b9ba6fc76da4798f726be15ab313abd2faf54fedf474432c177e43"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -400,12 +400,12 @@
         },
         "robotframework": {
             "hashes": [
-                "sha256:0461360be00dfb8ce1ab3f42370fa6eea3779e41c0b8d79a1f8ddcd2ec8e3679",
-                "sha256:f85919c68c4d0837006e5f09dde1ef689f082eba2e7e64d5758753f9ee8bfea9"
+                "sha256:676f75a58e34db04cde91922c0bc68d4d73f091b6be753809ce16e9579412323",
+                "sha256:68631cc3115760c00f2e4b2822636cbb4c242e1fd8671ce3e88021b3202556fe"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==7.1.1"
+            "version": "==7.3"
         },
         "robotframework-pabot": {
             "hashes": [
