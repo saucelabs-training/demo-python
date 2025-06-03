@@ -78,7 +78,6 @@ pipenv run best-practice-mobile-native-eu-ios
 
 The `examples` directory contains examples of various Sauce features and products, such as 
 
-- Sauce Headless `pipenv run headless`, 
 - Sauce Visual `pipenv run sauce_visual`,
 - Using W3C Capabilities
 

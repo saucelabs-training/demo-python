@@ -39,11 +39,10 @@ Tests in Parallel: To run tests in parallel against a single browser, use the `p
 ```
 pabot -A chrome_config.txt Tests/
 pabot -A firefox_config.txt Tests/
-pabot -A ie_config.txt Tests/
 ```
 and to run all tests in parallel across all browsers, run
 ```
-pabot --argumentfile1 chrome_config.txt --argumentfile2 firefox_config.txt --argumentfile3 ie_config.txt Tests/
+pabot --argumentfile1 chrome_config.txt --argumentfile2 firefox_config.txt Tests/
 ```
 
 [Sauce Labs Dashboard](https://app.saucelabs.com/dashboard)

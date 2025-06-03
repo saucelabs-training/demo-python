@@ -3,30 +3,22 @@ Library  SeleniumLibrary
 
 *** Variables ***
 
-@{_tmp} 
-    ...  browserName: ${browserName},
-    ...  platform: ${platform},
-    ...  version: ${version},
-    ...  username: %{SAUCE_USERNAME},
-    ...  accessKey: %{SAUCE_ACCESS_KEY},
-    ...  name: ${SUITE_NAME},
-    ...  build: Python-Robot-Selenium-VDC
-
 ${browser}          ${browserName}
-${capabilities}     ${EMPTY.join(${_tmp})} 
 ${remote_url}       ${DATA_CENTER}
+
+&{Sauce capabilities}  build=Python-Robot-Selenium-VDC  name=${SUITE_NAME}  username=%{SAUCE_USERNAME}  accessKey=%{SAUCE_ACCESS_KEY}
 
 *** Keywords ***
 
 Open login page
     Open browser  https://www.saucedemo.com/v1/  browser=${browser}
     ...  remote_url=${remote_url}
-    ...  desired_capabilities=${capabilities}
+    ...  options=set_capability("sauce:options", ${Sauce capabilities}); platform_name="${platform}"; browser_version="${version}"
 
 Open inventory page
-    Open browser  https://www.saucedemo.com/v1/inventory.html  browser=${browserName}
+    Open browser  https://www.saucedemo.com/v1/inventory.html  browser=${browser}
     ...  remote_url=${remote_url}
-    ...  desired_capabilities=${capabilities}
+    ...  options=set_capability("sauce:options", ${Sauce capabilities}); platform_name="${platform}"; browser_version="${version}"
 
 Login As Standard User
 
