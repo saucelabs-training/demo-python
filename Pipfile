@@ -48,7 +48,7 @@ best-practice-mobile-native-us-ios = "pytest -n2 --dc=us best_practice/mobile_na
 best-practice-mobile-native-eu-ios = "pytest -n2 --dc=eu best_practice/mobile_native/ios"
 saucebindings-robot = "pabot --variable BROWSER_NAME:firefox examples/sauce_bindings/robotframework/"
 sauce_visual = "pytest examples/sauce_visual/webdriver-tests.py"
-demo = "pytest examples/selenium/"
+demo = "pytest examples/selenium/new_features/test_print_page.py"
 robot-desktop-web-us = "pabot --argumentfile1 examples/robotframework/desktop_web/chrome_config.txt --argumentfile2 examples/robotframework/desktop_web/firefox_config.txt --variable DATA_CENTER:'https://ondemand.us-west-1.saucelabs.com/wd/hub' examples/robotframework/desktop_web/Tests/"
 robot-desktop-web-eu = "pabot --argumentfile1 examples/robotframework/desktop_web/chrome_config.txt --argumentfile2 examples/robotframework/desktop_web/firefox_config.txt --variable DATA_CENTER:'https://ondemand.eu-central-1.saucelabs.com/wd/hub' examples/robotframework/desktop_web/Tests/"
 robot-android-us = "pabot --variable DATA_CENTER:'https://ondemand.us-west-1.saucelabs.com/wd/hub' -A examples/robotframework/native_mobile/android/android_config.txt examples/robotframework/native_mobile/android/tests/"
