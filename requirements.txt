@@ -30,6 +30,6 @@ sauceclient==1.0.1
 selenium==4.26.1
 six==1.16.0
 toml==0.10.2
-typing-extensions==4.12.2 ; python_version < '3.8'
+typing-extensions==4.14.0 ; python_version < '3.8'
 urllib3==2.4.0
 zipp==3.21.0
