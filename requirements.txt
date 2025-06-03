@@ -1,6 +1,6 @@
 -i https://pypi.org/simple
 apipkg==3.0.2
-appium-python-client==4.3.0
+appium-python-client==4.5.1
 attrs==24.3.0
 certifi==2024.12.14
 chardet==5.2.0
