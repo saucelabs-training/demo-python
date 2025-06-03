@@ -32,4 +32,4 @@ six==1.16.0
 toml==0.10.2
 typing-extensions==4.14.0 ; python_version < '3.8'
 urllib3==2.4.0
-zipp==3.21.0
+zipp==3.22.0
