@@ -16,16 +16,15 @@ packaging==25.0
 pluggy==1.6.0
 py==1.11.0
 pyparsing==3.2.3
-pytest-forked==1.6.0
 pytest-xdist==3.7.0
 pytest==8.4.0
+pytest-playwright==0.7.0
 pyyaml==6.0.2
 requests==2.32.3
 robotframework-pabot==4.2.0
 robotframework-pythonlibcore==4.4.1
 robotframework-seleniumlibrary==6.7.1
 robotframework==7.3
-saucebindings==1.3.0
 sauceclient==1.0.1
 selenium==4.33.0
 six==1.17.0
