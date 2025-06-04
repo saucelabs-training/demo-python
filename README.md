@@ -1,5 +1,5 @@
 # Python Demonstration Scripts
-[![CircleCI](https://circleci.com/gh/saucelabs-training/demo-python.svg?style=svg)](https://circleci.com/gh/saucelabs-training/demo-python)
+[![Demo Python Tests](https://github.com/saucelabs-training/demo-python/actions/workflows/python.yml/badge.svg)](https://github.com/saucelabs-training/demo-python/actions/workflows/python.yml)
 
 This [repository](https://github.com/saucelabs-training/demo-python) contains example scripts and dependencies for running automated Selenium tests on Sauce Labs using **Python**. You can use these scripts to test your Sauce Labs authentication credentials, setup of your automated testing environment, and try out Sauce Labs features.
 
