@@ -30,4 +30,4 @@ selenium==4.33.0
 six==1.17.0
 toml==0.10.2
 urllib3==2.4.0
-zipp==3.22.0
+zipp==3.23.0
