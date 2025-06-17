@@ -3,11 +3,12 @@ import os
 import pytest
 import requests
 from playwright.sync_api import sync_playwright
+from datetime import datetime
 
 SAUCEDEMO_URL = "https://www.saucedemo.com/"
 SAUCE_USERNAME = os.environ.get("SAUCE_USERNAME")
 SAUCE_ACCESS_KEY = os.environ.get("SAUCE_ACCESS_KEY")
-SAUCE_BUILD_NAME = os.environ.get("SAUCE_BUILD_NAME")
+SAUCE_BUILD_NAME = "Playwright" + datetime.now().strftime("_%Y%m%d_%H%M%S")
 
 # Update job status on Sauce Labs using requests
 def update_job_status(session_id, status):
@@ -76,5 +77,4 @@ def remote_browser(request):
         requests.delete(delete_endpoint, auth=(SAUCE_USERNAME, SAUCE_ACCESS_KEY))
         sauce_result = "failed" if request.session.testsfailed == 1 else "passed"
         update_job_status(session_id, sauce_result)
-
 
