@@ -24,7 +24,7 @@ requests==2.32.4
 robotframework-pabot==4.2.0
 robotframework-pythonlibcore==4.4.1
 robotframework-seleniumlibrary==6.7.1
-robotframework==7.3
+robotframework==7.3.1
 sauceclient==1.0.1
 selenium==4.33.0
 six==1.17.0
