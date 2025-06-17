@@ -63,8 +63,6 @@ def remote_browser(request):
     response.raise_for_status()
     session_data = response.json()
     session_id = session_data["value"]["sessionId"]
-    print(f"SauceOnDemandSessionID={session_id}")
-    print(f"Job Link: https://app.saucelabs.com/tests/{session_id}")
     delete_endpoint = f"https://ondemand.us-west-1.saucelabs.com/wd/hub/session/{session_id}"
     cdp_endpoint = session_data["value"]["capabilities"].get("se:cdp")
     with sync_playwright() as p:
