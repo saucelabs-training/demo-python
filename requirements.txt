@@ -2,7 +2,7 @@
 apipkg==3.0.2
 appium-python-client==5.1.1
 attrs==25.3.0
-certifi==2025.6.15
+certifi==2025.10.5
 chardet==5.2.0
 decorator==5.2.1
 docutils==0.21.2
@@ -26,8 +26,8 @@ robotframework-pythonlibcore==4.4.1
 robotframework-seleniumlibrary==6.7.1
 robotframework==7.3.1
 sauceclient==1.0.1
-selenium==4.33.0
+selenium==4.38.0
 six==1.17.0
 toml==0.10.2
-urllib3==2.4.0
+urllib3==2.5.0
 zipp==3.23.0
