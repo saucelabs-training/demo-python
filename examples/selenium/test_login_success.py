@@ -3,7 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 def test_valid_crentials_login(driver):
-    driver.get('http://www.saucedemo.com/v1')
+    driver.get('http://www.saucedemo.com')
 
     username_locator = (By.CSS_SELECTOR, '#user-name')
     password_locator = (By.CSS_SELECTOR, '#password')

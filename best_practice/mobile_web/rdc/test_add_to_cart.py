@@ -2,22 +2,38 @@ from selenium.webdriver.common.by import By
 
 
 def test_add_to_cart(rdc_browser):
-    rdc_browser.get('https://www.saucedemo.com/v1/inventory.html')
+    rdc_browser.get("https://www.saucedemo.com/")
+    cookie = {
+        "name": "session-username",
+        "value": "standard_user",
+        "domain": "www.saucedemo.com",
+        "path": "/"
+    }
+    rdc_browser.add_cookie(cookie)
+    rdc_browser.get('https://www.saucedemo.com/inventory.html')
     rdc_browser.find_element(By.CLASS_NAME, 'btn_primary').click()
 
     assert rdc_browser.find_element(By.CLASS_NAME, 'shopping_cart_badge').text == '1'
 
-    rdc_browser.get('https://www.saucedemo.com/v1/cart.html')
+    rdc_browser.get('https://www.saucedemo.com/cart.html')
     expected = rdc_browser.find_elements(By.CLASS_NAME, 'inventory_item_name')
     assert len(expected) == 1
 
 def test_add_two_to_cart(rdc_browser):
-    rdc_browser.get('https://www.saucedemo.com/v1/inventory.html')
+    rdc_browser.get("https://www.saucedemo.com/")
+    cookie = {
+        "name": "session-username",
+        "value": "standard_user",
+        "domain": "www.saucedemo.com",
+        "path": "/"
+    }
+    rdc_browser.add_cookie(cookie)
+    rdc_browser.get('https://www.saucedemo.com/inventory.html')
     rdc_browser.find_element(By.CLASS_NAME, 'btn_primary').click()
     rdc_browser.find_element(By.CLASS_NAME, 'btn_primary').click()
 
     assert rdc_browser.find_element(By.CLASS_NAME, 'shopping_cart_badge').text == '2'
 
-    rdc_browser.get('https://www.saucedemo.com/v1/cart.html')
+    rdc_browser.get('https://www.saucedemo.com/cart.html')
     expected = rdc_browser.find_elements(By.CLASS_NAME, 'inventory_item_name')
     assert len(expected) == 2
