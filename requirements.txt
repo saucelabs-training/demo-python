@@ -16,7 +16,7 @@ packaging==25.0
 pluggy==1.6.0
 py==1.11.0
 pyparsing==3.2.3
-pytest-xdist==3.7.0
+pytest-xdist==3.8.0
 pytest==8.4.2
 pytest-playwright==0.7.0
 pyyaml==6.0.2
