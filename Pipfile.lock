@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "fd0a9c7c5635445ddd3a834e4069faf4181043d0aba32052e3fbaad1064e72ff"
+            "sha256": "e346ffcd5e3aa68f37a3f460a8585a9f5e3e9974565aa55794add53be1071690"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -301,12 +301,12 @@
         },
         "iniconfig": {
             "hashes": [
-                "sha256:3abbd2e30b36733fee78f9c7f7308f2d0050e88f0087fd25c2645f63c773e1c7",
-                "sha256:9deba5723312380e77435581c6bf4935c94cbfab9b1ed33ef8d238ea168eb760"
+                "sha256:c76315c77db068650d49c5b56314774a7804df16fee4402c1f19d6d15d8c4730",
+                "sha256:f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.8'",
-            "version": "==2.1.0"
+            "markers": "python_version >= '3.10'",
+            "version": "==2.3.0"
         },
         "kitchen": {
             "hashes": [
@@ -317,12 +317,12 @@
         },
         "more-itertools": {
             "hashes": [
-                "sha256:9fddd5403be01a94b204faadcff459ec3568cf110265d3c54323e1e866ad29d3",
-                "sha256:d43980384673cb07d2f7d2d918c616b30c659c089ee23953f601d6609c67510e"
+                "sha256:52d4362373dcf7c52546bc4af9a86ee7c4579df9a8dc268be0a2f949d376cc9b",
+                "sha256:f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.9'",
-            "version": "==10.7.0"
+            "version": "==10.8.0"
         },
         "natsort": {
             "hashes": [
