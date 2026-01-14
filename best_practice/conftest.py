@@ -246,6 +246,7 @@ def ios_rdc_driver(request, data_center):
         'accessKey': access_key_cap,
         'build': 'RDC-iOS-Python-Best-Practice',
         'name': request.node.name,
+        'appiumVersion': 'latest',
     }
     options.set_capability('sauce:options', sauce_options)
 
