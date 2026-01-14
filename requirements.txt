@@ -26,7 +26,7 @@ robotframework-pythonlibcore==4.4.1
 robotframework-seleniumlibrary==6.8.0
 robotframework==7.4.1
 sauceclient==1.0.1
-selenium==4.38.0
+selenium==4.39.0
 six==1.17.0
 toml==0.10.2
 urllib3==2.6.3
