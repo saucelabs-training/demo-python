@@ -99,6 +99,7 @@ def mobile_web_driver(request, data_center):
         'accessKey': access_key,
         'build': build_tag,
         'name': test_name,
+        'appiumVersion': 'latest',
     }
     options = AppiumOptions()
     options.set_capability('sauce:options', sauce_options)
@@ -107,6 +108,7 @@ def mobile_web_driver(request, data_center):
     options.platform_version = request.param['platformVersion']
     options.device_name = request.param['deviceName']
     options.device_orientation = request.param['deviceOrientation']
+    options.automation_name = 'UiAutomator2' if request.param['platformName'].lower() == 'android' else 'XCUITest'
 
     browser = webdriver.Remote(
         command_executor=selenium_endpoint,
@@ -118,6 +120,7 @@ def mobile_web_driver(request, data_center):
     # In case test fails after selenium session creation having this here will help track it down.
     if browser is not None:
         print("SauceOnDemandSessionID={} job-name={}".format(browser.session_id, test_name))
+        browser.implicitly_wait(15)
     else:
         raise WebDriverException("Never created!")
 
