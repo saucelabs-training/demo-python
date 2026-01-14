@@ -29,5 +29,5 @@ sauceclient==1.0.1
 selenium==4.38.0
 six==1.17.0
 toml==0.10.2
-urllib3==2.5.0
+urllib3==2.6.3
 zipp==3.23.0
