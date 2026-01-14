@@ -1,7 +1,7 @@
-SAUCEDEMO_URL = "https://www.saucedemo.com/"
+SAUCE_DEMO_URL = "https://www.saucedemo.com/"
 
 def login(page, username, password):
-    page.goto(SAUCEDEMO_URL)
+    page.goto(SAUCE_DEMO_URL)
     page.fill('input[data-test="username"]', username)
     page.fill('input[data-test="password"]', password)
     page.click('input[data-test="login-button"]')

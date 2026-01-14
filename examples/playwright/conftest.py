@@ -5,7 +5,7 @@ import requests
 from playwright.sync_api import sync_playwright
 from datetime import datetime
 
-SAUCEDEMO_URL = "https://www.saucedemo.com/"
+SAUCE_DEMO_URL = "https://www.saucedemo.com/"
 SAUCE_USERNAME = os.environ.get("SAUCE_USERNAME")
 SAUCE_ACCESS_KEY = os.environ.get("SAUCE_ACCESS_KEY")
 SAUCE_BUILD_NAME = "Playwright" + datetime.now().strftime("_%Y%m%d_%H%M%S")

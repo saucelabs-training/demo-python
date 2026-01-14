@@ -11,14 +11,16 @@ ${remote_url}       ${DATA_CENTER}
 *** Keywords ***
 
 Open login page
-    Open browser  https://www.saucedemo.com/v1/  browser=${browser}
+    Open browser  https://www.saucedemo.com  browser=${browser}
     ...  remote_url=${remote_url}
     ...  options=set_capability("sauce:options", ${Sauce capabilities}); platform_name="${platform}"; browser_version="${version}"
 
-Open inventory page
-    Open browser  https://www.saucedemo.com/v1/inventory.html  browser=${browser}
+Open Inventory Page
+    Open browser  https://www.saucedemo.com  browser=${browser}
     ...  remote_url=${remote_url}
     ...  options=set_capability("sauce:options", ${Sauce capabilities}); platform_name="${platform}"; browser_version="${version}"
+    Add Cookie    session-username    standard_user    domain=www.saucedemo.com
+    Go To    https://www.saucedemo.com/inventory.html
 
 Login As Standard User
 
