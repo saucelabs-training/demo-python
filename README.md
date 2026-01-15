@@ -1,49 +1,46 @@
 # Python Demonstration Scripts
-[![Demo Python Tests](https://github.com/saucelabs-training/demo-python/actions/workflows/python.yml/badge.svg)](https://github.com/saucelabs-training/demo-python/actions/workflows/python.yml)
 
-This [repository](https://github.com/saucelabs-training/demo-python) contains example scripts and dependencies for running automated Selenium tests on Sauce Labs using **Python**. You can use these scripts to test your Sauce Labs authentication credentials, setup of your automated testing environment, and try out Sauce Labs features.
+This [repository](https://github.com/saucelabs-training/demo-python) contains 
+example scripts and dependencies for running automated Selenium tests on Sauce 
+Labs using **Python**. You can use these scripts to test your Sauce Labs 
+authentication credentials, setup of your automated testing environment, 
+and try out Sauce Labs features.
 
 > ###### Disclaimer
 >
-> The code in these scripts is provided on an "AS-IS" basis without warranty of any kind, either express or implied, including without limitation any implied warranties of condition, uninterrupted use, merchantability, fitness for a particular purpose, or non-infringement. These scripts are provided for educational and demonstration purposes only, and should not be used in production. Issues regarding these scripts should be submitted through GitHub. These scripts are maintained by the Technical Services team at Sauce Labs.
->
-> Some examples in this repository, may require a different account tier beyond free trial. Please contact the [Sauce Labs Sales Team](https://saucelabs.com/contact) for support and information.
+> The code in these scripts is provided on an "AS-IS" basis without warranty of 
+> any kind, either express or implied, including without limitation any implied 
+> warranties of condition, uninterrupted use, merchantability, fitness for a 
+> particular purpose, or non-infringement. These scripts are provided for 
+> educational and demonstration purposes only, and should not be used in 
+> production. Issues regarding these scripts should be submitted through GitHub. 
+> >
+> Some examples in this repository, may require a different account tier beyond 
+> free trial. Please contact the [Sauce Labs Sales Team](https://saucelabs.com/contact) for support and 
+> information.
 
 ## Prerequisites
 
-In order to complete these exercises you must complete the following prerequisite installation and configuration steps:
+In order to complete these exercises you must complete the following prerequisite 
+installation and configuration steps:
 
 * Install Git
 * Install `python` and `pip`
 * Install `pipenv` (https://github.com/pypa/pipenv#installation)
 * (Optional) Install an IDE (PyCharm, Visual Studio Code, Komodo Edit etc.)
 
-**NOTE*: All code here is written in Python 3, and is not guaranteed to work with Python 2. Since Python 2.x is now EOL, it is strongly, **strongly* recommended you either migrate to Python 3.5+ if you are using Python 2, or get started using Python 3.5+. 
-
->   #### Try Demo in Gitpod
->   Select the button below to try this demo in [Gitpod](https://www.gitpod.io/)
->
->  [![Open in Gitpod](open-in-gitpod.png)](https://gitpod.io/#https://github.com/saucelabs-training/demo-python)
->
->   After the gitpod session launches, navigate to the terminal and run the following commands to save your [Sauce Labs Credentials](https://app.saucelabs.com/user-settings) to gitpod as environment variables:
->   ```
->   eval $(gp env -e SAUCE_USERNAME=******)
->   eval $(gp env -e SAUCE_ACCESS_KEY=******)
->   ```
->   Click the following link if you're unsure how to [access your Sauce Labs credentials.](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials)
->   Also, if you start a new terminal in gitpod, you have to run the following command to reset envrionment variables:
->   ```
->   eval $(gp env -e)
->   ```
->  
->   For more information consult the [gitpod documentation](https://www.gitpod.io/docs/47_environment_variables/)
+Tested with: Python 3.14. Code targets Python 3; if you use a different Python 
+3.x version you may need to update dependencies.
 
 ## Running Tests on Sauce Labs
 
-The main purpose of this repository is to show how Sauce Labs works with sample Python tests. We have included some samples of using Sauce Labs with some common Python test tools. In particular, we have examples using
+The main purpose of this repository is to show how Sauce Labs works with sample 
+Python tests. We have included some samples of using Sauce Labs with some 
+common Python test tools. In particular, we have examples using
 
 - Pytest
-- Robotframework
+- robotframework
+- Playwright
 
 and these cover using
 
@@ -51,41 +48,57 @@ and these cover using
 - Mobile Web browsers on Sauce emulators/simulators, and
 - Real devices to test native mobile apps.
 
-These samples are executed using Pipenv for simplicity. You can find a list of available executions in the Pipfile for executing tests written in the test tools. These executions demonstrate how to run tests in parallel on the various Sauce Labs platforms.
+These samples are executed using Pipenv for simplicity. You can find a list of 
+available executions in the `Pipfile` under the `[scripts]` section. These 
+executions demonstrate how to run tests in parallel on the Sauce Labs.
 
-This repository is divided into two main sections: `best_practices` and `examples`. 
+## Available Pipenv scripts
 
-### Best Practices
+Below are the scripts defined in `Pipfile` grouped by purpose. Run any of them
+with `pipenv run <script-name>`.
 
-The `best_practices` directory contains samples of Python tests against desktop web applications, mobile web applications and native mobile applications. Please look in the respective directories to see tests, and look at the `conftest.py` to find the Pytest fixtures. 
+- Best-practice (desktop)
+  - `best-practice-desktop-us` — runs desktop best-practice tests against the US data center
+  - `best-practice-desktop-eu` — runs desktop best-practice tests against the EU data center
+
+- Best-practice (mobile web)
+  - `best-practice-mobile-web-vdc-us` — runs mobile web tests on virtual devices (VDC) in US
+  - `best-practice-mobile-web-vdc-eu` — runs mobile web tests on virtual devices (VDC) in EU
+  - `best-practice-mobile-web-rdc-us` — runs mobile web tests on real devices (RDC) in US
+  - `best-practice-mobile-web-rdc-eu` — runs mobile web tests on real devices (RDC) in EU
+
+- Best-practice (mobile native)
+  - `best-practice-mobile-native-us-android` — runs native Android tests in US
+  - `best-practice-mobile-native-eu-android` — runs native Android tests in EU
+  - `best-practice-mobile-native-us-ios` — runs native iOS tests in US
+  - `best-practice-mobile-native-eu-ios` — runs native iOS tests in EU
+
+- Examples & demos
+  - `demo` — runs the Selenium examples
+  - `playwright-tests` — runs the Playwright examples
+
+- Robotframework multi-run scripts (Pabot)
+  - `robot-desktop-web-us` — runs desktop web robot tests against US datacenter
+  - `robot-desktop-web-eu` — runs desktop web robot tests against EU datacenter
+  - `robot-android-us` — runs native Android robot tests against US datacenter
+  - `robot-android-eu` — runs native Android robot tests against EU datacenter
+  - `robot-ios-us` — runs native iOS robot tests against US datacenter
+  - `robot-ios-eu` — runs native iOS robot tests against EU datacenter
+
+Notes:
+- VDC = virtual device cloud (emulator/simulator). Use the `vdc` scripts for
+  emulator-based testing. RDC = real device cloud (real devices) — use the `rdc` scripts for real-device runs.
+- The `--dc` argument used in pytest scripts sets the Sauce Labs data center (us/eu) and is consumed by the tests via fixtures.
+- Some robotframework scripts use `pabot` and pass `DATA_CENTER` variables so the tests point to the correct Sauce endpoint.
+
+This repository is divided into two main sections: `best_practice` and `examples`.
 
 We also recommend Pytest overall as a Python test framework and runner.
 
-To run the best practices examples, use Pipenv to run the script of choice. The options are
-
-```
-pipenv run best-practice-desktop-us
-pipenv run best-practice-desktop-eu
-pipenv run best-practice-mobile-web-us
-pipenv run best-practice-mobile-web-eu
-pipenv run best-practice-mobile-native-us-android
-pipenv run best-practice-mobile-native-eu-android
-pipenv run best-practice-mobile-native-us-ios
-pipenv run best-practice-mobile-native-eu-ios
-```
-
-### Examples
-
-The `examples` directory contains examples of various Sauce features and products, such as 
-
-- Sauce Visual `pipenv run sauce_visual`,
-- Using W3C Capabilities
-
-as well as examples of tests using Sauce with Robotframework.
-
 ## Contributing
 
-Naturally, pull requests are welcome! If you see something you'd like to add, please open a PR. This could include
+Pull requests are welcome! If you see something you'd like to add, please 
+open a PR. This could include
 
 - more test cases,
 - using a particular Sauce feature that is not seen here,
