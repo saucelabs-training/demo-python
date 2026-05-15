@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1673f501f2e394cffbfe88fec2cf00ec47235fe5c917c28d5908125a162ff947"
+            "sha256": "1ae46b525d1b9bc183cd8a1fd89d3d558c3b9da686d8fa80b6c1943d5ab72a03"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -345,14 +345,6 @@
             "markers": "python_version >= '3.9'",
             "version": "==10.8.0"
         },
-        "natsort": {
-            "hashes": [
-                "sha256:45312c4a0e5507593da193dedd04abb1469253b601ecaf63445ad80f0a1ea581",
-                "sha256:4732914fb471f56b5cce04d7bae6f164a592c7712e1c85f9ef585e197299521c"
-            ],
-            "markers": "python_version >= '3.7'",
-            "version": "==8.4.0"
-        },
         "outcome": {
             "hashes": [
                 "sha256:9dcf02e65f2971b80047b377468e72a268e15c0af3cf1238e6ff14f7f91143b8",
@@ -579,12 +571,12 @@
         },
         "robotframework-pabot": {
             "hashes": [
-                "sha256:e926970a2e466cc6d9233f4658871040a0d505e8519a670f56ae1fd33ef461c0",
-                "sha256:f0b43d6fe8c19c8130e8e354222d6f9141786430f33c46f3535e3958951d975c"
+                "sha256:497c3d72551c76eda21029df6a28c6b2ed227e63c4a8510e1c6a0690b9e2be91",
+                "sha256:e7b95d031e9f04b77312b04a1fd835b9791f022b3436b63b507a720bfec05bb4"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.6'",
-            "version": "==5.1.0"
+            "version": "==5.2.2"
         },
         "robotframework-pythonlibcore": {
             "hashes": [
@@ -603,14 +595,6 @@
             "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==6.8.0"
-        },
-        "robotframework-stacktrace": {
-            "hashes": [
-                "sha256:018d7a55b99733e64e3cc0b134771b61a47de61de23609ed35c7bf0a53e9290e",
-                "sha256:e96cb36e7e9ab55104c1f7d3606249a109e0a4c3bb6a0e294bff07d54ee6f6a5"
-            ],
-            "markers": "python_version >= '3.6'",
-            "version": "==0.4.1"
         },
         "sa11y": {
             "hashes": [
