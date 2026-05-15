@@ -22,7 +22,7 @@ pytest-playwright==0.7.2
 pyyaml==6.0.3
 requests==2.34.2
 robotframework-pabot==5.2.2
-robotframework-pythonlibcore==4.5.0
+robotframework-pythonlibcore==4.6.0
 robotframework-seleniumlibrary==6.8.0
 robotframework==7.4.2
 sauceclient==1.0.2
