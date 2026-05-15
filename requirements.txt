@@ -20,7 +20,7 @@ pytest-xdist==3.8.0
 pytest==9.0.3
 pytest-playwright==0.7.2
 pyyaml==6.0.3
-requests==2.33.1
+requests==2.34.2
 robotframework-pabot==5.1.0
 robotframework-pythonlibcore==4.5.0
 robotframework-seleniumlibrary==6.8.0
