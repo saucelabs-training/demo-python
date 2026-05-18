@@ -18,7 +18,7 @@ py==1.11.0
 pyparsing==3.3.2
 pytest-xdist==3.8.0
 pytest==9.0.3
-pytest-playwright==0.7.2
+pytest-playwright==0.8.0
 pyyaml==6.0.3
 requests==2.34.2
 robotframework-pabot==5.2.2
