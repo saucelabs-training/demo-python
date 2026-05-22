@@ -11,7 +11,7 @@ idna==3.16
 importlib-metadata==9.0.0 ; python_version < '3.8'
 iniconfig==2.3.0
 kitchen==1.2.6
-more-itertools==11.0.2
+more-itertools==11.1.0
 packaging==26.2
 pluggy==1.6.0
 py==1.11.0
