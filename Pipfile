@@ -51,4 +51,4 @@ robot-android-us = "pabot --variable DATA_CENTER:'https://ondemand.us-west-1.sau
 robot-android-eu = "pabot --variable DATA_CENTER:'https://ondemand.eu-central-1.saucelabs.com/wd/hub' -A examples/robotframework/native_mobile/android/android_config.txt examples/robotframework/native_mobile/android/tests/"
 robot-ios-us = "pabot --variable DATA_CENTER:'https://ondemand.us-west-1.saucelabs.com/wd/hub' -A examples/robotframework/native_mobile/ios/iphone_config.txt examples/robotframework/native_mobile/ios/tests/"
 robot-ios-eu = "pabot --variable DATA_CENTER:'https://ondemand.eu-central-1.saucelabs.com/wd/hub' -A examples/robotframework/native_mobile/ios/iphone_config.txt examples/robotframework/native_mobile/ios/tests/"
-playwright-tests = "pytest -n8 examples/playwright/"
+playwright-tests = "pytest -n8 --dist=loadfile examples/playwright/"
