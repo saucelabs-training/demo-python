@@ -6,18 +6,12 @@ on:
         - main
     paths:
       - 'best_practice/mobile_web/**'
-      - 'best_practice/conftest.py'
-      - 'Pipfile'
-      - 'Pipfile.lock'
       - '.github/workflows/mobile_web.yml'
   pull_request:
     branches:
         - main
     paths:
       - 'best_practice/mobile_web/**'
-      - 'best_practice/conftest.py'
-      - 'Pipfile'
-      - 'Pipfile.lock'
       - '.github/workflows/mobile_web.yml'
   schedule:
     - cron: "0 9 * * *"
@@ -26,6 +20,9 @@ jobs:
   python-tests:
     name: Tests
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: best_practice/mobile_web
     strategy:
       fail-fast: false
       matrix:

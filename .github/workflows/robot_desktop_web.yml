@@ -6,16 +6,12 @@ on:
         - main
     paths:
       - 'examples/robotframework/desktop_web/**'
-      - 'Pipfile'
-      - 'Pipfile.lock'
       - '.github/workflows/robot_desktop_web.yml'
   pull_request:
     branches:
         - main
     paths:
       - 'examples/robotframework/desktop_web/**'
-      - 'Pipfile'
-      - 'Pipfile.lock'
       - '.github/workflows/robot_desktop_web.yml'
   schedule:
     - cron: "0 9 * * *"
@@ -24,7 +20,10 @@ jobs:
   python-tests:
     name: Tests
     runs-on: ubuntu-latest
-    
+    defaults:
+      run:
+        working-directory: examples/robotframework/desktop_web
+
     steps:
       - uses: actions/checkout@v7
       - name: Setup Python

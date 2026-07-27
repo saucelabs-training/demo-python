@@ -1,0 +1,11 @@
+[packages]
+pytest = "==9.1.1"
+pytest-xdist = "==3.8.0"
+pytest-playwright = "==0.8.0"
+playwright = "==1.61.0"
+requests = "==2.34.2"
+
+[scripts]
+playwright-tests = "pytest -n8 ."
+
+[dev-packages]
