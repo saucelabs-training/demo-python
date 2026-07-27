@@ -1,0 +1,10 @@
+[packages]
+pytest = "==9.1.1"
+pytest-xdist = "==3.8.0"
+selenium = "==4.46.0"
+
+[scripts]
+best-practice-desktop-us = "pytest -n8 --dc=us ."
+best-practice-desktop-eu = "pytest -n8 --dc=eu ."
+
+[dev-packages]

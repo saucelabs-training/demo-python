@@ -23,9 +23,9 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
 	$ export SAUCE_ACCESS_KEY=<your Sauce Labs access key>
     ```
 3. Project Dependencies
-	* Install packages (Use sudo if necessary)
+	* Install [pipenv](https://pipenv.pypa.io/en/latest/) and install packages from this directory's `Pipfile`
 	```
-	$ pip install -r requirements.txt
+	$ pipenv install
 	```
 ### Running Tests
 

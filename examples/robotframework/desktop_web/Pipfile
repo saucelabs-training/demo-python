@@ -1,0 +1,11 @@
+[packages]
+robotframework = "==7.4.2"
+robotframework-pabot = "==5.2.2"
+robotframework-seleniumlibrary = "==6.9.0"
+robotframework-pythonlibcore = "==4.6.0"
+
+[scripts]
+robot-desktop-web-us = "pabot --argumentfile1 chrome_config.txt --argumentfile2 firefox_config.txt --variable DATA_CENTER:'https://ondemand.us-west-1.saucelabs.com/wd/hub' Tests/"
+robot-desktop-web-eu = "pabot --argumentfile1 chrome_config.txt --argumentfile2 firefox_config.txt --variable DATA_CENTER:'https://ondemand.eu-central-1.saucelabs.com/wd/hub' Tests/"
+
+[dev-packages]

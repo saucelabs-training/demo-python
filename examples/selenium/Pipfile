@@ -1,0 +1,8 @@
+[packages]
+pytest = "==9.1.1"
+selenium = "==4.46.0"
+
+[scripts]
+demo = "pytest ."
+
+[dev-packages]

@@ -1,26 +1,18 @@
-name: Demo Python Tests
+name: Selenium Demo Tests
 
 on:
   push:
     branches:
         - main
     paths:
-      - 'best_practice/desktop_web/**'
-      - 'best_practice/conftest.py'
       - 'examples/selenium/**'
-      - 'Pipfile'
-      - 'Pipfile.lock'
-      - '.github/workflows/python.yml'
+      - '.github/workflows/selenium_demo.yml'
   pull_request:
     branches:
         - main
     paths:
-      - 'best_practice/desktop_web/**'
-      - 'best_practice/conftest.py'
       - 'examples/selenium/**'
-      - 'Pipfile'
-      - 'Pipfile.lock'
-      - '.github/workflows/python.yml'
+      - '.github/workflows/selenium_demo.yml'
   schedule:
     - cron: "0 9 * * *"
 
@@ -28,10 +20,10 @@ jobs:
   python-tests:
     name: Tests
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        test: [ best-practice-desktop-us, demo]
+    defaults:
+      run:
+        working-directory: examples/selenium
+
     steps:
       - uses: actions/checkout@v7
       - name: Setup Python
@@ -42,8 +34,8 @@ jobs:
         uses: dschep/install-pipenv-action@v1
       - name: Install dependencies
         run: pipenv install
-      - name: Run ${{ matrix.test }} tests
+      - name: Run demo tests
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        run: pipenv run ${{ matrix.test }}
+        run: pipenv run demo
