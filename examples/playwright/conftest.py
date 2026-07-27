@@ -30,6 +30,20 @@ TARGET = os.environ.get("TARGET", "local").strip().lower()
 GROUPING = os.environ.get("GROUPING", "module").strip().lower()
 
 
+def pytest_configure(config):
+    # Only present on xdist worker processes - overrides this worker's own independently-computed
+    # SAUCE_BUILD_NAME with the single value the controller assigned it via pytest_configure_node.
+    global SAUCE_BUILD_NAME
+    if hasattr(config, "workerinput"):
+        SAUCE_BUILD_NAME = config.workerinput["sauce_build_name"]
+
+
+def pytest_configure_node(node):
+    # xdist controller only - runs once per worker being spawned, before it starts. Stashes this
+    # run's build name so every worker picks up the exact same value in pytest_configure above.
+    node.workerinput["sauce_build_name"] = SAUCE_BUILD_NAME
+
+
 def _playwright_version():
     # importlib.metadata reads the actually-installed package version (matches `pip show
     # playwright`) rather than an attribute baked into the package at build time - verified
