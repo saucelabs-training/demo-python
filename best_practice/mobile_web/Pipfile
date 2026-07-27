@@ -1,0 +1,13 @@
+[packages]
+pytest = "==9.1.1"
+pytest-xdist = "==3.8.0"
+selenium = "==4.46.0"
+Appium-Python-Client = "==5.3.1"
+
+[scripts]
+best-practice-mobile-web-vdc-us = "pytest -n8 --dc=us vdc"
+best-practice-mobile-web-vdc-eu = "pytest -n8 --dc=eu vdc"
+best-practice-mobile-web-rdc-us = "pytest -n8 --dc=us rdc"
+best-practice-mobile-web-rdc-eu = "pytest -n8 --dc=eu rdc"
+
+[dev-packages]

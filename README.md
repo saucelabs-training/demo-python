@@ -48,38 +48,45 @@ and these cover using
 - Mobile Web browsers on Sauce emulators/simulators, and
 - Real devices to test native mobile apps.
 
-These samples are executed using Pipenv for simplicity. You can find a list of 
-available executions in the `Pipfile` under the `[scripts]` section. These 
-executions demonstrate how to run tests in parallel on the Sauce Labs.
+These samples are executed using Pipenv for simplicity. Each test suite has its
+own `Pipfile` in its own directory, so dependencies and CI triggers stay scoped
+to just that suite instead of one shared repo-wide dependency file. To run a
+suite: `cd` into its directory, run `pipenv install`, then `pipenv run
+<script-name>`.
 
 ## Available Pipenv scripts
 
-Below are the scripts defined in `Pipfile` grouped by purpose. Run any of them
-with `pipenv run <script-name>`.
+Below are the scripts defined in each suite's own `Pipfile`, grouped by
+directory. `cd` into the listed directory first, then run
+`pipenv run <script-name>`.
 
-- Best-practice (desktop)
+- `best_practice/desktop_web/`
   - `best-practice-desktop-us` — runs desktop best-practice tests against the US data center
   - `best-practice-desktop-eu` — runs desktop best-practice tests against the EU data center
 
-- Best-practice (mobile web)
+- `best_practice/mobile_web/`
   - `best-practice-mobile-web-vdc-us` — runs mobile web tests on virtual devices (VDC) in US
   - `best-practice-mobile-web-vdc-eu` — runs mobile web tests on virtual devices (VDC) in EU
   - `best-practice-mobile-web-rdc-us` — runs mobile web tests on real devices (RDC) in US
   - `best-practice-mobile-web-rdc-eu` — runs mobile web tests on real devices (RDC) in EU
 
-- Best-practice (mobile native)
+- `best_practice/mobile_native/`
   - `best-practice-mobile-native-us-android` — runs native Android tests in US
   - `best-practice-mobile-native-eu-android` — runs native Android tests in EU
   - `best-practice-mobile-native-us-ios` — runs native iOS tests in US
   - `best-practice-mobile-native-eu-ios` — runs native iOS tests in EU
 
-- Examples & demos
+- `examples/selenium/`
   - `demo` — runs the Selenium examples
+
+- `examples/playwright/`
   - `playwright-tests` — runs the Playwright examples
 
-- Robotframework multi-run scripts (Pabot)
+- `examples/robotframework/desktop_web/`
   - `robot-desktop-web-us` — runs desktop web robot tests against US datacenter
   - `robot-desktop-web-eu` — runs desktop web robot tests against EU datacenter
+
+- `examples/robotframework/native_mobile/`
   - `robot-android-us` — runs native Android robot tests against US datacenter
   - `robot-android-eu` — runs native Android robot tests against EU datacenter
   - `robot-ios-us` — runs native iOS robot tests against US datacenter

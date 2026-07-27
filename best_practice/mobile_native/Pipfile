@@ -1,0 +1,12 @@
+[packages]
+pytest = "==9.1.1"
+pytest-xdist = "==3.8.0"
+Appium-Python-Client = "==5.3.1"
+
+[scripts]
+best-practice-mobile-native-us-android = "pytest -n8 --dc=us android"
+best-practice-mobile-native-eu-android = "pytest -n8 --dc=eu android"
+best-practice-mobile-native-us-ios = "pytest -n8 --dc=us ios"
+best-practice-mobile-native-eu-ios = "pytest -n8 --dc=eu ios"
+
+[dev-packages]
