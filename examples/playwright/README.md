@@ -104,6 +104,10 @@ examples/playwright/
 ├── README.md
 ├── conftest.py        # TARGET/GROUPING logic, overrides the `browser` fixture only
 ├── test_login.py
+├── test_cart.py
+├── test_checkout.py
+├── test_navigation.py
+├── test_sorting.py
 └── test_inventory.py
 ```
 

@@ -18,16 +18,14 @@ SAUCE_BUILD_NAME = os.environ.get(
 )
 
 # TARGET selects whether a session is a locally launched browser or a Sauce Labs one - anything
-# other than "sauce" defaults to local, mirroring the C#/JS ports. Browser engine selection is
-# NOT our own env var - it's pytest-playwright's native `--browser` flag (browser_type fixture
-# below), so `--headed`, `--slowmo`, `--browser-channel` etc. all apply the same way regardless
-# of TARGET.
+# other than "sauce" defaults to local. Browser engine selection is NOT our own env var - it's
+# pytest-playwright's native `--browser` flag (browser_type fixture below), so `--headed`,
+# `--slowmo`, `--browser-channel` etc. all apply the same way regardless of TARGET.
 TARGET = os.environ.get("TARGET", "local").strip().lower()
 
 # GROUPING picks how sessions are shared across tests - anything other than "test" defaults to
-# "module" (one session per test file, named after the file), the natural Python equivalent of the
-# C# port's per-class grouping: pytest test files here are plain functions, not classes, so the
-# file is the closest analog to demo-js's own spec-file (`groupBySpec`) grouping unit.
+# "module" (one session per test file, named after the file) - the natural grouping unit here,
+# since these test files are plain functions, not classes.
 # "test": one dedicated, never-shared session per test, named after the test itself.
 GROUPING = os.environ.get("GROUPING", "module").strip().lower()
 
@@ -35,7 +33,7 @@ GROUPING = os.environ.get("GROUPING", "module").strip().lower()
 def _playwright_version():
     # importlib.metadata reads the actually-installed package version (matches `pip show
     # playwright`) rather than an attribute baked into the package at build time - verified
-    # empirically, since the equivalent lookup silently returned a stale value in the C# port.
+    # empirically against a stale-value bug found while building this.
     version = importlib.metadata.version("playwright")
     major, minor = version.split(".")[:2]
     return f"{major}.{minor}"
@@ -53,10 +51,9 @@ class WorkerSession:
 # "module" mode only: one entry per (test module, browser engine), holding that combination's
 # shared session - keyed on browser engine too since --browser can be passed more than once to
 # parametrize a single run across engines. Plain dict is safe without locking because pytest runs
-# tests within one worker process sequentially - unlike the C# port's NUnit fixtures, which run
-# truly in parallel via threads and need a ConcurrentDictionary. Under pytest-xdist each worker is
-# a separate process with its own copy of this dict, so reuse only happens for tests that land on
-# the same worker (see the "playwright-tests" Pipfile script, which uses --dist=loadfile to
+# tests within one worker process sequentially, never concurrently. Under pytest-xdist each worker
+# is a separate process with its own copy of this dict, so reuse only happens for tests that land
+# on the same worker (see the "playwright-tests" Pipfile script, which uses --dist=loadfile to
 # guarantee that for same-module tests).
 _module_sessions = {}
 
