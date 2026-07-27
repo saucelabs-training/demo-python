@@ -1,0 +1,53 @@
+name: Playwright Examples
+
+on:
+  push:
+    branches:
+        - main
+    paths:
+      - 'examples/playwright/**'
+      - '.github/workflows/playwright.yml'
+  pull_request:
+    branches:
+        - main
+    paths:
+      - 'examples/playwright/**'
+      - '.github/workflows/playwright.yml'
+  schedule:
+    - cron: "0 9 * * *"
+
+jobs:
+  python-tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+    defaults:
+      run:
+        working-directory: examples/playwright
+
+    steps:
+      - uses: actions/checkout@v7
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: 3.14
+      - name: Install pipenv
+        uses: dschep/install-pipenv-action@v1
+      - name: Install dependencies
+        run: pipenv install
+      - name: Run Playwright examples
+        env:
+          TARGET: sauce
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        run: pipenv run playwright-tests --junitxml=test-results.xml
+      - name: Publish test report
+        uses: dorny/test-reporter@v3
+        if: always()
+        with:
+          name: Playwright Examples Test Report
+          path: 'examples/playwright/test-results.xml'
+          reporter: python-xunit
