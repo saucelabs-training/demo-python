@@ -4,9 +4,19 @@ on:
   push:
     branches:
         - main
+    paths:
+      - 'examples/robotframework/desktop_web/**'
+      - 'Pipfile'
+      - 'Pipfile.lock'
+      - '.github/workflows/robot_desktop_web.yml'
   pull_request:
     branches:
         - main
+    paths:
+      - 'examples/robotframework/desktop_web/**'
+      - 'Pipfile'
+      - 'Pipfile.lock'
+      - '.github/workflows/robot_desktop_web.yml'
   schedule:
     - cron: "0 9 * * *"
 
@@ -18,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Setup Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: 3.14
       - name: Install pipenv
