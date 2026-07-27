@@ -20,6 +20,10 @@ jobs:
   python-tests:
     name: Tests
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
     defaults:
       run:
         working-directory: examples/playwright
@@ -39,4 +43,11 @@ jobs:
           TARGET: sauce
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        run: pipenv run playwright-tests
+        run: pipenv run playwright-tests --junitxml=test-results.xml
+      - name: Publish test report
+        uses: dorny/test-reporter@v3
+        if: always()
+        with:
+          name: Playwright Examples Test Report
+          path: 'examples/playwright/test-results.xml'
+          reporter: python-xunit
