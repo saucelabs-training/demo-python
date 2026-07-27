@@ -4,9 +4,21 @@ on:
   push:
     branches:
         - main
+    paths:
+      - 'best_practice/mobile_web/**'
+      - 'best_practice/conftest.py'
+      - 'Pipfile'
+      - 'Pipfile.lock'
+      - '.github/workflows/mobile_web.yml'
   pull_request:
     branches:
         - main
+    paths:
+      - 'best_practice/mobile_web/**'
+      - 'best_practice/conftest.py'
+      - 'Pipfile'
+      - 'Pipfile.lock'
+      - '.github/workflows/mobile_web.yml'
   schedule:
     - cron: "0 9 * * *"
 
