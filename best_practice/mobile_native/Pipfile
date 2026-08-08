@@ -1,7 +1,7 @@
 [packages]
 pytest = "==9.1.1"
 pytest-xdist = "==3.8.0"
-Appium-Python-Client = "==5.3.1"
+Appium-Python-Client = "==6.0.0"
 
 [scripts]
 best-practice-mobile-native-us-android = "pytest -n8 --dc=us android"
