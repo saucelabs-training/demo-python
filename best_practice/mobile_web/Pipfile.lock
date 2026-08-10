@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b07d02f4714e90702960a54bc055a9ec7a50ec5a322112a37cd4b24ecaab15be"
+            "sha256": "71aaad37b4dbe045d383a2f7b6e3dfdfa7f3566688c8c6986287c1eaf10c71a5"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -16,12 +16,12 @@
     "default": {
         "appium-python-client": {
             "hashes": [
-                "sha256:30800f9a53a585814138e7c8f569fd295273f933c9b34ad1a9580f3bf923fc63",
-                "sha256:da0d3227ee059c31908a16f30a131424713ea96998fcd48e255d2cf9d107b557"
+                "sha256:1a8bc4f47a3ecff05981d95dac67927c5ea99031da02343500152b7c801bb969",
+                "sha256:609afe40bb19cd103653c1970e583115c8ba7db72ee58fdb14cb4591451df16d"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.9'",
-            "version": "==5.3.1"
+            "markers": "python_version >= '3.10'",
+            "version": "==6.0.0"
         },
         "attrs": {
             "hashes": [
@@ -81,11 +81,11 @@
         },
         "packaging": {
             "hashes": [
-                "sha256:5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e",
-                "sha256:ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+                "sha256:94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79",
+                "sha256:d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==26.2"
+            "markers": "python_version >= '3.9'",
+            "version": "==26.3"
         },
         "pluggy": {
             "hashes": [
