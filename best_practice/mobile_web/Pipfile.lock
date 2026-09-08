@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "bb8a421c1b366bd5616a6291da31b859dd65ce0c3065ed36b3dfcd4fe4d5cb22"
+            "sha256": "f9c9e93e238496bcfca98c04b443aedef2255436a002a02595bf572c3c21d72a"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -16,12 +16,12 @@
     "default": {
         "appium-python-client": {
             "hashes": [
-                "sha256:1a8bc4f47a3ecff05981d95dac67927c5ea99031da02343500152b7c801bb969",
-                "sha256:609afe40bb19cd103653c1970e583115c8ba7db72ee58fdb14cb4591451df16d"
+                "sha256:13afc1f9f9e0a30f3d795d89ddf5dfa65ebb8097c48d6bd05b8650d25ec7e83e",
+                "sha256:ceab2e854cd17b12183cb13a78e08ed4069bebd40fd8f7c5cf147fd20ee33ee6"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==6.0.0"
+            "version": "==6.0.1"
         },
         "attrs": {
             "hashes": [
@@ -191,11 +191,11 @@
         },
         "websocket-client": {
             "hashes": [
-                "sha256:9e813624b6eb619999a97dc7958469217c3176312b3a16a4bd1bc7e08a46ec98",
-                "sha256:af248a825037ef591efbf6ed20cc5faa03d3b47b9e5a2230a529eeee1c1fc3ef"
+                "sha256:0fcb57545848be86992e128218fd96dd87a6769ffdb1a968dff79632b85604d0",
+                "sha256:e1a673830a9c7bfa47b1cd3d5e4178f4c9651d80a4eab02c9c23a1c3ec6250ce"
             ],
-            "markers": "python_version >= '3.9'",
-            "version": "==1.9.0"
+            "markers": "python_version >= '3.10'",
+            "version": "==1.9.2"
         },
         "wsproto": {
             "hashes": [
