@@ -13,16 +13,16 @@ urllib3.disable_warnings()
 
 emusim_browsers = [
     {
-        "deviceName": "iPhone X Simulator",
+        "deviceName": "iPhone 16 Simulator",
         "browserName": "Safari",
         "deviceOrientation": "portrait",
-        "platformVersion": "13.4",
+        "platformVersion": "26.5",
         "platformName": "iOS"
     }, {
         "deviceName": "iPhone 11 Simulator",
         "browserName": "Safari",
         "deviceOrientation": "portrait",
-        "platformVersion": "13.4",
+        "platformVersion": "26.1",
         "platformName": "iOS"
     }, {
         "deviceName": "Google Pixel 3 XL GoogleAPI Emulator",
@@ -88,7 +88,6 @@ def mobile_web_driver(request, data_center):
     # In case test fails after selenium session creation having this here will help track it down.
     if browser is not None:
         print("SauceOnDemandSessionID={} job-name={}".format(browser.session_id, test_name))
-        browser.implicitly_wait(15)
     else:
         raise WebDriverException("Never created!")
 
@@ -98,6 +97,8 @@ def mobile_web_driver(request, data_center):
     # report results
     # use the test result to send the pass/fail status to Sauce Labs
     sauce_result = "failed" if request.node.rep_call.failed else "passed"
+    if request.node.rep_call.failed:
+        print_page_state(browser)
     browser.execute_script("sauce:job-result={}".format(sauce_result))
     browser.quit()
 
@@ -128,8 +129,22 @@ def rdc_browser(request, data_center):
     driver = appiumdriver.Remote(sauce_url, options=options)
     yield driver
     sauce_result = "failed" if request.node.rep_call.failed else "passed"
+    if request.node.rep_call.failed:
+        print_page_state(driver)
     driver.execute_script("sauce:job-result={}".format(sauce_result))
     driver.quit()
+
+
+def print_page_state(driver):
+    # Show what the browser had rendered when a test failed, to help debug flaky runs
+    try:
+        state = driver.execute_script(
+            "return {readyState: document.readyState,"
+            " addToCartButtons: document.querySelectorAll('[data-test^=\"add-to-cart\"]').length,"
+            " text: document.body ? document.body.innerText.slice(0, 500) : ''};")
+        print("Page state at failure: url={} state={}".format(driver.current_url, state))
+    except WebDriverException as e:
+        print("Could not read page state at failure: {}".format(e.msg))
 
 
 @pytest.hookimpl(hookwrapper=True, tryfirst=True)

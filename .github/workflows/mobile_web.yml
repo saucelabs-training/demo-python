@@ -30,13 +30,14 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Setup Python
+        id: setup-python
         uses: actions/setup-python@v7
         with:
           python-version: 3.14
       - name: Install pipenv
-        uses: dschep/install-pipenv-action@v1
+        run: python -m pip install --upgrade pipenv
       - name: Install dependencies
-        run: pipenv install
+        run: pipenv install --python "${{ steps.setup-python.outputs.python-path }}"
       - name: Run Desktop Best Practice Tests
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
