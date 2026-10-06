@@ -13,16 +13,16 @@ urllib3.disable_warnings()
 
 emusim_browsers = [
     {
-        "deviceName": "iPhone X Simulator",
+        "deviceName": "iPhone 16 Simulator",
         "browserName": "Safari",
         "deviceOrientation": "portrait",
-        "platformVersion": "13.4",
+        "platformVersion": "26.5",
         "platformName": "iOS"
     }, {
         "deviceName": "iPhone 11 Simulator",
         "browserName": "Safari",
         "deviceOrientation": "portrait",
-        "platformVersion": "13.4",
+        "platformVersion": "26.1",
         "platformName": "iOS"
     }, {
         "deviceName": "Google Pixel 3 XL GoogleAPI Emulator",
@@ -88,7 +88,6 @@ def mobile_web_driver(request, data_center):
     # In case test fails after selenium session creation having this here will help track it down.
     if browser is not None:
         print("SauceOnDemandSessionID={} job-name={}".format(browser.session_id, test_name))
-        browser.implicitly_wait(15)
     else:
         raise WebDriverException("Never created!")
 
