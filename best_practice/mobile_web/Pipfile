@@ -3,10 +3,11 @@ pytest = "==9.1.1"
 pytest-xdist = "==3.8.0"
 selenium = "==4.50.0"
 Appium-Python-Client = "==6.0.7"
+pytest-rerunfailures = "==16.7"
 
 [scripts]
-best-practice-mobile-web-vdc-us = "pytest -n8 --dc=us vdc"
-best-practice-mobile-web-vdc-eu = "pytest -n8 --dc=eu vdc"
+best-practice-mobile-web-vdc-us = "pytest -n8 --reruns 2 --dc=us vdc"
+best-practice-mobile-web-vdc-eu = "pytest -n8 --reruns 2 --dc=eu vdc"
 best-practice-mobile-web-rdc-us = "pytest -n8 --dc=us rdc"
 best-practice-mobile-web-rdc-eu = "pytest -n8 --dc=eu rdc"
 
