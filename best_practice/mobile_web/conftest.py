@@ -97,6 +97,8 @@ def mobile_web_driver(request, data_center):
     # report results
     # use the test result to send the pass/fail status to Sauce Labs
     sauce_result = "failed" if request.node.rep_call.failed else "passed"
+    if request.node.rep_call.failed:
+        print_page_state(browser)
     browser.execute_script("sauce:job-result={}".format(sauce_result))
     browser.quit()
 
@@ -127,8 +129,22 @@ def rdc_browser(request, data_center):
     driver = appiumdriver.Remote(sauce_url, options=options)
     yield driver
     sauce_result = "failed" if request.node.rep_call.failed else "passed"
+    if request.node.rep_call.failed:
+        print_page_state(driver)
     driver.execute_script("sauce:job-result={}".format(sauce_result))
     driver.quit()
+
+
+def print_page_state(driver):
+    # Show what the browser had rendered when a test failed, to help debug flaky runs
+    try:
+        state = driver.execute_script(
+            "return {readyState: document.readyState,"
+            " addToCartButtons: document.querySelectorAll('[data-test^=\"add-to-cart\"]').length,"
+            " text: document.body ? document.body.innerText.slice(0, 500) : ''};")
+        print("Page state at failure: url={} state={}".format(driver.current_url, state))
+    except WebDriverException as e:
+        print("Could not read page state at failure: {}".format(e.msg))
 
 
 @pytest.hookimpl(hookwrapper=True, tryfirst=True)

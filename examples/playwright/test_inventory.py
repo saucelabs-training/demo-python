@@ -1,3 +1,5 @@
+from playwright.sync_api import expect
+
 SAUCE_DEMO_URL = "https://www.saucedemo.com/"
 
 def login(page, username, password):
@@ -9,5 +11,5 @@ def login(page, username, password):
 def test_inventory_page_loads(page):
     login(page, 'standard_user', 'secret_sauce')
     assert page.url.endswith("/inventory.html")
-    assert page.locator('.inventory_list').is_visible()
+    expect(page.locator('.inventory_list')).to_be_visible()
     assert page.locator('.inventory_item').count() > 0
