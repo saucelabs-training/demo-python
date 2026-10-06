@@ -13,16 +13,16 @@ urllib3.disable_warnings()
 
 emusim_browsers = [
     {
-        "deviceName": "iPhone 13 Simulator",
+        "deviceName": "iPhone 16 Simulator",
         "browserName": "Safari",
         "deviceOrientation": "portrait",
-        "platformVersion": "18.6",
+        "platformVersion": "26.5",
         "platformName": "iOS"
     }, {
         "deviceName": "iPhone 11 Simulator",
         "browserName": "Safari",
         "deviceOrientation": "portrait",
-        "platformVersion": "18.6",
+        "platformVersion": "26.1",
         "platformName": "iOS"
     }, {
         "deviceName": "Google Pixel 3 XL GoogleAPI Emulator",
