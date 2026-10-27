@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "11adac579f0b621b23d192ccefbf347aae5e8a1fc7acac3c2396e20b544b19cd"
+            "sha256": "12f2ca0b1f2c38189b375a8fd1e818cf938da9de4f1579d0b8a4f977ebac4330"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -16,12 +16,12 @@
     "default": {
         "appium-python-client": {
             "hashes": [
-                "sha256:7c8fb1258118385670c27dd37d38e0cd2feb4650779e731444448562b2d8de7d",
-                "sha256:e60ce15b84a5478e2a53a1da1a5a877dbdcf5a2386800aec2f097cb649fa94ce"
+                "sha256:2fa837441ea428b2e0a2df37c122df29e7837f5ca40060a8c5de1b1822650846",
+                "sha256:cea96ce34bd08cae23a44792b009cd896a360f718f002b8f2d75b90d2acbb6df"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==6.0.7"
+            "version": "==6.0.9"
         },
         "attrs": {
             "hashes": [
@@ -33,11 +33,11 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
-                "sha256:741e2c3b351ddf169a738da9f2c048608ff7f2c5cc02f1ebc6b118bb090d5d55"
+                "sha256:a9895e6e2758b371e0545e321a3a8fd1fcfd9829ada8824a936dfb16aaaf36cd",
+                "sha256:e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==2026.7.22"
+            "version": "==2026.10.23"
         },
         "execnet": {
             "hashes": [
@@ -65,11 +65,11 @@
         },
         "iniconfig": {
             "hashes": [
-                "sha256:c76315c77db068650d49c5b56314774a7804df16fee4402c1f19d6d15d8c4730",
-                "sha256:f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12"
+                "sha256:67f4b9c50da0dedf52af349e7749a80a9057a5031199791b906c3bb3ae878960",
+                "sha256:9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==2.3.0"
+            "version": "==2.3.1"
         },
         "outcome": {
             "hashes": [
@@ -89,11 +89,11 @@
         },
         "pluggy": {
             "hashes": [
-                "sha256:7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3",
-                "sha256:e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"
+                "sha256:7dd7b0d8832ba3cb632c306926ded123429211b83641b35dc5c41ad2d34f9bec",
+                "sha256:d1eaa46ebb595891b860ab086b4d09c8588af65ebd4361b8e8f4bb8920b90ba8"
             ],
-            "markers": "python_version >= '3.9'",
-            "version": "==1.6.0"
+            "markers": "python_version >= '3.10'",
+            "version": "==1.7.0"
         },
         "pygments": {
             "hashes": [
@@ -109,7 +109,7 @@
                 "sha256:2725bd0a9925919b9b51739eea5f9e2bae91e83288108a9ad338b2e3a4435ee5",
                 "sha256:3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.7' and python_version != '3.0' and python_version != '3.1' and python_version != '3.2' and python_version != '3.3'",
             "version": "==1.7.1"
         },
         "pytest": {
@@ -132,11 +132,11 @@
         },
         "selenium": {
             "hashes": [
-                "sha256:0d1de9ec6977aa2d5f766d923d5076fdffa91681a8d4ffc9e3381a36839a20f2",
-                "sha256:c9d91274e5f55835e12b524adf1f231739ea811a8866d810e5bb42ba87cd8eda"
+                "sha256:5531e99df3c60a298c4bef38de825aec4aa8ca238438ac21511d650b58dbdd87",
+                "sha256:6bec9bd8d9b6599f850b0f6e9fb06d44d2e4245adccd11ae02c9d5cde7596276"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==4.49.0"
+            "version": "==4.51.0"
         },
         "sniffio": {
             "hashes": [
