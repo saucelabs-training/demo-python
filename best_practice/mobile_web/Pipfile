@@ -2,7 +2,7 @@
 pytest = "==9.2.0"
 pytest-xdist = "==3.8.0"
 selenium = "==4.51.0"
-Appium-Python-Client = "==6.0.9"
+Appium-Python-Client = "==6.1.5"
 pytest-rerunfailures = "==16.7"
 
 [scripts]

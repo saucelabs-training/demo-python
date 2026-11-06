@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c13a34cffc1dcee1403790565c0490b0f939285aee40014765c101f8b4869f15"
+            "sha256": "709fc1146b10a2a41936165fa4caa334dd8f4321664ae7b00f215d94acfc097a"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -16,12 +16,12 @@
     "default": {
         "appium-python-client": {
             "hashes": [
-                "sha256:2fa837441ea428b2e0a2df37c122df29e7837f5ca40060a8c5de1b1822650846",
-                "sha256:cea96ce34bd08cae23a44792b009cd896a360f718f002b8f2d75b90d2acbb6df"
+                "sha256:6a0c64eea8c5da8fdcdbcc23b015a0c50b4cc13561640b9f961af055a8535f5c",
+                "sha256:aed94ae9093bcb2804bff4e9b0f14c00c48046326a9ed4d041c86486a3ebaff2"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==6.0.9"
+            "version": "==6.1.5"
         },
         "attrs": {
             "hashes": [
@@ -165,11 +165,11 @@
         },
         "trio": {
             "hashes": [
-                "sha256:63b9485408bdfdde544fced107045a8c0086cdc4bd0ef2f797b9e0dd111b964b",
-                "sha256:6c7c9f49917694dcdcd5f67abd168df5599eca480d61f29854d17a61a75c2f05"
+                "sha256:7efb295c78a0ecd1235c5759e620b5da564ca80d2efcb0055423588547248b96",
+                "sha256:9a062a029487c1bdbcc1b2543b729a0bde857ce478b1512c84f391f628e0c5c9"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==0.34.0"
+            "version": "==0.35.0"
         },
         "trio-websocket": {
             "hashes": [
