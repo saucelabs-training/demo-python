@@ -1,5 +1,5 @@
 [packages]
-pytest = "==9.1.1"
+pytest = "==9.2.0"
 pytest-xdist = "==3.8.0"
 Appium-Python-Client = "==6.0.9"
 
