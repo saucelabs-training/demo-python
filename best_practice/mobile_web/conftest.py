@@ -17,13 +17,15 @@ emusim_browsers = [
         "browserName": "Safari",
         "deviceOrientation": "portrait",
         "platformVersion": "26.5",
-        "platformName": "iOS"
+        "platformName": "iOS",
+        "appiumVersion": "appium3-2026-10"
     }, {
         "deviceName": "iPhone 11 Simulator",
         "browserName": "Safari",
         "deviceOrientation": "portrait",
         "platformVersion": "26.1",
-        "platformName": "iOS"
+        "platformName": "iOS",
+        "appiumVersion": "appium3-2026-10"
     }, {
         "deviceName": "Google Pixel 3 XL GoogleAPI Emulator",
         "browserName": "Chrome",
@@ -67,7 +69,8 @@ def mobile_web_driver(request, data_center):
         'accessKey': access_key,
         'build': build_tag,
         'name': test_name,
-        'appiumVersion': 'latest',
+        # iOS needs a recent Appium build to drive current Safari versions
+        'appiumVersion': request.param.get('appiumVersion', 'latest'),
     }
     options = AppiumOptions()
     options.set_capability('sauce:options', sauce_options)
@@ -114,6 +117,7 @@ def rdc_browser(request, data_center):
         'accessKey': access_key,
         'build': 'RDC-Android-Web-Python-Best-Practice',
         'name': request.node.name,
+        'appiumVersion': 'appium3-2026-10',
     }
     options = XCUITestOptions()
     options.set_capability('sauce:options', sauce_options)
