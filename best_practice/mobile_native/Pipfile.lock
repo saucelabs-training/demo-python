@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d9dfd4151d22963e2b8a50ded62b7e1d81449d927a74fb8897b4cafddf3f0b99"
+            "sha256": "75afa20cffdecc5424e37ccd6a7a4a2471ed89560b20729cd72b9319eef30b37"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -16,12 +16,12 @@
     "default": {
         "appium-python-client": {
             "hashes": [
-                "sha256:10834b14c84f7ab4320e1f98f8f3f8080fa886b08e483c94f1af35b42cbbf9dc",
-                "sha256:dd641432acf2187831e9df25fbfa4a80aab7f55dd2e154a01ef51b7a247767f6"
+                "sha256:497a956d28052b574e6362b2a3f3a06bc282b76ca34c66c651b5ac9794f51234",
+                "sha256:4ef547de4f24261188652cafea47442719df6bee55a387de110c0c193bb56ad1"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==6.1.8"
+            "version": "==6.5.2"
         },
         "attrs": {
             "hashes": [
@@ -33,11 +33,11 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:a9895e6e2758b371e0545e321a3a8fd1fcfd9829ada8824a936dfb16aaaf36cd",
-                "sha256:e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1"
+                "sha256:7422df25243767b9877031a2248cb14d09ddac9beee846f4cef3d5c9191d488f",
+                "sha256:af1cb240a8133f105aa52684a3a3258339d7f2fd0bd4e2812698ff5cf5588c4e"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==2026.10.23"
+            "version": "==2026.11.20"
         },
         "execnet": {
             "hashes": [
@@ -81,11 +81,11 @@
         },
         "packaging": {
             "hashes": [
-                "sha256:94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79",
-                "sha256:d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+                "sha256:81383611a09c1bc0b08b76e0fd5829d7c6824c65b27a6aee339da133f4233ea2",
+                "sha256:c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
             ],
-            "markers": "python_version >= '3.9'",
-            "version": "==26.3"
+            "markers": "python_version >= '3.10'",
+            "version": "==26.4"
         },
         "pluggy": {
             "hashes": [
@@ -132,11 +132,11 @@
         },
         "selenium": {
             "hashes": [
-                "sha256:efb45b129cbd7f46da99c82e7d327978bda29ed987223465c341f96404a86a2c",
-                "sha256:f0906a56324f5dfb19b87971a7cfd2162ea473e5afa25ee458aaa5a3816b98ac"
+                "sha256:8345ac0da0f62171f234baf4e2f7b85a92a5aafa47f9a5be281e3a94137dcd7a",
+                "sha256:ed5ad5a8c77372ac824ed736ac627d02f41c5bf38be33467f15aaf5a4e038888"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==4.53.0"
+            "version": "==4.54.0"
         },
         "sniffio": {
             "hashes": [
